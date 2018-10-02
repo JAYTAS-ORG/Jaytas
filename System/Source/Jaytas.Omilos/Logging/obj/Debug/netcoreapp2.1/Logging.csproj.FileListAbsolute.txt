@@ -1,0 +1,8 @@
+C:\Jaytas\System\Source\Jaytas.Omilos\Logging\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Logging.deps.json
+C:\Jaytas\System\Source\Jaytas.Omilos\Logging\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Logging.dll
+C:\Jaytas\System\Source\Jaytas.Omilos\Logging\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Logging.pdb
+C:\Jaytas\System\Source\Jaytas.Omilos\Logging\obj\Debug\netcoreapp2.1\Logging.csproj.CoreCompileInputs.cache
+C:\Jaytas\System\Source\Jaytas.Omilos\Logging\obj\Debug\netcoreapp2.1\Logging.AssemblyInfoInputs.cache
+C:\Jaytas\System\Source\Jaytas.Omilos\Logging\obj\Debug\netcoreapp2.1\Logging.AssemblyInfo.cs
+C:\Jaytas\System\Source\Jaytas.Omilos\Logging\obj\Debug\netcoreapp2.1\Jaytas.Omilos.Logging.dll
+C:\Jaytas\System\Source\Jaytas.Omilos\Logging\obj\Debug\netcoreapp2.1\Jaytas.Omilos.Logging.pdb

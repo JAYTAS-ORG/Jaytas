@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyName>Jaytas.Omilos.Logging</AssemblyName>
+    <RootNamespace>Jaytas.Omilos.Logging</RootNamespace>
+  </PropertyGroup>
+
+</Project>

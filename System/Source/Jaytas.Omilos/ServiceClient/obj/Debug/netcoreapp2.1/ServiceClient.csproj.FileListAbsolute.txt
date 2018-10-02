@@ -1,0 +1,8 @@
+C:\Jaytas\System\Source\Jaytas.Omilos\ServiceClient\bin\Debug\netcoreapp2.1\Jaytas.Omilos.ServiceClient.deps.json
+C:\Jaytas\System\Source\Jaytas.Omilos\ServiceClient\bin\Debug\netcoreapp2.1\Jaytas.Omilos.ServiceClient.dll
+C:\Jaytas\System\Source\Jaytas.Omilos\ServiceClient\bin\Debug\netcoreapp2.1\Jaytas.Omilos.ServiceClient.pdb
+C:\Jaytas\System\Source\Jaytas.Omilos\ServiceClient\obj\Debug\netcoreapp2.1\ServiceClient.csproj.CoreCompileInputs.cache
+C:\Jaytas\System\Source\Jaytas.Omilos\ServiceClient\obj\Debug\netcoreapp2.1\ServiceClient.AssemblyInfoInputs.cache
+C:\Jaytas\System\Source\Jaytas.Omilos\ServiceClient\obj\Debug\netcoreapp2.1\ServiceClient.AssemblyInfo.cs
+C:\Jaytas\System\Source\Jaytas.Omilos\ServiceClient\obj\Debug\netcoreapp2.1\Jaytas.Omilos.ServiceClient.dll
+C:\Jaytas\System\Source\Jaytas.Omilos\ServiceClient\obj\Debug\netcoreapp2.1\Jaytas.Omilos.ServiceClient.pdb

@@ -1,0 +1,8 @@
+C:\Jaytas\System\Source\Jaytas.Omilos\Messaging\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Messaging.deps.json
+C:\Jaytas\System\Source\Jaytas.Omilos\Messaging\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Messaging.dll
+C:\Jaytas\System\Source\Jaytas.Omilos\Messaging\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Messaging.pdb
+C:\Jaytas\System\Source\Jaytas.Omilos\Messaging\obj\Debug\netcoreapp2.1\Messaging.csproj.CoreCompileInputs.cache
+C:\Jaytas\System\Source\Jaytas.Omilos\Messaging\obj\Debug\netcoreapp2.1\Messaging.AssemblyInfoInputs.cache
+C:\Jaytas\System\Source\Jaytas.Omilos\Messaging\obj\Debug\netcoreapp2.1\Messaging.AssemblyInfo.cs
+C:\Jaytas\System\Source\Jaytas.Omilos\Messaging\obj\Debug\netcoreapp2.1\Jaytas.Omilos.Messaging.dll
+C:\Jaytas\System\Source\Jaytas.Omilos\Messaging\obj\Debug\netcoreapp2.1\Jaytas.Omilos.Messaging.pdb

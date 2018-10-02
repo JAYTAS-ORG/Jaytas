@@ -1,0 +1,8 @@
+C:\Jaytas\System\Source\Jaytas.Omilos\Common\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Common.deps.json
+C:\Jaytas\System\Source\Jaytas.Omilos\Common\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Common.dll
+C:\Jaytas\System\Source\Jaytas.Omilos\Common\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Common.pdb
+C:\Jaytas\System\Source\Jaytas.Omilos\Common\obj\Debug\netcoreapp2.1\Common.csproj.CoreCompileInputs.cache
+C:\Jaytas\System\Source\Jaytas.Omilos\Common\obj\Debug\netcoreapp2.1\Common.AssemblyInfoInputs.cache
+C:\Jaytas\System\Source\Jaytas.Omilos\Common\obj\Debug\netcoreapp2.1\Common.AssemblyInfo.cs
+C:\Jaytas\System\Source\Jaytas.Omilos\Common\obj\Debug\netcoreapp2.1\Jaytas.Omilos.Common.dll
+C:\Jaytas\System\Source\Jaytas.Omilos\Common\obj\Debug\netcoreapp2.1\Jaytas.Omilos.Common.pdb

@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyName>Jaytas.Omilos.Messaging</AssemblyName>
+    <RootNamespace>Jaytas.Omilos.Messaging</RootNamespace>
+  </PropertyGroup>
+
+</Project>
