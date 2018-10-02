@@ -1,6 +1,5 @@
 # VS files
-System/Source/Jaytas.Omilos/.vs
-System/Source/Jaytas.Omilos/.vs/Jaytas.Omilos/v15
+System/Source/Jaytas.Omilos/.vs/
 
 # User-specific files
 *.suo
@@ -21,26 +20,26 @@ bld/
 [Ll]og/
 
 # Obj Folder
-System/Source/Jaytas.Omilos/Caching/bin
-System/Source/Jaytas.Omilos/Caching/Obj
+System/Source/Jaytas.Omilos/Caching/bin/
+System/Source/Jaytas.Omilos/Caching/Obj/
 
-System/Source/Jaytas.Omilos/Common/bin
-System/Source/Jaytas.Omilos/Common/Obj
+System/Source/Jaytas.Omilos/Common/bin/
+System/Source/Jaytas.Omilos/Common/Obj/
 
-System/Source/Jaytas.Omilos/Data/bin
-System/Source/Jaytas.Omilos/Data/Obj
+System/Source/Jaytas.Omilos/Data/bin/
+System/Source/Jaytas.Omilos/Data/Obj/
 
-System/Source/Jaytas.Omilos/Logging/bin
-System/Source/Jaytas.Omilos/Logging/Obj
+System/Source/Jaytas.Omilos/Logging/bin/
+System/Source/Jaytas.Omilos/Logging/Obj/
 
-System/Source/Jaytas.Omilos/Messaging/bin
-System/Source/Jaytas.Omilos/Messaging/Obj
+System/Source/Jaytas.Omilos/Messaging/bin/
+System/Source/Jaytas.Omilos/Messaging/Obj/
 
-System/Source/Jaytas.Omilos/Security/bin
-System/Source/Jaytas.Omilos/Security/Obj
+System/Source/Jaytas.Omilos/Security/bin/
+System/Source/Jaytas.Omilos/Security/Obj/
 
-System/Source/Jaytas.Omilos/ServiceClient/bin
-System/Source/Jaytas.Omilos/ServiceClient/Obj
+System/Source/Jaytas.Omilos/ServiceClient/bin/
+System/Source/Jaytas.Omilos/ServiceClient/Obj/
 
-System/Source/Jaytas.Omilos/Web/bin
-System/Source/Jaytas.Omilos/Web/Obj
+System/Source/Jaytas.Omilos/Web/bin/
+System/Source/Jaytas.Omilos/Web/Obj/
