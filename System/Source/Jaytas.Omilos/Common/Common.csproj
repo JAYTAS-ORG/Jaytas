@@ -6,4 +6,15 @@
     <RootNamespace>Jaytas.Omilos.Common</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Formatter\" />
+    <Folder Include="Models\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Providers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
 </Project>
