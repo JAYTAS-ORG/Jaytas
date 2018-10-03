@@ -6,3 +6,7 @@ C:\Jaytas\System\Source\Jaytas.Omilos\Caching\obj\Debug\netcoreapp2.1\Caching.As
 C:\Jaytas\System\Source\Jaytas.Omilos\Caching\obj\Debug\netcoreapp2.1\Caching.AssemblyInfo.cs
 C:\Jaytas\System\Source\Jaytas.Omilos\Caching\obj\Debug\netcoreapp2.1\Jaytas.Omilos..Caching.dll
 C:\Jaytas\System\Source\Jaytas.Omilos\Caching\obj\Debug\netcoreapp2.1\Jaytas.Omilos..Caching.pdb
+C:\Jaytas\System\Source\Jaytas.Omilos\Caching\obj\Debug\netcoreapp2.1\Caching.csprojAssemblyReference.cache
+C:\Jaytas\System\Source\Jaytas.Omilos\Caching\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Common.dll
+C:\Jaytas\System\Source\Jaytas.Omilos\Caching\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Common.pdb
+C:\Jaytas\System\Source\Jaytas.Omilos\Caching\obj\Debug\netcoreapp2.1\Caching.csproj.CopyComplete
