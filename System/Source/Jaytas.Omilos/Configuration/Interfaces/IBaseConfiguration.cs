@@ -15,5 +15,25 @@ namespace Jaytas.Omilos.Configuration.Interfaces
 		/// 
 		/// </summary>
 		IIdentityProviderSettings GoogleAuthenticationSettings { get; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		IAuthTokenProviderSettings JwtBearerAuthTokenProviderSettings { get; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		IConnectionIdentifierSettings DatabaseConnectionIdentifier { get; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		IConnectionIdentifierSettings IntegrationConnectionIdentifier { get; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		IConnectionIdentifierSettings CacheConnectionIdentifier { get; }
 	}
 }

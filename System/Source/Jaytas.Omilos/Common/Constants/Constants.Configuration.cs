@@ -8,6 +8,16 @@ namespace Jaytas.Omilos.Common
 	{
 		public struct Secrets
 		{
+			public struct AuthTokenProviderSettings
+			{
+				public struct JwtBearer
+				{
+					public const string SettingsSectionName = "Secrets:JwtBearerToken:SingingSecret";
+
+					public const string ExpiryTimeInMinutes = "Secrets:JwtBearerToken:ExpiryTimeInMinutes";
+				}
+			}
+			
 			public struct IdentityProviderSettings
 			{
 				public struct Facebook

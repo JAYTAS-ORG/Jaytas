@@ -358,5 +358,15 @@ namespace Jaytas.Omilos.Common
 			/// </summary>
 			public const string User = "USER";
 		}
+
+		public struct BearerOptions
+		{
+			public struct TokenValidationParameters
+			{
+				public const string Issuer = "Jaytas.Omilos";
+
+				public const string Audience = "Jaytas.Omilos";
+			}
+		}
 	}
 }

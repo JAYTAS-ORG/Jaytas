@@ -28,25 +28,36 @@ namespace Jaytas.Omilos.Configuration.Interfaces
 		/// <summary>
 		/// 
 		/// </summary>
-		public string DefaultRootDatabaseConnectionIdentifier { get; private set; }
+		public IConnectionIdentifierSettings DatabaseConnectionIdentifier { get; private set; }
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public string DefaultRootIntegrationConnectionIdentifier { get; private set; }
+		public IConnectionIdentifierSettings IntegrationConnectionIdentifier { get; private set; }
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public string DefaultRootCacheConnectionIdentifier { get; private set; }
+		public IConnectionIdentifierSettings CacheConnectionIdentifier { get; private set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public IAuthTokenProviderSettings JwtBearerAuthTokenProviderSettings { get; private set; }
 
 		/// <summary>
 		/// 
 		/// </summary>
 		protected void ParseConfiguration()
 		{
+			LoadJwtBearerAuthSettings();
 			LoadAuthenticationSettings();
 			LoadConnectionIdentifierSettings();
+		}
+
+		private void LoadJwtBearerAuthSettings()
+		{
+			JwtBearerAuthTokenProviderSettings = _configuration.GetSection(Constants.Secrets.AuthTokenProviderSettings.JwtBearer.SettingsSectionName).Get<Models.JwtBearerAuthTokenProviderSettings>();
 		}
 
 		/// <summary>
@@ -63,9 +74,9 @@ namespace Jaytas.Omilos.Configuration.Interfaces
 		/// </summary>
 		private void LoadConnectionIdentifierSettings()
 		{
-			DefaultRootDatabaseConnectionIdentifier = _configuration.GetSection(Constants.Secrets.ConnectionIdentifierSettings.Database.Default).Get<Models.ConnectionIdentifierSettings>().RootConnection;
-			DefaultRootIntegrationConnectionIdentifier = _configuration.GetSection(Constants.Secrets.ConnectionIdentifierSettings.Integration.Default).Get<Models.ConnectionIdentifierSettings>().RootConnection;
-			DefaultRootCacheConnectionIdentifier = _configuration.GetSection(Constants.Secrets.ConnectionIdentifierSettings.Cache.Default).Get<Models.ConnectionIdentifierSettings>().RootConnection;
+			DatabaseConnectionIdentifier = _configuration.GetSection(Constants.Secrets.ConnectionIdentifierSettings.Database.Default).Get<Models.ConnectionIdentifierSettings>();
+			IntegrationConnectionIdentifier = _configuration.GetSection(Constants.Secrets.ConnectionIdentifierSettings.Integration.Default).Get<Models.ConnectionIdentifierSettings>();
+			CacheConnectionIdentifier = _configuration.GetSection(Constants.Secrets.ConnectionIdentifierSettings.Cache.Default).Get<Models.ConnectionIdentifierSettings>();
 		}
 	}
 }

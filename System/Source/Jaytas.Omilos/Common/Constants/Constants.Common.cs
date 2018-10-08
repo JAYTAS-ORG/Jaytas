@@ -139,5 +139,47 @@ namespace Jaytas.Omilos.Common
 			/// </summary>
 			public const string Release = "RELEASE";
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public struct FileExtensions
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			public const string Xml = ".xml";
+
+			/// <summary>
+			/// 
+			/// </summary>
+			public const string Json = ".json";
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public struct Common
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			public const string Api = "Api";
+
+			/// <summary>
+			/// 
+			/// </summary>
+			public const string Content = "CONTENT";
+
+			/// <summary>
+			/// 
+			/// </summary>
+			public const string LocalHostAddress = "::1";
+
+			/// <summary>
+			/// 
+			/// </summary>
+			public const string LocalHostIpAddress = "127.0.0.1";
+		}
 	}
 }

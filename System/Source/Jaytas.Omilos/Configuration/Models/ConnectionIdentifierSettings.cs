@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jaytas.Omilos.Configuration.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,7 +8,7 @@ namespace Jaytas.Omilos.Configuration.Models
 	/// <summary>
 	/// 
 	/// </summary>
-	public class ConnectionIdentifierSettings
+	public class ConnectionIdentifierSettings : IConnectionIdentifierSettings
 	{
 		/// <summary>
 		/// 
