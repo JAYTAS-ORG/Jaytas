@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Jaytas.Omilos.Web.Account</name>
+    </assembly>
+    <members>
+        <member name="T:Jaytas.Omilos.Web.Account.App_Start.AutoMapperConfigurations">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.App_Start.AutoMapperConfigurations.RegisterMaps">
+            <summary>
+            Registers both middle tier and web tier maps since our portal is currently running as a two-
+            tier system (web &amp; data).
+            </summary>
+            <returns>Mapper</returns>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Account.App_Start.AutoMapperConfigurations.WebProfile">
+             <summary>
+             Registers the mappings used by the web tier to go to and from business models.
+             </summary>
+            
+             <seealso cref="T:AutoMapper.Profile"/>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.App_Start.AutoMapperConfigurations.WebProfile.ProfileName">
+            <summary>
+            Gets the name of the profile.
+            </summary>
+            <value>
+            The name of the profile.
+            </value>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Account.App_Start.ServiceConfigurations">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.App_Start.ServiceConfigurations.RegisterTypes(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Startup.ConfigureMaps">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Startup.RegisterTypes(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Startup.GetMicroServiceAssembly">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

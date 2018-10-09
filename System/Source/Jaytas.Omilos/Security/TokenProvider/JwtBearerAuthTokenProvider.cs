@@ -28,7 +28,7 @@ namespace Jaytas.Omilos.Security.TokenProvider
 		/// <returns></returns>
 		public SymmetricSecurityKey GetSecurityKey()
 		{
-			return new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_baseConfiguration.JwtBearerAuthTokenProviderSettings.TokenSigningSecret));
+			return new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_baseConfiguration.JwtBearerAuthTokenProviderSettings.SingingSecret));
 		}
 
 

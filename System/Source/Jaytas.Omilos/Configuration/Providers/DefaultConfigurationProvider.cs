@@ -10,7 +10,7 @@ namespace Jaytas.Omilos.Configuration.Providers
 	{
 		public DefaultConfigurationProvider(IConfiguration configuration) : base(configuration)
 		{
-
+			ParseConfiguration();
 		}
 	}
 }

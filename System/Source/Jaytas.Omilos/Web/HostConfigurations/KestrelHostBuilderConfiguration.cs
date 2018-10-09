@@ -7,7 +7,7 @@ namespace Jaytas.Omilos.Web.HostConfigurations
 	/// <summary>
 	/// 
 	/// </summary>
-	public static class KestrelHostBuilderConfiguration
+	public abstract class KestrelHostBuilderConfiguration
 	{
 		/// <summary>
 		/// 

@@ -12,9 +12,9 @@ namespace Jaytas.Omilos.Common
 			{
 				public struct JwtBearer
 				{
-					public const string SettingsSectionName = "Secrets:JwtBearerToken:SingingSecret";
+					public const string SettingsSectionName = "Secrets:JwtBearerToken";
 
-					public const string ExpiryTimeInMinutes = "Secrets:JwtBearerToken:ExpiryTimeInMinutes";
+					public const int ExpiryTimeInMinutes = 60;
 				}
 			}
 			

@@ -1,4 +1,5 @@
-﻿using Jaytas.Omilos.Configuration.Interfaces;
+﻿using Jaytas.Omilos.Common;
+using Jaytas.Omilos.Configuration.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +11,7 @@ namespace Jaytas.Omilos.Configuration.Models
 		/// <summary>
 		/// 
 		/// </summary>
-		public string TokenSigningSecret { get; set; }
+		public string SingingSecret { get; set; }
 
 		/// <summary>
 		/// 
@@ -22,7 +23,7 @@ namespace Jaytas.Omilos.Configuration.Models
 		/// </summary>
 		public JwtBearerAuthTokenProviderSettings()
 		{
-			ExpiryTimeInMinutes = 60;
+			ExpiryTimeInMinutes = Constants.Secrets.AuthTokenProviderSettings.JwtBearer.ExpiryTimeInMinutes;
 		}
 	}
 }

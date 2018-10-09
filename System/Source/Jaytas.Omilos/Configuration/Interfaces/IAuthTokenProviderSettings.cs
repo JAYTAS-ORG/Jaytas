@@ -9,7 +9,7 @@ namespace Jaytas.Omilos.Configuration.Interfaces
 		/// <summary>
 		/// 
 		/// </summary>
-		string TokenSigningSecret { get; set; }
+		string SingingSecret { get; set; }
 
 		/// <summary>
 		/// 
