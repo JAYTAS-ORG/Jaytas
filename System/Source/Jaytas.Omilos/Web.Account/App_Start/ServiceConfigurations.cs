@@ -27,20 +27,7 @@ namespace Jaytas.Omilos.Web.Account.App_Start
 		/// <param name="services"></param>
 		public static void RegisterTypes(IServiceCollection services)
 		{
-			services.AddSingleton<IBaseConfiguration, DefaultConfigurationProvider>();
-			services.AddSingleton<IAuthTokenProvider, JwtBearerAuthTokenProvider>();
-			services.AddSingleton<ICachePolicyProvider, StaticCachePolicyProvider>();
-			services.AddSingleton<IResourceUrlBuilder, ResourceUrlBuilder>();
-
 			IBaseConfiguration configurationProvider = null;
-
-			services.AddSingleton<ICacheProvider>((serviceProvider) =>
-			{
-				configurationProvider = serviceProvider.GetService<IBaseConfiguration>();
-				var cachePolicyProvider = serviceProvider.GetService<ICachePolicyProvider>();
-
-				return new RedisCacheProvider(cachePolicyProvider, configurationProvider.CacheConnectionIdentifier.RootConnection);
-			});
 
 			services.AddDbContextPool<IUserDbContext, UserDbContext>((serviceProvider, options) =>
 			{

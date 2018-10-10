@@ -30,6 +30,7 @@ namespace Jaytas.Omilos.Web.Account
 		/// <param name="services"></param>
 		protected override void RegisterTypes(IServiceCollection services)
 		{
+			base.RegisterTypes(services);
 			ServiceConfigurations.RegisterTypes(services);
 		}
 

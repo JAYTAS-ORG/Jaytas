@@ -1,5 +1,10 @@
 ﻿using AutoMapper;
+using Jaytas.Omilos.Caching.Interfaces;
+using Jaytas.Omilos.Caching.Providers;
 using Jaytas.Omilos.Common;
+using Jaytas.Omilos.Common.Helpers;
+using Jaytas.Omilos.Configuration.Interfaces;
+using Jaytas.Omilos.Configuration.Providers;
 using Jaytas.Omilos.Security.TokenProvider;
 using Jaytas.Omilos.Web.Extensions;
 using Jaytas.Omilos.Web.Filters.Operations;
@@ -145,6 +150,28 @@ namespace Jaytas.Omilos.Web.StartupConfigurations
 		}
 
 		/// <summary>
+		/// Registers all the custom types used by API
+		/// </summary>
+		/// <param name="services">services collection</param>
+		protected virtual void RegisterTypes(IServiceCollection services)
+		{
+			services.AddSingleton<IBaseConfiguration, DefaultConfigurationProvider>();
+			services.AddSingleton<IAuthTokenProvider, JwtBearerAuthTokenProvider>();
+			services.AddSingleton<ICachePolicyProvider, StaticCachePolicyProvider>();
+			services.AddSingleton<IResourceUrlBuilder, ResourceUrlBuilder>();
+
+			IBaseConfiguration configurationProvider = null;
+
+			services.AddSingleton<ICacheProvider>((serviceProvider) =>
+			{
+				configurationProvider = serviceProvider.GetService<IBaseConfiguration>();
+				var cachePolicyProvider = serviceProvider.GetService<ICachePolicyProvider>();
+
+				return new RedisCacheProvider(cachePolicyProvider, configurationProvider.CacheConnectionIdentifier.RootConnection);
+			});
+		}
+
+		/// <summary>
 		/// Gets API version route string.
 		/// </summary>
 		/// <returns>
@@ -182,12 +209,6 @@ namespace Jaytas.Omilos.Web.StartupConfigurations
 		/// Registers all of the AutoMapper DTO maps.
 		/// </summary>
 		protected abstract IMapper ConfigureMaps();
-
-		/// <summary>
-		/// Registers all the custom types used by API
-		/// </summary>
-		/// <param name="services">services collection</param>
-		protected abstract void RegisterTypes(IServiceCollection services);
 
 		/// <summary>
 		/// Returns the microservice specific assembly so that XML documentation paths and
