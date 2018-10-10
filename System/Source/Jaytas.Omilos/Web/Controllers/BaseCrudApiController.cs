@@ -17,7 +17,7 @@ namespace Jaytas.Omilos.Web.Controllers
 	/// <typeparam name="TModel"></typeparam>
 	/// <typeparam name="TCommand"></typeparam>
 	/// <typeparam name="TBizBaseType"></typeparam>
-	public abstract class BaseCrudApiController<TBiz, TModel, TCommand, TBizBaseType> : BaseApiController<TBiz, TModel, TBizBaseType>
+	public abstract class BaseCrudApiController<TBiz, TModel, TCommand, TBizBaseType> : BaseApiController
 		where TModel : class
 		where TBiz : IBaseEntity<TBizBaseType>
 		where TCommand : class, ICommand<TModel, TBizBaseType>

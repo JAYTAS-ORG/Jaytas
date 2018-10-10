@@ -64,27 +64,6 @@
             </summary>
             <param name="repository"></param>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Business.RoleProvider.AssertEntityToCreateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Account.DomainModel.Role})">
-            <summary>
-            
-            </summary>
-            <param name="domains"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Business.RoleProvider.AssertEntityToDeleteIsValidAsync(System.Collections.Generic.IEnumerable{System.Int32})">
-            <summary>
-            
-            </summary>
-            <param name="identifiers"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Business.RoleProvider.AssertEntityToUpdateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Account.DomainModel.Role})">
-            <summary>
-            
-            </summary>
-            <param name="domains"></param>
-            <returns></returns>
-        </member>
         <member name="M:Jaytas.Omilos.Web.Account.Business.RoleProvider.GetRoles">
             <summary>
             
@@ -107,66 +86,6 @@
             </summary>
             <param name="roleProvider"></param>
             <param name="mapper"></param>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.CreateAsync(Jaytas.Omilos.Web.Account.DomainModel.Role)">
-            <summary>
-            
-            </summary>
-            <param name="model"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Account.Role,System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="model"></param>
-            <param name="resourceId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Account.Role,System.Int32,System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="model"></param>
-            <param name="setId"></param>
-            <param name="resourceId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Account.Role,System.Int32})">
-            <summary>
-            
-            </summary>
-            <param name="command"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Account.Role,System.Int32})">
-            <summary>
-            
-            </summary>
-            <param name="command"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Account.Role,System.Int32})">
-            <summary>
-            
-            </summary>
-            <param name="command"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Account.Role,System.Int32},Jaytas.Omilos.Web.Account.DomainModel.Role)">
-            <summary>
-            
-            </summary>
-            <param name="command"></param>
-            <param name="model"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.Get(System.Int32)">
-            <summary>
-            Get roles by Id
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
         </member>
         <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.GetRoles">
             <summary>
@@ -230,6 +149,12 @@
             
             </summary>
         </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.IRoleRepository.GetAllRolesAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository">
             <summary>
             Repostiory layer for Role.
@@ -241,87 +166,23 @@
             </summary>
             <param name="userDbContext"></param>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.Add(Jaytas.Omilos.Web.Account.DomainModel.Role)">
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.GetAllRolesAsync">
             <summary>
             
             </summary>
-            <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.Add(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Account.DomainModel.Role})">
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.DisposeImplementation">
             <summary>
-            
+            Dispose implementation.
             </summary>
-            <param name="entities"></param>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.Delete(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="id"></param>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.Delete(System.Collections.Generic.IEnumerable{System.Int32})">
-            <summary>
-            
-            </summary>
-            <param name="identifiers"></param>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.ExecuteNonQuery(System.String,System.Object[])">
-            <summary>
-            
-            </summary>
-            <param name="query"></param>
-            <param name="parameters"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.ExecuteQuery(System.String,System.Object[])">
-            <summary>
-            
-            </summary>
-            <param name="query"></param>
-            <param name="parameters"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.ExecuteScalar``1(System.String,System.Object[])">
-            <summary>
-            
-            </summary>
-            <param name="query"></param>
-            <param name="parameters"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.Get(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.Get(System.Linq.Expressions.Expression{System.Func{Jaytas.Omilos.Web.Account.DomainModel.Role,System.Boolean}})">
-            <summary>
-            
-            </summary>
-            <param name="expression"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.Update(Jaytas.Omilos.Web.Account.DomainModel.Role)">
-            <summary>
-            
-            </summary>
-            <param name="entity"></param>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.Update(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Account.DomainModel.Role})">
-            <summary>
-            
-            </summary>
-            <param name="entity"></param>
         </member>
         <member name="T:Jaytas.Omilos.Web.Account.DomainModel.Role">
             <summary>
             Role Entity representation of database table.
             </summary>
         </member>
-        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.Role.RoleCode">
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.Role.Code">
             <summary>
             RoleCode property represenation of database column.
             </summary>
@@ -443,6 +304,12 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="M:Web.Account.Controllers.AccountController.#ctor(AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="mapper"></param>
         </member>
     </members>
 </doc>

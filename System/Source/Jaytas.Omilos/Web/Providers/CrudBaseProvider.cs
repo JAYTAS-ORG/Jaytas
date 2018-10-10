@@ -15,9 +15,9 @@ namespace Jaytas.Omilos.Web.Providers
 	/// <typeparam name="TEntity">The type of the t entity.</typeparam>
 	/// <typeparam name="TRepository">The type of the t repository.</typeparam>
 	/// <typeparam name="TBaseEntityType">the base enity type lile (Guid, int, long..)</typeparam>
-	public abstract class CrudBaseProvider<TEntity, TRepository, TBaseEntityType> : IProvider<TEntity, TBaseEntityType>
+	public abstract class CrudBaseProvider<TEntity, TRepository, TBaseEntityType> : ICrudBaseProvider<TEntity, TBaseEntityType>
 		where TEntity : class, IBaseEntity<TBaseEntityType>
-		where TRepository : class, IRepository<TEntity, TBaseEntityType>
+		where TRepository : class, ICrudBaseRepository<TEntity, TBaseEntityType>
 		where TBaseEntityType : struct
 	{
 

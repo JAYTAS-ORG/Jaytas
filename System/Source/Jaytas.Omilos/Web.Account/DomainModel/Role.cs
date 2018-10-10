@@ -14,7 +14,7 @@ namespace Jaytas.Omilos.Web.Account.DomainModel
 		/// <summary>
 		/// RoleCode property represenation of database column.
 		/// </summary>
-		public string RoleCode { get; set; }
+		public string Code { get; set; }
 
 		/// <summary>
 		/// Description property represenation of database column.

@@ -34,17 +34,17 @@ namespace Jaytas.Omilos.Web.Account.Data.Map
 		{
 			base.Configure(builder);
 
-			builder.Property(col => col.RoleCode)
-				 .HasColumnName(nameof(DomainModel.Role.RoleCode))
+			builder.Property(col => col.Code)
+				 .HasColumnName(nameof(Role.Code))
 				 .HasMaxLength(50)
 				 .IsRequired();
 
 			builder.Property(col => col.Description)
-				 .HasColumnName(nameof(DomainModel.Role.Description))
+				 .HasColumnName(nameof(Role.Description))
 				 .HasMaxLength(100);
 
 			builder.Property(col => col.IsActive)
-				 .HasColumnName(nameof(DomainModel.Role.IsActive))
+				 .HasColumnName(nameof(Role.IsActive))
 				 .IsRequired();
 		}
 	}

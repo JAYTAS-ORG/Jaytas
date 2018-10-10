@@ -19,13 +19,7 @@ namespace Jaytas.Omilos.Web.Controllers
 	/// <summary>
 	/// 
 	/// </summary>
-	/// <typeparam name="TBiz"></typeparam>
-	/// <typeparam name="TModel"></typeparam>
-	/// <typeparam name="TBizBaseType"></typeparam>
-	public abstract class BaseApiController<TBiz, TModel, TBizBaseType> : ControllerBase
-			where TModel : class
-			where TBiz : IBaseEntity<TBizBaseType>
-			where TBizBaseType : struct
+	public abstract class BaseApiController : ControllerBase
 	{
 		/// <summary>
 		/// The mapper.
@@ -51,17 +45,6 @@ namespace Jaytas.Omilos.Web.Controllers
 		/// </summary>
 		/// <value>The generic Api error code.</value>
 		protected virtual ApiErrors GenericApiErrorCode { get; } = ApiErrors.Generic;
-
-		/// <summary>
-		/// Executes the provided function asynchronously with exception handling.  It converts the TBiz result from the function
-		/// to TWeb and returns it as an OK/200 response.
-		/// </summary>
-		/// <param name="action">The action asynchronous.</param>
-		/// <returns></returns>
-		protected internal async Task<IActionResult> ExecuteWithExceptionHandlingAsync(Func<Task<TBiz>> action)
-		{
-			return await ExecuteWithExceptionHandlingAsync<TBiz, TModel>(action).ConfigureAwait(true);
-		}
 
 		/// <summary>
 		/// Executes the provided function asynchronously with exception handling.  It converts the TDomain result from the function

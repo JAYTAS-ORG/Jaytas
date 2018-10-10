@@ -12,7 +12,7 @@ namespace Jaytas.Omilos.Web.Service.Models.Account
 		/// <summary>
 		/// 
 		/// </summary>
-		public int Id { get; set; }
+		public string Code { get; set; }
 
 		/// <summary>
 		/// Description property represenation of database column.

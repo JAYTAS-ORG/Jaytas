@@ -327,6 +327,9 @@ namespace Jaytas.Omilos.Common
 			public const string Trace = "trace";
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public struct Swagger
 		{
 			public struct ApiVersions
@@ -360,7 +363,10 @@ namespace Jaytas.Omilos.Common
 		/// </summary>
 		public struct Route
 		{
-
+			public struct Account
+			{
+				public const string RootPath = "/api/account";
+			}
 		}
 
 		public struct Patterns
