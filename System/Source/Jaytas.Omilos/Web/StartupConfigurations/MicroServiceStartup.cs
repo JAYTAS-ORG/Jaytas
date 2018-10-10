@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.IO;
@@ -79,7 +80,10 @@ namespace Jaytas.Omilos.Web.StartupConfigurations
 			app.UseAuthorization();
 
 			app.UseSwagger();
-			app.UseSwaggerUI();
+			app.UseSwaggerUI(c =>
+			{
+				c.SwaggerEndpoint(Constants.Swagger.ApiVersions.V1.Endpoint, Constants.Swagger.ApiVersions.V1.Title);
+			});
 
 			app.UseMvcWithDefaultRoute();
 		}
@@ -97,8 +101,8 @@ namespace Jaytas.Omilos.Web.StartupConfigurations
 				ValidateLifetime = true,
 				ValidateIssuerSigningKey = true,
 
-				ValidIssuer = Common.Constants.BearerOptions.TokenValidationParameters.Issuer,
-				ValidAudience = Common.Constants.BearerOptions.TokenValidationParameters.Audience,
+				ValidIssuer = Constants.BearerOptions.TokenValidationParameters.Issuer,
+				ValidAudience = Constants.BearerOptions.TokenValidationParameters.Audience,
 				IssuerSigningKey = _serviceProvider.GetService<IAuthTokenProvider>().GetSecurityKey()
 			};
 		}
@@ -129,8 +133,11 @@ namespace Jaytas.Omilos.Web.StartupConfigurations
 		{
 			swaggerGenOptions.SwaggerDoc(Constants.ApiVersions.V1, new Swashbuckle.AspNetCore.Swagger.Info
 			{
-				Version = Constants.ApiVersions.V1,
-				Title = Constants.Common.Api
+				Version = Constants.Swagger.ApiVersions.V1.Version,
+				Title = Constants.Swagger.ApiVersions.V1.Title,
+				Description = Constants.Swagger.ApiVersions.V1.Description,
+				TermsOfService = Constants.Swagger.ApiVersions.V1.TermsOfService,
+				Contact = new Contact() { Name = Constants.Swagger.Contact.Name, Email = Constants.Swagger.Contact.Email, Url = Constants.Swagger.Contact.Url }
 			});
 			swaggerGenOptions.IncludeXmlComments(GetXmlCommentsPath());
 			swaggerGenOptions.DescribeAllEnumsAsStrings();

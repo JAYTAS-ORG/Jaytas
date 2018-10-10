@@ -327,6 +327,34 @@ namespace Jaytas.Omilos.Common
 			public const string Trace = "trace";
 		}
 
+		public struct Swagger
+		{
+			public struct ApiVersions
+			{
+				public struct V1
+				{
+					public const string Version = "V1";
+
+					public const string Title = "Omilos Version 1 APIs";
+
+					public const string Description = "Omilos Backbone APIs";
+
+					public const string TermsOfService = "None";
+
+					public const string Endpoint = "/swagger/v1/swagger.json";
+				}
+			}
+
+			public struct Contact
+			{
+				public const string Name = "Omilos";
+
+				public const string Email = "contact@omilos.com";
+
+				public const string Url = "www.omilos.com";
+			}
+		}
+
 		/// <summary>
 		/// 
 		/// </summary>
