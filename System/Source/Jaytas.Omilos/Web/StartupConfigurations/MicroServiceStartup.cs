@@ -67,6 +67,8 @@ namespace Jaytas.Omilos.Web.StartupConfigurations
 		// Use this method to configure the HTTP request pipeline.
 		public virtual void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
+			app.UseDeveloperExceptionPage();
+
 			app.UseHsts();
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();

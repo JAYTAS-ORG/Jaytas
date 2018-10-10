@@ -17,23 +17,10 @@ namespace Jaytas.Omilos.Data.EntityFramework.BaseImplementations
 
 		readonly string _connectionString;
 		
-		public MicroServiceDbContext(DbContextOptions<T> options, string connectionString) : base(options)
+		public MicroServiceDbContext(DbContextOptions<T> options) : base(options)
 		{
-			_connectionString = connectionString;
 		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="optionsBuilder"></param>
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-		{
-			if(!optionsBuilder.IsConfigured)
-			{
-				optionsBuilder.UseMySql(_connectionString);
-			}
-		}
-
+		
 		/// <summary>
 		/// Saves all changes made in <see langword="this"/> context to the underlying database.
 		/// </summary>

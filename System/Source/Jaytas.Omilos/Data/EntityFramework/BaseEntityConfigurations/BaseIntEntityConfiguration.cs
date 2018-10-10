@@ -34,15 +34,14 @@ namespace Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations
 			_isDatabaseGenerated = isDatabaseGenerated;
 		}
 
-		public void Configure(EntityTypeBuilder<TEntity> builder)
+		public virtual void Configure(EntityTypeBuilder<TEntity> builder)
 		{
 			builder.ToTable(_tableName, _schema);
 
 			// Default shared properties
 			var property = builder.Property(x => x.Id)
 				.HasColumnName(_baseFieldMapper.Id)
-				.IsRequired()
-				.HasColumnType(Constants.ColumnTypes.Long);
+				.IsRequired();
 
 			property = _isDatabaseGenerated ? property.ValueGeneratedOnAdd() : property.ValueGeneratedNever();
 

@@ -40,7 +40,7 @@ namespace Jaytas.Omilos.Common
 			/// <summary>
 			/// The variable length 8-bit character array
 			/// </summary>
-			public const string VarChar = "varchar";
+			public const string VarChar = "VARCHAR";
 
 			/// <summary>
 			/// The 1-bit character

@@ -42,6 +42,385 @@
             </summary>
             <param name="services"></param>
         </member>
+        <member name="T:Jaytas.Omilos.Web.Account.Business.IRoleProvider">
+            <summary>
+            This interface should implement in order to provide <see cref="T:Jaytas.Omilos.Web.Account.DomainModel.Role"/>s.
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Business.IRoleProvider.GetRoles">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Account.Business.RoleProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Business.RoleProvider.#ctor(Jaytas.Omilos.Web.Account.Data.Repositories.IRoleRepository)">
+            <summary>
+            
+            </summary>
+            <param name="repository"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Business.RoleProvider.AssertEntityToCreateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Account.DomainModel.Role})">
+            <summary>
+            
+            </summary>
+            <param name="domains"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Business.RoleProvider.AssertEntityToDeleteIsValidAsync(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="identifiers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Business.RoleProvider.AssertEntityToUpdateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Account.DomainModel.Role})">
+            <summary>
+            
+            </summary>
+            <param name="domains"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Business.RoleProvider.GetRoles">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Account.Controllers.RoleController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Jaytas.Omilos.Web.Account.Controllers.RoleController._roleProvider">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jaytas.Omilos.Web.Account.Controllers.RoleController" /> class.
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.#ctor(Jaytas.Omilos.Web.Account.Business.IRoleProvider,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="roleProvider"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.CreateAsync(Jaytas.Omilos.Web.Account.DomainModel.Role)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Account.Role,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="resourceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Account.Role,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="setId"></param>
+            <param name="resourceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Account.Role,System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Account.Role,System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Account.Role,System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Account.Role,System.Int32},Jaytas.Omilos.Web.Account.DomainModel.Role)">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.Get(System.Int32)">
+            <summary>
+            Get roles by Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Controllers.RoleController.GetRoles">
+            <summary>
+            Gets all the roles from the table.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Account.Data.DbContext.IUserDbContext">
+            <summary>
+            User API IDbContext.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.Data.DbContext.IUserDbContext.Roles">
+            <summary>
+            DbSet for the Roles table.
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Account.Data.DbContext.UserDbContext">
+            <summary>
+            DbContext for the User Management Web API
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.DbContext.UserDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Jaytas.Omilos.Web.Account.Data.DbContext.UserDbContext})">
+            <summary>
+            Constructor which sets the db Initializer.
+            </summary>
+            <param name="options">Represents the Identity of the logged in user.</param>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.Data.DbContext.UserDbContext.Roles">
+            <summary>
+            DbSet for Roles entity.
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.DbContext.UserDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Account.Data.Map.RoleFluentMap">
+            <summary>
+            Mapping entity for role table with the database model.
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Map.RoleFluentMap.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jaytas.Omilos.Web.Account.Data.Map.RoleFluentMap" /> class.
+            </summary>
+            <param name="tableName"></param>
+            <param name="schema"></param>
+            <param name="isDatabaseGenerated"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Map.RoleFluentMap.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Jaytas.Omilos.Web.Account.DomainModel.Role})">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Account.Data.Repositories.IRoleRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository">
+            <summary>
+            Repostiory layer for Role.
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.#ctor(Jaytas.Omilos.Web.Account.Data.DbContext.IUserDbContext)">
+            <summary>
+            
+            </summary>
+            <param name="userDbContext"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.Add(Jaytas.Omilos.Web.Account.DomainModel.Role)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.Add(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Account.DomainModel.Role})">
+            <summary>
+            
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.Delete(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.Delete(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="identifiers"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.ExecuteNonQuery(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="query"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.ExecuteQuery(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="query"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.ExecuteScalar``1(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="query"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.Get(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.Get(System.Linq.Expressions.Expression{System.Func{Jaytas.Omilos.Web.Account.DomainModel.Role,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.Update(Jaytas.Omilos.Web.Account.DomainModel.Role)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.Update(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Account.DomainModel.Role})">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Account.DomainModel.Role">
+            <summary>
+            Role Entity representation of database table.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.Role.RoleCode">
+            <summary>
+            RoleCode property represenation of database column.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.Role.Description">
+            <summary>
+            Description property represenation of database column.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.Role.IsActive">
+            <summary>
+            IsActive property represenation of database column.
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Account.DomainModel.User">
+            <summary>
+            User Entity representation of database table.
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.DomainModel.User.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jaytas.Omilos.Web.Account.DomainModel.User" /> class and also UerRoles.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.User.GraphId">
+            <summary>
+            GraphId property represenation of database column.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.User.FirstName">
+            <summary>
+            FirstName property represenation of database column.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.User.LastName">
+            <summary>
+            LastName property represenation of database column.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.User.Email">
+            <summary>
+            Email property represenation of database column.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.User.Culture">
+            <summary>
+            Culture property represenation of database column.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.User.IsActive">
+            <summary>
+            IsActive property represenation of database column.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.User.UserRoles">
+            <summary>
+            UserRoles Entity represenation of database Table.
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Account.DomainModel.UserRole">
+            <summary>
+            UserRole Entity representation of database table.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserRole.GraphId">
+            <summary>
+            UserId property represenation of database column.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserRole.RoleId">
+            <summary>
+            RoleId property represenation of database column.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserRole.Scope">
+            <summary>
+            Scope property represenation of database column.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserRole.StartDate">
+            <summary>
+            StartDate property represenation of database column.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserRole.EndDate">
+            <summary>
+            EndDate property represenation of database column.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserRole.Role">
+            <summary>
+            Role Entity represenation of database table.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserRole.User">
+            <summary>
+            User Entity represenation of database table.
+            </summary>
+        </member>
         <member name="M:Jaytas.Omilos.Web.Account.Startup.ConfigureMaps">
             <summary>
             
