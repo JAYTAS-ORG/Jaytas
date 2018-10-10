@@ -59,8 +59,8 @@ namespace Jaytas.Omilos.Web.StartupConfigurations
 			services.AddOmilosCors(ConfigureCors);
 
 			//Add custom middlewares
-			services.AddTransient<RequestBootstrapMiddleware>();
-			services.AddTransient<AuthorizationMiddleware>();
+			services.AddScoped<RequestBootstrapMiddleware>();
+			services.AddScoped<AuthorizationMiddleware>();
 
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 		}
