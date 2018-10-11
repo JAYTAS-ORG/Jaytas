@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "3c1b53c4b089c96280471961d09fa9b83d7e8bfe"
+    "signature": "354a3fb22c0a940c37ab74a8437ff26c8450cd38"
   },
   "compilationOptions": {},
   "targets": {
@@ -22,6 +22,7 @@
           "Microsoft.AspNetCore.ResponseCompression": "2.1.1",
           "Microsoft.Extensions.DependencyInjection": "2.1.1",
           "Newtonsoft.Json": "11.0.2",
+          "Refit": "4.6.48",
           "Swashbuckle.AspNetCore": "3.0.0"
         },
         "runtime": {
@@ -1412,6 +1413,17 @@
           }
         }
       },
+      "Refit/4.6.48": {
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Refit.dll": {
+            "assemblyVersion": "4.6.0.0",
+            "fileVersion": "4.6.48.12853"
+          }
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "runtimeTargets": {
           "runtime/debian.8-x64/native/_._": {
@@ -2625,6 +2637,7 @@
           "Jaytas.Omilos.Configuration": "1.0.0",
           "Microsoft.IdentityModel.Tokens": "5.3.0",
           "Newtonsoft.Json": "11.0.2",
+          "Refit": "4.6.48",
           "System.IdentityModel.Tokens.Jwt": "5.3.0"
         },
         "runtime": {
@@ -3373,6 +3386,13 @@
       "sha512": "sha512-hTcF8OrTXJYFkJuu3ZwPLnXZdhHrd5CIGEJSZxXLdsX7lDApssIq5XpV8/Lobxu99nmVE6BMZKFnHDg0U29IEA==",
       "path": "pipelines.sockets.unofficial/1.0.7",
       "hashPath": "pipelines.sockets.unofficial.1.0.7.nupkg.sha512"
+    },
+    "Refit/4.6.48": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xUgRePzuWaiWXhpAFZ0d5m3gU7jSZ8wg8Vn+GWGQ9C3az+e/DfLqlNir28LcszMZUfbhfWHA42M2WJoJSpYmfA==",
+      "path": "refit/4.6.48",
+      "hashPath": "refit.4.6.48.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",

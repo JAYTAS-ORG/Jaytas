@@ -282,6 +282,11 @@
             User Entity represenation of database table.
             </summary>
         </member>
+        <member name="T:Jaytas.Omilos.Web.Account.Startup">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Jaytas.Omilos.Web.Account.Startup.ConfigureMaps">
             <summary>
             
