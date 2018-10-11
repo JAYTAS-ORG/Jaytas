@@ -9,7 +9,7 @@ namespace Jaytas.Omilos.Security.TokenProvider
 	/// <summary>
 	/// 
 	/// </summary>
-	public class JwtBearerAuthTokenProvider : IAuthTokenProvider
+	public class JwtBearerTokenProvider : ITokenProvider
 	{
 		IBaseConfiguration _baseConfiguration;
 
@@ -17,7 +17,7 @@ namespace Jaytas.Omilos.Security.TokenProvider
 		/// 
 		/// </summary>
 		/// <param name="baseConfiguration"></param>
-		public JwtBearerAuthTokenProvider(IBaseConfiguration baseConfiguration)
+		public JwtBearerTokenProvider(IBaseConfiguration baseConfiguration)
 		{
 			_baseConfiguration = baseConfiguration;
 		}

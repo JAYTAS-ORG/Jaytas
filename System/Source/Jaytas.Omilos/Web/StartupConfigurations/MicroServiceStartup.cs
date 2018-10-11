@@ -108,7 +108,7 @@ namespace Jaytas.Omilos.Web.StartupConfigurations
 
 				ValidIssuer = Constants.BearerOptions.TokenValidationParameters.Issuer,
 				ValidAudience = Constants.BearerOptions.TokenValidationParameters.Audience,
-				IssuerSigningKey = _serviceProvider.GetService<IAuthTokenProvider>().GetSecurityKey()
+				IssuerSigningKey = _serviceProvider.GetService<ITokenProvider>().GetSecurityKey()
 			};
 		}
 
@@ -156,7 +156,7 @@ namespace Jaytas.Omilos.Web.StartupConfigurations
 		protected virtual void RegisterTypes(IServiceCollection services)
 		{
 			services.AddSingleton<IBaseConfiguration, DefaultConfigurationProvider>();
-			services.AddSingleton<IAuthTokenProvider, JwtBearerAuthTokenProvider>();
+			services.AddSingleton<ITokenProvider, JwtBearerTokenProvider>();
 			services.AddSingleton<ICachePolicyProvider, StaticCachePolicyProvider>();
 			services.AddSingleton<IResourceUrlBuilder, ResourceUrlBuilder>();
 

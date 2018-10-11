@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Jaytas.Omilos.Security.TokenProvider
 {
-	public interface IAuthTokenProvider
+	public interface ITokenProvider
 	{
 		/// <summary>
 		/// 
