@@ -34,6 +34,11 @@ namespace Jaytas.Omilos.Configuration.Models
 		/// <summary>
 		/// 
 		/// </summary>
+		public string RedirectUri { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public FacebookIdentityProviderSettings()
 		{
 			AccessTokenUri = Constants.Secrets.IdentityProviderSettings.Facebook.AccessTokenUri;

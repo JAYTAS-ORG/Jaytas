@@ -34,6 +34,11 @@ namespace Jaytas.Omilos.Configuration.Models
 		/// <summary>
 		/// 
 		/// </summary>
+		public string RedirectUri { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public GoogleIdentityProviderSettings()
 		{
 			AccessTokenUri = Constants.Secrets.IdentityProviderSettings.Google.AccessTokenUri;
