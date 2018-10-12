@@ -1,9 +1,7 @@
 ﻿using Jaytas.Omilos.Common.Domain.Interfaces;
 using Jaytas.Omilos.Common.Providers;
-using Jaytas.Omilos.Common.Repositories;
-using System;
+using Jaytas.Omilos.Web.Repositories;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Jaytas.Omilos.Web.Providers
@@ -17,7 +15,7 @@ namespace Jaytas.Omilos.Web.Providers
 	/// <typeparam name="TBaseEntityType">the base enity type lile (Guid, int, long..)</typeparam>
 	public abstract class CrudBaseProvider<TEntity, TRepository, TBaseEntityType> : ICrudBaseProvider<TEntity, TBaseEntityType>
 		where TEntity : class, IBaseEntity<TBaseEntityType>
-		where TRepository : class, ICrudBaseRepository<TEntity, TBaseEntityType>
+		where TRepository : class, ICrudBaseEntityRepository<TEntity, TBaseEntityType>
 		where TBaseEntityType : struct
 	{
 
@@ -67,7 +65,7 @@ namespace Jaytas.Omilos.Web.Providers
 		{
 			await AssertEntityToCreateIsValidAsync(new List<TEntity> { domain }).ConfigureAwait(true);
 
-			return Repository.Add(domain);
+			return await Repository.AddAsync(domain);
 		}
 
 		/// <summary>
@@ -79,7 +77,7 @@ namespace Jaytas.Omilos.Web.Providers
 		{
 			await AssertEntityToCreateIsValidAsync(domains).ConfigureAwait(true);
 
-			Repository.Add(domains);
+			await Repository.AddRangeAsync(domains);
 		}
 
 		/// <summary>
@@ -91,19 +89,19 @@ namespace Jaytas.Omilos.Web.Providers
 		{
 			await AssertEntityToDeleteIsValidAsync(new List<TBaseEntityType> { id }).ConfigureAwait(true);
 
-			Repository.Delete(id);
+			await Repository.DeleteAsync(id);
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="identifiers"></param>
+		/// <param name="entity"></param>
 		/// <returns></returns>
-		public async virtual Task DeleteAsync(IEnumerable<TBaseEntityType> identifiers)
+		public async virtual Task DeleteAsync(TEntity entity)
 		{
-			await AssertEntityToDeleteIsValidAsync(identifiers).ConfigureAwait(true);
+			await AssertEntityToDeleteIsValidAsync(new List<TBaseEntityType> { entity.Id }).ConfigureAwait(true);
 
-			Repository.Delete(identifiers);
+			await Repository.DeleteAsync(entity);
 		}
 
 		/// <summary>
@@ -113,7 +111,7 @@ namespace Jaytas.Omilos.Web.Providers
 		/// <returns></returns>
 		public async Task<TEntity> GetAsync(TBaseEntityType id)
 		{
-			return await Task.FromResult<TEntity>(Repository.Get(id));
+			return await Repository.GetAsync(id);
 		}
 
 
@@ -125,7 +123,7 @@ namespace Jaytas.Omilos.Web.Providers
 		public async virtual Task UpdateAsync(TEntity domain)
 		{
 			await AssertEntityToUpdateIsValidAsync(new List<TEntity> { domain }).ConfigureAwait(true);
-			Repository.Update(domain);
+			await Repository.UpdateAsync(domain);
 		}
 
 		/// <summary>
@@ -136,7 +134,7 @@ namespace Jaytas.Omilos.Web.Providers
 		public async virtual Task UpdateAsync(IEnumerable<TEntity> domains)
 		{
 			await AssertEntityToUpdateIsValidAsync(domains).ConfigureAwait(true);
-			Repository.Update(domains);
+			await Repository.UpdateAsync(domains);
 		}
 	}
 }

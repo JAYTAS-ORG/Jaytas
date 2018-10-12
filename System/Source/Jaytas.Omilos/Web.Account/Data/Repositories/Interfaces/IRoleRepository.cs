@@ -1,4 +1,4 @@
-﻿using Jaytas.Omilos.Common.Repositories;
+﻿using Jaytas.Omilos.Data.EntityFramework.Interfaces;
 using Jaytas.Omilos.Web.Account.DomainModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -8,7 +8,7 @@ namespace Jaytas.Omilos.Web.Account.Data.Repositories.Interfaces
 	/// <summary>
 	/// 
 	/// </summary>
-	public interface IRoleRepository : IBaseRepository
+	public interface IRoleRepository : IBaseEntityRepository
 	{
 		/// <summary>
 		/// 

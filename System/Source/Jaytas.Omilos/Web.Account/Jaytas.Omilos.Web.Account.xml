@@ -270,6 +270,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Jaytas.Omilos.Web.Account.Data.Repositories.Interfaces.IUserRepository">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository">
             <summary>
             Repostiory layer for Role.
@@ -287,10 +292,59 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.DisposeImplementation">
+        <member name="T:Jaytas.Omilos.Web.Account.Data.Repositories.UserRepository">
             <summary>
-            Dispose implementation.
+            
             </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.UserRepository.#ctor(Jaytas.Omilos.Web.Account.Data.DbContext.IUserDbContext)">
+            <summary>
+            
+            </summary>
+            <param name="userDbContext"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.UserRepository.Add(Jaytas.Omilos.Web.Account.DomainModel.User)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.UserRepository.Add(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Account.DomainModel.User})">
+            <summary>
+            
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.UserRepository.Delete(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.UserRepository.Delete(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            
+            </summary>
+            <param name="identifiers"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.UserRepository.Delete(System.Linq.Expressions.Expression{System.Func{Jaytas.Omilos.Web.Account.DomainModel.User,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <param name="expression"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.UserRepository.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.UserRepository.Get(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Account.DomainModel.Role">
             <summary>

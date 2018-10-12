@@ -1,4 +1,6 @@
 ﻿using Jaytas.Omilos.Common.Disposable;
+using Jaytas.Omilos.Data.EntityFramework.BaseImplementations;
+using Jaytas.Omilos.Data.EntityFramework.Interfaces;
 using Jaytas.Omilos.Web.Account.Data.DbContext;
 using Jaytas.Omilos.Web.Account.Data.Repositories.Interfaces;
 using Jaytas.Omilos.Web.Account.DomainModel;
@@ -11,17 +13,14 @@ namespace Jaytas.Omilos.Web.Account.Data.Repositories
 	/// <summary>
 	/// Repostiory layer for Role.
 	/// </summary>
-	public class RoleRepository : Disposable, IRoleRepository
+	public class RoleRepository : BaseEntityRepository<IUserDbContext>, IRoleRepository
 	{
-		IUserDbContext _userDbContext;
-
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="userDbContext"></param>
-		public RoleRepository(IUserDbContext userDbContext)
+		public RoleRepository(IUserDbContext userDbContext) : base(userDbContext)
 		{
-			_userDbContext = userDbContext;
 		}
 
 		/// <summary>
@@ -30,17 +29,7 @@ namespace Jaytas.Omilos.Web.Account.Data.Repositories
 		/// <returns></returns>
 		public async Task<IEnumerable<Role>> GetAllAsync()
 		{
-			return await _userDbContext.Roles.ToListAsync();
-		}
-
-		/// <summary>
-		/// Dispose implementation.
-		/// </summary>
-		protected override void DisposeImplementation()
-		{
-			using (_userDbContext) { }
-
-			base.DisposeImplementation();
+			return await DbContext.Roles.ToListAsync();
 		}
 	}
 }

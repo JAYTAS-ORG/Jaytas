@@ -14,9 +14,11 @@ namespace Jaytas.Omilos.Data.EntityFramework.BaseImplementations
 		/// Stores all log messages until they are logged (at dispose time)
 		/// </summary>
 		private readonly StringBuilder _logBuffer;
-
-		readonly string _connectionString;
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="options"></param>
 		public MicroServiceDbContext(DbContextOptions<T> options) : base(options)
 		{
 		}

@@ -37,8 +37,8 @@ namespace Jaytas.Omilos.Common.Providers
 		/// <summary>
 		/// Deletes the specified identifier.
 		/// </summary>
-		/// <param name="identifiers">The identifiers.</param>
-		Task DeleteAsync(IEnumerable<TBaseEntityType> identifiers);
+		/// <param name="entity">The entity to be deleted.</param>
+		Task DeleteAsync(TEntity c);
 
 		/// <summary>
 		/// Updates the specified <paramref name="domain"/>.
