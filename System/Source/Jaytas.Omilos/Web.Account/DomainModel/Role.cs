@@ -25,5 +25,10 @@ namespace Jaytas.Omilos.Web.Account.DomainModel
 		/// IsActive property represenation of database column.
 		/// </summary>
 		public bool IsActive { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public virtual ICollection<UserRole> UserRoles {get; set;}
 	}
 }

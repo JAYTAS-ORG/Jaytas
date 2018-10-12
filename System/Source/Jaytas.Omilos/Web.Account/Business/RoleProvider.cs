@@ -1,4 +1,4 @@
-﻿using Jaytas.Omilos.Web.Account.Data.Repositories;
+﻿using Jaytas.Omilos.Web.Account.Data.Repositories.Interfaces;
 using Jaytas.Omilos.Web.Account.DomainModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -27,7 +27,7 @@ namespace Jaytas.Omilos.Web.Account.Business
 		/// <returns></returns>
 		public async Task<IEnumerable<Role>> GetRoles()
 		{
-			return await _repository.GetAllRolesAsync();
+			return await _repository.GetAllAsync();
 		}
 	}
 }

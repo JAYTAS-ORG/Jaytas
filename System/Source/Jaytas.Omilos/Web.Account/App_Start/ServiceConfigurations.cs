@@ -1,18 +1,12 @@
-﻿using Jaytas.Omilos.Caching.Interfaces;
-using Jaytas.Omilos.Caching.Providers;
-using Jaytas.Omilos.Common.Helpers;
-using Jaytas.Omilos.Configuration.Interfaces;
-using Jaytas.Omilos.Configuration.Providers;
-using Jaytas.Omilos.Security.TokenProvider;
+﻿using Jaytas.Omilos.Configuration.Interfaces;
 using Jaytas.Omilos.Web.Account.Business;
+using Jaytas.Omilos.Web.Account.Business.Interfaces;
 using Jaytas.Omilos.Web.Account.Data.DbContext;
 using Jaytas.Omilos.Web.Account.Data.Repositories;
+using Jaytas.Omilos.Web.Account.Data.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Jaytas.Omilos.Web.Account.App_Start
 {
@@ -38,6 +32,8 @@ namespace Jaytas.Omilos.Web.Account.App_Start
 
 			services.AddScoped<IRoleRepository, RoleRepository>();
 			services.AddScoped<IRoleProvider, RoleProvider>();
+
+			services.AddSingleton<IAccountProvider, AccountProvider>();
 		}
 	}
 }

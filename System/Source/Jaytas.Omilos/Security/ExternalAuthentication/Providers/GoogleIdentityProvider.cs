@@ -4,6 +4,7 @@ using Jaytas.Omilos.Security.ExternalAuthentication.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Jaytas.Omilos.Security.ExternalAuthentication.Providers
 {
@@ -38,7 +39,7 @@ namespace Jaytas.Omilos.Security.ExternalAuthentication.Providers
 		/// </summary>
 		/// <param name="code"></param>
 		/// <returns></returns>
-		public string GetTokenByCode(string code)
+		public async Task<string> AcquireTokenByCodeAsync(string code)
 		{
 			throw new NotImplementedException();
 		}

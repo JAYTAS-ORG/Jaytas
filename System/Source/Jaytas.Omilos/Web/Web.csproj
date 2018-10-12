@@ -20,6 +20,7 @@
     <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="2.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="Refit" Version="4.6.48" />
+    <PackageReference Include="Refit.HttpClientFactory" Version="4.6.48" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
   </ItemGroup>
 
@@ -27,6 +28,7 @@
     <ProjectReference Include="..\Caching\Caching.csproj" />
     <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\Security\Security.csproj" />
+    <ProjectReference Include="..\ServiceClient\ServiceClient.csproj" />
   </ItemGroup>
 
 </Project>

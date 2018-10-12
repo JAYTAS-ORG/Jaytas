@@ -13,7 +13,7 @@ namespace Jaytas.Omilos.Web.Account.Data.Map
 	/// <summary>
 	/// Mapping entity for role table with the database model.
 	/// </summary>
-	public class RoleFluentMap : BaseIntEntityConfiguration<DomainModel.Role>
+	public class RoleFluentMap : BaseIntEntityConfiguration<Role>
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="RoleFluentMap" /> class.
@@ -21,9 +21,9 @@ namespace Jaytas.Omilos.Web.Account.Data.Map
 		/// <param name="tableName"></param>
 		/// <param name="schema"></param>
 		/// <param name="isDatabaseGenerated"></param>
-		public RoleFluentMap(string tableName, string schema, bool isDatabaseGenerated) : base(tableName, schema, isDatabaseGenerated, new Common.Domain.DefaultBaseFieldMapper())
+		public RoleFluentMap(string tableName, string schema, bool isDatabaseGenerated) 
+				: base(tableName, schema, isDatabaseGenerated, new Common.Domain.DefaultAuditableBaseFieldMapper())
 		{
-			
 		}
 
 		/// <summary>

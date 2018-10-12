@@ -363,9 +363,28 @@ namespace Jaytas.Omilos.Common
 		/// </summary>
 		public struct Route
 		{
+			public struct Crud
+			{
+				private const string BasePath = "/{id}";
+
+				public const string Get = BasePath;
+
+				public const string GetAll = "/GetAll";
+
+				public const string Create = "";
+
+				public const string Update = BasePath;
+
+				public const string Patch = BasePath;
+
+				public const string Delete = BasePath;
+			}
+
 			public struct Account
 			{
 				public const string RootPath = "/api/account";
+
+				public const string FacebookSignin = RootPath + "/facebooksigin";
 			}
 		}
 

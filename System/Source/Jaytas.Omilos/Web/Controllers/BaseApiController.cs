@@ -197,6 +197,45 @@ namespace Jaytas.Omilos.Web.Controllers
 		}
 
 		/// <summary>
+		/// Creates the provided Resource and translates any errors into appropriate status code responses.
+		/// </summary>
+		/// <param name="action">The command to process containing the Resource to create.</param>
+		/// <param name="routeName">Name of the get-by-identifier route.</param>
+		/// <returns></returns>
+		protected internal async Task<IActionResult> PostOrContentAsync<TDomain, TResponse>(Func<Task<TResponse>> action)
+		{
+			try
+			{
+				// ensure our model is valid
+				if (!ModelState.IsValid)
+				{
+					return BadRequest(ModelState);
+				}
+
+				var domain = await action().ConfigureAwait(true);
+				var response = Mapper.Map<TResponse>(domain);
+
+				return Ok(response);
+			}
+			catch (BusinessValidationException bveEx)
+			{
+				return BadRequest(bveEx);
+			}
+			catch (AggregateException aggregateEx)
+			{
+				return BadRequest(aggregateEx);
+			}
+			catch (HttpRestException restEx)
+			{
+				return HandleRestError(restEx);
+			}
+			catch (Exception ex)
+			{
+				return InternalServerError(GenericApiErrorCode, ex);
+			}
+		}
+
+		/// <summary>
 		/// Executes the provided function asynchronously with exception handling.  It converts the TDomain result from the function
 		/// to TResponse and returns it as an OK/200 response. 
 		/// </summary>

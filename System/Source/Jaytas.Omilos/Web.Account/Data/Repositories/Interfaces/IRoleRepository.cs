@@ -3,7 +3,7 @@ using Jaytas.Omilos.Web.Account.DomainModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Jaytas.Omilos.Web.Account.Data.Repositories
+namespace Jaytas.Omilos.Web.Account.Data.Repositories.Interfaces
 {
 	/// <summary>
 	/// 
@@ -14,6 +14,6 @@ namespace Jaytas.Omilos.Web.Account.Data.Repositories
 		/// 
 		/// </summary>
 		/// <returns></returns>
-		Task<IEnumerable<Role>> GetAllRolesAsync();
+		Task<IEnumerable<Role>> GetAllAsync();
 	}
 }

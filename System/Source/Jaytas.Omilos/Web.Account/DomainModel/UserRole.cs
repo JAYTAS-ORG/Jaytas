@@ -1,20 +1,17 @@
 ﻿using Jaytas.Omilos.Common.Domain;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Jaytas.Omilos.Web.Account.DomainModel
 {
 	/// <summary>
 	/// UserRole Entity representation of database table.
 	/// </summary>
-	public class UserRole : AuditableLongEntity
+	public class UserRole : LongEntity
 	{
 		/// <summary>
 		/// UserId property represenation of database column.
 		/// </summary>
-		public Guid GraphId { get; set; }
+		public long UserId { get; set; }
 
 		/// <summary>
 		/// RoleId property represenation of database column.
@@ -42,9 +39,8 @@ namespace Jaytas.Omilos.Web.Account.DomainModel
 		public virtual Role Role { get; set; }
 
 		/// <summary>
-		/// User Entity represenation of database table.
+		/// 
 		/// </summary>
 		public virtual User User { get; set; }
-
 	}
 }

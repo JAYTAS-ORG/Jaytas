@@ -1,9 +1,11 @@
 ﻿using Jaytas.Omilos.Common.Enumerations;
 using Jaytas.Omilos.Configuration.Interfaces;
+using Jaytas.Omilos.Security.ExternalAuthentication.Clients;
 using Jaytas.Omilos.Security.ExternalAuthentication.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Jaytas.Omilos.Security.ExternalAuthentication.Providers
 {
@@ -13,14 +15,17 @@ namespace Jaytas.Omilos.Security.ExternalAuthentication.Providers
 	public class FacebookIdentityProvider : IExternalIdentityProvider
 	{
 		readonly IIdentityProviderSettings _identityProviderSettings;
+		readonly IFacebookGraphClient _facebookGraphClient;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="identityProviderSettings"></param>
-		public FacebookIdentityProvider(IIdentityProviderSettings identityProviderSettings)
+		/// <param name="facebookGraphClient"></param>
+		public FacebookIdentityProvider(IIdentityProviderSettings identityProviderSettings, IFacebookGraphClient facebookGraphClient)
 		{
 			_identityProviderSettings = identityProviderSettings;
+			_facebookGraphClient = facebookGraphClient;
 		}
 
 		/// <summary>
@@ -38,9 +43,17 @@ namespace Jaytas.Omilos.Security.ExternalAuthentication.Providers
 		/// </summary>
 		/// <param name="code"></param>
 		/// <returns></returns>
-		public string GetTokenByCode(string code)
+		public async Task<string> AcquireTokenByCodeAsync(string code)
 		{
-			throw new NotImplementedException();
+			var request = new Models.IdentityProviderRequestModel
+			{
+				ClientId = _identityProviderSettings.AppId,
+				ClientSecret = _identityProviderSettings.AppSecret,
+				Code = code,
+				RedirectUri = _identityProviderSettings.RedirectUri
+			};
+			var response = await _facebookGraphClient.AcquireTokenAsync(request);
+			return response.AccessToken;
 		}
 	}
 }

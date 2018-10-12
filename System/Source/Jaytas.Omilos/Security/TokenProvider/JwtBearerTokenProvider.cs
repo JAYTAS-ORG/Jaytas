@@ -32,7 +32,7 @@ namespace Jaytas.Omilos.Security.TokenProvider
 		}
 
 
-		public string GetToken()
+		public string AcquireToken()
 		{
 			throw new NotImplementedException();
 		}

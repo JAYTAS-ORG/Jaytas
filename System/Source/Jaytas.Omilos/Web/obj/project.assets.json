@@ -1793,6 +1793,19 @@
           "build/netstandard1.4/refit.targets": {}
         }
       },
+      "Refit.HttpClientFactory/4.6.48": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Http": "2.1.0",
+          "Refit": "4.6.48"
+        },
+        "compile": {
+          "lib/netstandard2.0/Refit.HttpClientFactory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Refit.HttpClientFactory.dll": {}
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -3592,6 +3605,33 @@
         },
         "runtime": {
           "bin/placeholder/Jaytas.Omilos.Security.dll": {}
+        }
+      },
+      "Jaytas.Omilos.ServiceClient/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Jaytas.Omilos.Common": "1.0.0",
+          "Jaytas.Omilos.Security": "1.0.0",
+          "Jaytas.Omilos.Web.Service.Models": "1.0.0",
+          "Newtonsoft.Json": "11.0.2",
+          "Refit.HttpClientFactory": "4.6.48"
+        },
+        "compile": {
+          "bin/placeholder/Jaytas.Omilos.ServiceClient.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Jaytas.Omilos.ServiceClient.dll": {}
+        }
+      },
+      "Jaytas.Omilos.Web.Service.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Jaytas.Omilos.Web.Service.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Jaytas.Omilos.Web.Service.Models.dll": {}
         }
       }
     }
@@ -5655,6 +5695,18 @@
         "lib/netstandard2.0/Refit.xml",
         "refit.4.6.48.nupkg.sha512",
         "refit.nuspec"
+      ]
+    },
+    "Refit.HttpClientFactory/4.6.48": {
+      "sha512": "I8pWN0ohpmJ9x0///uObqriPGKULGk7AZUvGQideHz5rDlYyDUnHKEqI0HqlKpNNVy5vXJkUGDS4624MA+0+xg==",
+      "type": "package",
+      "path": "refit.httpclientfactory/4.6.48",
+      "files": [
+        ".signature.p7s",
+        "lib/netstandard2.0/Refit.HttpClientFactory.dll",
+        "lib/netstandard2.0/Refit.HttpClientFactory.xml",
+        "refit.httpclientfactory.4.6.48.nupkg.sha512",
+        "refit.httpclientfactory.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -10208,6 +10260,16 @@
       "type": "project",
       "path": "../Security/Security.csproj",
       "msbuildProject": "../Security/Security.csproj"
+    },
+    "Jaytas.Omilos.ServiceClient/1.0.0": {
+      "type": "project",
+      "path": "../ServiceClient/ServiceClient.csproj",
+      "msbuildProject": "../ServiceClient/ServiceClient.csproj"
+    },
+    "Jaytas.Omilos.Web.Service.Models/1.0.0": {
+      "type": "project",
+      "path": "../Web.Service.Models/Web.Service.Models.csproj",
+      "msbuildProject": "../Web.Service.Models/Web.Service.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -10216,6 +10278,7 @@
       "Jaytas.Omilos..Caching >= 1.0.0",
       "Jaytas.Omilos.Common >= 1.0.0",
       "Jaytas.Omilos.Security >= 1.0.0",
+      "Jaytas.Omilos.ServiceClient >= 1.0.0",
       "Microsoft.AspNetCore >= 2.1.4",
       "Microsoft.AspNetCore.Authentication >= 2.1.2",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 2.1.2",
@@ -10229,6 +10292,7 @@
       "Microsoft.NETCore.App >= 2.1.0",
       "Newtonsoft.Json >= 11.0.2",
       "Refit >= 4.6.48",
+      "Refit.HttpClientFactory >= 4.6.48",
       "Swashbuckle.AspNetCore >= 3.0.0"
     ]
   },
@@ -10270,6 +10334,9 @@
             },
             "C:\\Jaytas\\System\\Source\\Jaytas.Omilos\\Security\\Security.csproj": {
               "projectPath": "C:\\Jaytas\\System\\Source\\Jaytas.Omilos\\Security\\Security.csproj"
+            },
+            "C:\\Jaytas\\System\\Source\\Jaytas.Omilos\\ServiceClient\\ServiceClient.csproj": {
+              "projectPath": "C:\\Jaytas\\System\\Source\\Jaytas.Omilos\\ServiceClient\\ServiceClient.csproj"
             }
           }
         }
@@ -10338,6 +10405,10 @@
             "version": "[11.0.2, )"
           },
           "Refit": {
+            "target": "Package",
+            "version": "[4.6.48, )"
+          },
+          "Refit.HttpClientFactory": {
             "target": "Package",
             "version": "[4.6.48, )"
           },

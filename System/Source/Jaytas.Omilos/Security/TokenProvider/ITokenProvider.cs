@@ -17,6 +17,6 @@ namespace Jaytas.Omilos.Security.TokenProvider
 		/// 
 		/// </summary>
 		/// <returns></returns>
-		string GetToken();
+		string AcquireToken();
 	}
 }

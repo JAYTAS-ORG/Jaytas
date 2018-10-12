@@ -40,7 +40,6 @@ namespace Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations
 			builder.Property(x => x.Id)
 				   .HasColumnName(nameof(GuidEntity.Id))
 				   .IsRequired()
-				   .HasColumnType(Constants.ColumnTypes.Guid)
 				   .ValueGeneratedNever();
 
 			ConfigureKey(builder);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Jaytas.Omilos.Security.ExternalAuthentication.Interfaces
 {
@@ -21,6 +22,6 @@ namespace Jaytas.Omilos.Security.ExternalAuthentication.Interfaces
 		/// </summary>
 		/// <param name="code"></param>
 		/// <returns></returns>
-		string GetTokenByCode(string code);
+		Task<string> AcquireTokenByCodeAsync(string code);
 	}
 }

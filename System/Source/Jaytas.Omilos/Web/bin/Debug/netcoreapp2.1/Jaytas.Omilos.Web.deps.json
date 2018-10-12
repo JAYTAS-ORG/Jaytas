@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "a74064a848acb4e03c80ecbb5908544f986a64c9"
+    "signature": "27b9d815c478c66cf936a95bb3d059edf950e9ba"
   },
   "compilationOptions": {},
   "targets": {
@@ -12,6 +12,7 @@
           "Jaytas.Omilos..Caching": "1.0.0",
           "Jaytas.Omilos.Common": "1.0.0",
           "Jaytas.Omilos.Security": "1.0.0",
+          "Jaytas.Omilos.ServiceClient": "1.0.0",
           "Microsoft.AspNetCore": "2.1.4",
           "Microsoft.AspNetCore.Authentication": "2.1.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "2.1.2",
@@ -24,6 +25,7 @@
           "Microsoft.Extensions.Http.Polly": "2.1.1",
           "Newtonsoft.Json": "11.0.2",
           "Refit": "4.6.48",
+          "Refit.HttpClientFactory": "4.6.48",
           "Swashbuckle.AspNetCore": "3.0.0"
         },
         "runtime": {
@@ -1470,6 +1472,18 @@
           }
         }
       },
+      "Refit.HttpClientFactory/4.6.48": {
+        "dependencies": {
+          "Microsoft.Extensions.Http": "2.1.1",
+          "Refit": "4.6.48"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Refit.HttpClientFactory.dll": {
+            "assemblyVersion": "4.6.0.0",
+            "fileVersion": "4.6.48.12853"
+          }
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "runtimeTargets": {
           "runtime/debian.8-x64/native/_._": {
@@ -2689,6 +2703,23 @@
         "runtime": {
           "Jaytas.Omilos.Security.dll": {}
         }
+      },
+      "Jaytas.Omilos.ServiceClient/1.0.0": {
+        "dependencies": {
+          "Jaytas.Omilos.Common": "1.0.0",
+          "Jaytas.Omilos.Security": "1.0.0",
+          "Jaytas.Omilos.Web.Service.Models": "1.0.0",
+          "Newtonsoft.Json": "11.0.2",
+          "Refit.HttpClientFactory": "4.6.48"
+        },
+        "runtime": {
+          "Jaytas.Omilos.ServiceClient.dll": {}
+        }
+      },
+      "Jaytas.Omilos.Web.Service.Models/1.0.0": {
+        "runtime": {
+          "Jaytas.Omilos.Web.Service.Models.dll": {}
+        }
       }
     }
   },
@@ -3467,6 +3498,13 @@
       "sha512": "sha512-xUgRePzuWaiWXhpAFZ0d5m3gU7jSZ8wg8Vn+GWGQ9C3az+e/DfLqlNir28LcszMZUfbhfWHA42M2WJoJSpYmfA==",
       "path": "refit/4.6.48",
       "hashPath": "refit.4.6.48.nupkg.sha512"
+    },
+    "Refit.HttpClientFactory/4.6.48": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-I8pWN0ohpmJ9x0///uObqriPGKULGk7AZUvGQideHz5rDlYyDUnHKEqI0HqlKpNNVy5vXJkUGDS4624MA+0+xg==",
+      "path": "refit.httpclientfactory/4.6.48",
+      "hashPath": "refit.httpclientfactory.4.6.48.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
@@ -4247,6 +4285,16 @@
       "sha512": ""
     },
     "Jaytas.Omilos.Security/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Jaytas.Omilos.ServiceClient/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Jaytas.Omilos.Web.Service.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

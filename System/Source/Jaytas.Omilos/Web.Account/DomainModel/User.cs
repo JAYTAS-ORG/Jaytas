@@ -7,7 +7,7 @@ namespace Jaytas.Omilos.Web.Account.DomainModel
 	/// <summary>
 	/// User Entity representation of database table.
 	/// </summary>
-	public partial class User : AuditableLongEntity
+	public partial class User : LongEntity
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="User" /> class and also UerRoles.
@@ -35,12 +35,17 @@ namespace Jaytas.Omilos.Web.Account.DomainModel
 		/// <summary>
 		/// Email property represenation of database column.
 		/// </summary>
-		public string Email { get; set; }
+		public string EmailId { get; set; }
 
 		/// <summary>
-		/// Culture property represenation of database column.
+		/// Cuntry code property represenation of database column.
 		/// </summary>
-		public string Culture { get; set; }
+		public string CountryCode { get; set; }
+
+		/// <summary>
+		/// Phonenumber property represenation of database column.
+		/// </summary>
+		public string PhoneNumber { get; set; }
 
 		/// <summary>
 		/// IsActive property represenation of database column.
@@ -51,5 +56,10 @@ namespace Jaytas.Omilos.Web.Account.DomainModel
 		/// UserRoles Entity represenation of database Table.
 		/// </summary>
 		public virtual ICollection<UserRole> UserRoles { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public virtual UserLoginDetail UserLoginDetail { get; set; }
 	}
 }

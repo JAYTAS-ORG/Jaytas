@@ -1,4 +1,5 @@
-﻿using Jaytas.Omilos.Data.EntityFramework.BaseImplementations;
+﻿using Jaytas.Omilos.Common;
+using Jaytas.Omilos.Data.EntityFramework.BaseImplementations;
 using Jaytas.Omilos.Web.Account.Data.Map;
 using Jaytas.Omilos.Web.Account.DomainModel;
 using Microsoft.EntityFrameworkCore;
@@ -28,13 +29,26 @@ namespace Jaytas.Omilos.Web.Account.Data.DbContext
 		public virtual DbSet<Role> Roles { get; set; }
 
 		/// <summary>
+		/// DbSet for Users entity.
+		/// </summary>
+		public virtual DbSet<User> Users { get; set; }
+
+		/// <summary>
+		/// DbSet for UserRole entity.
+		/// </summary>
+		public virtual DbSet<UserRole> UserRoles { get; set; }
+
+		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="modelBuilder"></param>
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
-			modelBuilder.ApplyConfiguration(new RoleFluentMap("role", "account", true));
+			modelBuilder.ApplyConfiguration(new RoleFluentMap(Constants.Tables.Role, Constants.Schemas.Account, true));
+			modelBuilder.ApplyConfiguration(new UserFluentMap(Constants.Tables.User, Constants.Schemas.Account, true));
+			//modelBuilder.ApplyConfiguration(new UserLoginDetailFluentMap(Constants.Tables.UserLoginDetail, Constants.Schemas.Account, true));
+			modelBuilder.ApplyConfiguration(new UserRoleFluentMap(Constants.Tables.UserRole, Constants.Schemas.Account, true));
 		}
 	}
 }

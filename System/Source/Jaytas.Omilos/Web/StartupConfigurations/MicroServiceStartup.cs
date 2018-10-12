@@ -5,6 +5,7 @@ using Jaytas.Omilos.Common;
 using Jaytas.Omilos.Common.Helpers;
 using Jaytas.Omilos.Configuration.Interfaces;
 using Jaytas.Omilos.Configuration.Providers;
+using Jaytas.Omilos.Security.ExternalAuthentication.Clients;
 using Jaytas.Omilos.Security.TokenProvider;
 using Jaytas.Omilos.Web.Extensions;
 using Jaytas.Omilos.Web.Filters.Operations;
@@ -18,10 +19,16 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using Refit;
 using System;
 using System.IO;
 using System.Net;
 using System.Reflection;
+using Jaytas.Omilos.Security.ExternalAuthentication.Interfaces;
+using Jaytas.Omilos.Security.ExternalAuthentication.Providers;
+using Jaytas.Omilos.ServiceClient.User.Interfaces;
+using Jaytas.Omilos.ServiceClient.User.Implementations;
+using Jaytas.Omilos.Common.DelegationHandlers;
 
 namespace Jaytas.Omilos.Web.StartupConfigurations
 {
@@ -160,15 +167,40 @@ namespace Jaytas.Omilos.Web.StartupConfigurations
 			services.AddSingleton<ICachePolicyProvider, StaticCachePolicyProvider>();
 			services.AddSingleton<IResourceUrlBuilder, ResourceUrlBuilder>();
 
-			IBaseConfiguration configurationProvider = null;
-
 			services.AddSingleton<ICacheProvider>((serviceProvider) =>
 			{
-				configurationProvider = serviceProvider.GetService<IBaseConfiguration>();
+				IBaseConfiguration configurationProvider = serviceProvider.GetService<IBaseConfiguration>();
 				var cachePolicyProvider = serviceProvider.GetService<ICachePolicyProvider>();
 
 				return new RedisCacheProvider(cachePolicyProvider, configurationProvider.CacheConnectionIdentifier.RootConnection);
 			});
+
+			services.AddTransient<HttpBootstrapHandler>();
+			services.AddRefitClient<IFacebookGraphClient>()
+						.ConfigureHttpClient(c => c.BaseAddress = new Uri(Constants.Secrets.IdentityProviderSettings.Facebook.GraphBaseUri))
+						.AddHttpMessageHandler<HttpBootstrapHandler>();
+
+			services.AddSingleton<IExternalIdentityProvider, FacebookIdentityProvider>(serviceProvider =>
+			{
+				IBaseConfiguration configurationProvider = serviceProvider.GetService<IBaseConfiguration>();
+				IFacebookGraphClient facebookGraphClient = serviceProvider.GetService<IFacebookGraphClient>();
+				return new FacebookIdentityProvider(configurationProvider.FaceBookAuthenticationSettings, facebookGraphClient);
+			});
+
+			services.AddSingleton<IExternalIdentityProvider, GoogleIdentityProvider>(serviceProvider =>
+			{
+				IBaseConfiguration configurationProvider = serviceProvider.GetService<IBaseConfiguration>();
+				return new GoogleIdentityProvider(configurationProvider.GoogleAuthenticationSettings);
+			});
+
+			services.AddSingleton<IExternalIdentityProviderFactory, ExternalIdentityProviderFactory>();
+
+			services.AddRefitClient<IFacebookUserClient>()
+						.ConfigureHttpClient(c => c.BaseAddress = new Uri(Constants.Secrets.IdentityProviderSettings.Facebook.GraphBaseUri))
+						.AddHttpMessageHandler<HttpBootstrapHandler>();
+
+			services.AddSingleton<IFacebookUserServiceClient, FacebookUserServiceClient>();
+
 		}
 
 		/// <summary>

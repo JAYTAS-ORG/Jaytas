@@ -1,13 +1,9 @@
 ﻿using Jaytas.Omilos.Common.Disposable;
-using Jaytas.Omilos.Data.EntityFramework.BaseImplementations;
 using Jaytas.Omilos.Web.Account.Data.DbContext;
+using Jaytas.Omilos.Web.Account.Data.Repositories.Interfaces;
 using Jaytas.Omilos.Web.Account.DomainModel;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Jaytas.Omilos.Web.Account.Data.Repositories
@@ -32,7 +28,7 @@ namespace Jaytas.Omilos.Web.Account.Data.Repositories
 		/// 
 		/// </summary>
 		/// <returns></returns>
-		public async Task<IEnumerable<Role>> GetAllRolesAsync()
+		public async Task<IEnumerable<Role>> GetAllAsync()
 		{
 			return await _userDbContext.Roles.ToListAsync();
 		}

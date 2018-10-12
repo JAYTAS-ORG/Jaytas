@@ -9,7 +9,7 @@ namespace Jaytas.Omilos.Common.Domain
 	/// 
 	/// </summary>
 	/// 
-	public class DefaultBaseFieldMapper : IBaseFieldMapper
+	public class DefaultAuditableBaseFieldMapper : IAuditableBaseFieldMapper
 	{
 		/// <summary>
 		/// 

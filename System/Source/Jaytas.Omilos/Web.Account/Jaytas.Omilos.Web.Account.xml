@@ -42,6 +42,36 @@
             </summary>
             <param name="services"></param>
         </member>
+        <member name="T:Jaytas.Omilos.Web.Account.Business.AccountProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Business.AccountProvider.#ctor(Jaytas.Omilos.ServiceClient.User.Interfaces.IFacebookUserServiceClient)">
+            <summary>
+            
+            </summary>
+            <param name="facebookUserServiceClient"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Business.AccountProvider.AcquireFacebookAccessToken(Jaytas.Omilos.Web.Service.Models.Account.ExternalSigninRequest)">
+            <summary>
+            
+            </summary>
+            <param name="signinRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Account.Business.Interfaces.IAccountProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Business.Interfaces.IAccountProvider.AcquireFacebookAccessToken(Jaytas.Omilos.Web.Service.Models.Account.ExternalSigninRequest)">
+            <summary>
+            
+            </summary>
+            <param name="signinRequest"></param>
+            <returns></returns>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Account.Business.IRoleProvider">
             <summary>
             This interface should implement in order to provide <see cref="T:Jaytas.Omilos.Web.Account.DomainModel.Role"/>s.
@@ -58,7 +88,7 @@
             
             </summary>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Business.RoleProvider.#ctor(Jaytas.Omilos.Web.Account.Data.Repositories.IRoleRepository)">
+        <member name="M:Jaytas.Omilos.Web.Account.Business.RoleProvider.#ctor(Jaytas.Omilos.Web.Account.Data.Repositories.Interfaces.IRoleRepository)">
             <summary>
             
             </summary>
@@ -119,6 +149,16 @@
             DbSet for Roles entity.
             </summary>
         </member>
+        <member name="P:Jaytas.Omilos.Web.Account.Data.DbContext.UserDbContext.Users">
+            <summary>
+            DbSet for Users entity.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.Data.DbContext.UserDbContext.UserRoles">
+            <summary>
+            DbSet for UserRole entity.
+            </summary>
+        </member>
         <member name="M:Jaytas.Omilos.Web.Account.Data.DbContext.UserDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <summary>
             
@@ -144,12 +184,87 @@
             </summary>
             <param name="builder"></param>
         </member>
-        <member name="T:Jaytas.Omilos.Web.Account.Data.Repositories.IRoleRepository">
+        <member name="T:Jaytas.Omilos.Web.Account.Data.Map.UserFluentMap">
             <summary>
             
             </summary>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.IRoleRepository.GetAllRolesAsync">
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Map.UserFluentMap.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jaytas.Omilos.Web.Account.Data.Map.RoleFluentMap" /> class.
+            </summary>
+            <param name="tableName"></param>
+            <param name="schema"></param>
+            <param name="isDatabaseGenerated"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Map.UserFluentMap.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Jaytas.Omilos.Web.Account.DomainModel.User})">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Map.UserFluentMap.ConfigureKey(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Jaytas.Omilos.Web.Account.DomainModel.User})">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Account.Data.Map.UserLoginDetailFluentMap">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Map.UserLoginDetailFluentMap.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jaytas.Omilos.Web.Account.Data.Map.RoleFluentMap" /> class.
+            </summary>
+            <param name="tableName"></param>
+            <param name="schema"></param>
+            <param name="isDatabaseGenerated"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Map.UserLoginDetailFluentMap.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Jaytas.Omilos.Web.Account.DomainModel.UserLoginDetail})">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Map.UserLoginDetailFluentMap.ConfigureKey(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Jaytas.Omilos.Web.Account.DomainModel.UserLoginDetail})">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Account.Data.Map.UserRoleFluentMap">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Map.UserRoleFluentMap.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jaytas.Omilos.Web.Account.Data.Map.RoleFluentMap" /> class.
+            </summary>
+            <param name="tableName"></param>
+            <param name="schema"></param>
+            <param name="isDatabaseGenerated"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Map.UserRoleFluentMap.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Jaytas.Omilos.Web.Account.DomainModel.UserRole})">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Map.UserRoleFluentMap.ConfigureKey(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Jaytas.Omilos.Web.Account.DomainModel.UserRole})">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Account.Data.Repositories.Interfaces.IRoleRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.Interfaces.IRoleRepository.GetAllAsync">
             <summary>
             
             </summary>
@@ -166,7 +281,7 @@
             </summary>
             <param name="userDbContext"></param>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.GetAllRolesAsync">
+        <member name="M:Jaytas.Omilos.Web.Account.Data.Repositories.RoleRepository.GetAllAsync">
             <summary>
             
             </summary>
@@ -197,6 +312,11 @@
             IsActive property represenation of database column.
             </summary>
         </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.Role.UserRoles">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Account.DomainModel.User">
             <summary>
             User Entity representation of database table.
@@ -222,14 +342,19 @@
             LastName property represenation of database column.
             </summary>
         </member>
-        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.User.Email">
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.User.EmailId">
             <summary>
             Email property represenation of database column.
             </summary>
         </member>
-        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.User.Culture">
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.User.CountryCode">
             <summary>
-            Culture property represenation of database column.
+            Cuntry code property represenation of database column.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.User.PhoneNumber">
+            <summary>
+            Phonenumber property represenation of database column.
             </summary>
         </member>
         <member name="P:Jaytas.Omilos.Web.Account.DomainModel.User.IsActive">
@@ -242,12 +367,52 @@
             UserRoles Entity represenation of database Table.
             </summary>
         </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.User.UserLoginDetail">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Account.DomainModel.UserLoginDetail">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserLoginDetail.UserId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserLoginDetail.Password">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserLoginDetail.Salt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserLoginDetail.FacebookId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserLoginDetail.GoogleId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserLoginDetail.User">
+            <summary>
+            User who owns this login details
+            </summary>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Account.DomainModel.UserRole">
             <summary>
             UserRole Entity representation of database table.
             </summary>
         </member>
-        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserRole.GraphId">
+        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserRole.UserId">
             <summary>
             UserId property represenation of database column.
             </summary>
@@ -279,7 +444,7 @@
         </member>
         <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserRole.User">
             <summary>
-            User Entity represenation of database table.
+            
             </summary>
         </member>
         <member name="T:Jaytas.Omilos.Web.Account.Startup">
@@ -310,11 +475,18 @@
             
             </summary>
         </member>
-        <member name="M:Web.Account.Controllers.AccountController.#ctor(AutoMapper.IMapper)">
+        <member name="M:Web.Account.Controllers.AccountController.#ctor(AutoMapper.IMapper,Jaytas.Omilos.Web.Account.Business.Interfaces.IAccountProvider)">
             <summary>
             
             </summary>
             <param name="mapper"></param>
+            <param name="accountProvider"></param>
+        </member>
+        <member name="M:Web.Account.Controllers.AccountController.FacebookSignin(Jaytas.Omilos.Web.Service.Models.Account.ExternalSigninRequest)">
+            <summary>
+            Gets all the roles from the table.
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>

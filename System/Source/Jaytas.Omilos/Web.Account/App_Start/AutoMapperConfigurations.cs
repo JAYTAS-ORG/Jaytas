@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Jaytas.Omilos.Web.Mapping.Profiles;
+using Jaytas.Omilos.Web.Service.Models.Account;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,7 @@ namespace Jaytas.Omilos.Web.Account.App_Start
 		{
 			public WebProfile()
 			{
+				CreateMap<string, SigninResponse>().ForMember(response => response.AccessToken, domain => domain.MapFrom(dom => dom));
 			}
 
 			/// <summary>
