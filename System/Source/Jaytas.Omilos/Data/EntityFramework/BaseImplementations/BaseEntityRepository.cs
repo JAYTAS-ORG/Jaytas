@@ -1,9 +1,5 @@
 ﻿using Jaytas.Omilos.Common.Disposable;
 using Jaytas.Omilos.Data.EntityFramework.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Transactions;
 
 namespace Jaytas.Omilos.Data.EntityFramework.BaseImplementations
 {

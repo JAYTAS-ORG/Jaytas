@@ -38,7 +38,7 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// </summary>
 		/// <param name="entity"></param>
 		/// <returns></returns>
-		public async Task<TBaseEntityType> AddAsync(TEntity entity)
+		public virtual async Task<TBaseEntityType> AddAsync(TEntity entity)
 		{
 			await _dbSet.AddAsync(entity);
 			return entity.Id;
@@ -49,7 +49,7 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// </summary>
 		/// <param name="entities"></param>
 		/// <returns></returns>
-		public async Task AddRangeAsync(IEnumerable<TEntity> entities)
+		public virtual async Task AddRangeAsync(IEnumerable<TEntity> entities)
 		{
 			await _dbSet.AddRangeAsync(entities);
 		}
@@ -58,7 +58,7 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// 
 		/// </summary>
 		/// <param name="expression"></param>
-		public async Task DeleteAsync(Expression<Func<TEntity, bool>> expression)
+		public virtual async Task DeleteAsync(Expression<Func<TEntity, bool>> expression)
 		{
 			var entities = await GetAsync(expression);
 			_dbSet.RemoveRange(entities);
@@ -69,7 +69,7 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// </summary>
 		/// <param name="entity"></param>
 		/// <returns></returns>
-		public Task DeleteAsync(TEntity entity)
+		public virtual Task DeleteAsync(TEntity entity)
 		{
 			_dbSet.Remove(entity);
 			return Task.CompletedTask;
@@ -80,7 +80,7 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
-		public async Task DeleteAsync(TBaseEntityType id)
+		public virtual async Task DeleteAsync(TBaseEntityType id)
 		{
 			var entity = await GetAsync(id);
 			await DeleteAsync(entity);
@@ -91,7 +91,7 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
-		public async Task<TEntity> GetAsync(TBaseEntityType id)
+		public virtual async Task<TEntity> GetAsync(TBaseEntityType id)
 		{
 			return await _dbSet.FindAsync(id);
 		}
@@ -101,7 +101,7 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// </summary>
 		/// <param name="expression"></param>
 		/// <returns></returns>
-		public async Task<IEnumerable<TEntity>> GetAsync(Expression<Func<TEntity, bool>> expression)
+		public virtual async Task<IEnumerable<TEntity>> GetAsync(Expression<Func<TEntity, bool>> expression)
 		{
 			return await _dbSet.Where(expression).ToListAsync();
 		}
@@ -111,7 +111,7 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// </summary>
 		/// <param name="entity"></param>
 		/// <returns></returns>
-		public async Task UpdateAsync(TEntity entity)
+		public virtual async Task UpdateAsync(TEntity entity)
 		{
 			_dbSet.Update(entity);
 			await Task.CompletedTask;
@@ -122,7 +122,7 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// </summary>
 		/// <param name="entities"></param>
 		/// <returns></returns>
-		public async Task UpdateAsync(IEnumerable<TEntity> entities)
+		public virtual async Task UpdateAsync(IEnumerable<TEntity> entities)
 		{
 			_dbSet.UpdateRange(entities);
 			await Task.CompletedTask;
