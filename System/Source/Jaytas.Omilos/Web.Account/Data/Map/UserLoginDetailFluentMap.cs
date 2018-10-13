@@ -23,7 +23,7 @@ namespace Jaytas.Omilos.Web.Service.Account.Data.Map
 		/// <param name="schema"></param>
 		/// <param name="isDatabaseGenerated"></param>
 		public UserLoginDetailFluentMap(string tableName, string schema, bool isDatabaseGenerated) 
-				: base(tableName, schema, isDatabaseGenerated, new Common.Domain.CustomBaseFieldMapper(LoginDetailFeildMappings.PrimaryKey))
+				: base(tableName, schema, isDatabaseGenerated, new Common.Domain.CustomBaseFieldMapper(CustomFeildMappings.UserId))
 		{
 		}
 
@@ -36,7 +36,7 @@ namespace Jaytas.Omilos.Web.Service.Account.Data.Map
 			builder.ToTable(TableName, Schema);
 
 			builder.Property(col => col.Id)
-				.HasColumnName(LoginDetailFeildMappings.PrimaryKey)
+				.HasColumnName(CustomFeildMappings.UserId)
 				.IsRequired();
 			
 			builder.Property(col => col.Salt)

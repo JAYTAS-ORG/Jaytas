@@ -50,10 +50,11 @@ namespace Jaytas.Omilos.Web.Service.Account.Data.DbContext
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
-			modelBuilder.ApplyConfiguration(new RoleFluentMap(Constants.Tables.Role, Constants.Schemas.Account, true));
-			modelBuilder.ApplyConfiguration(new UserFluentMap(Constants.Tables.User, Constants.Schemas.Account, true));
-			modelBuilder.ApplyConfiguration(new UserLoginDetailFluentMap(Constants.Tables.UserLoginDetail, Constants.Schemas.Account, false));
-			modelBuilder.ApplyConfiguration(new UserRoleFluentMap(Constants.Tables.UserRole, Constants.Schemas.Account, true));
+
+			modelBuilder.ApplyConfiguration(new RoleFluentMap(Constants.Schemas.Account.Tables.Role, Constants.Schemas.Account.Name, true));
+			modelBuilder.ApplyConfiguration(new UserFluentMap(Constants.Schemas.Account.Tables.User, Constants.Schemas.Account.Name, true));
+			modelBuilder.ApplyConfiguration(new UserLoginDetailFluentMap(Constants.Schemas.Account.Tables.UserLoginDetail, Constants.Schemas.Account.Name, false));
+			modelBuilder.ApplyConfiguration(new UserRoleFluentMap(Constants.Schemas.Account.Tables.UserRole, Constants.Schemas.Account.Name, true));
 		}
 	}
 }

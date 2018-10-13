@@ -28,7 +28,7 @@ namespace Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations
 		/// <param name="isDatabaseGenerated">Value of this generated at database</param>
 		protected BaseLongEntityConfiguration(string tableName, string schema, bool isDatabaseGenerated, IBaseFieldMapper baseFieldMapper)
 		{
-			Schema = string.IsNullOrWhiteSpace(schema) ? Constants.Schemas.Dbo : schema;
+			Schema = string.IsNullOrWhiteSpace(schema) ? Constants.Schemas.Dbo.Name : schema;
 			TableName = tableName;
 			_baseFieldMapper = baseFieldMapper;
 			_isDatabaseGenerated = isDatabaseGenerated;

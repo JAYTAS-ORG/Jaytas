@@ -1,4 +1,6 @@
-﻿using Jaytas.Omilos.Data.EntityFramework.BaseImplementations;
+﻿using Jaytas.Omilos.Common;
+using Jaytas.Omilos.Data.EntityFramework.BaseImplementations;
+using Jaytas.Omilos.Web.Service.Campaign.Data.Map;
 using Jaytas.Omilos.Web.Service.Campaign.DomainModel;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -55,6 +57,13 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.DbContext
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
+
+			modelBuilder.ApplyConfiguration(new CampaignFluentMap(Constants.Schemas.Campaign.Tables.Campaign, Constants.Schemas.Campaign.Name, true));
+			modelBuilder.ApplyConfiguration(new CampaignInstanceFluentMap(Constants.Schemas.Campaign.Tables.CampaignInstance, Constants.Schemas.Campaign.Name, true));
+			modelBuilder.ApplyConfiguration(new CampaignInstanceExceptionFluentMap(Constants.Schemas.Campaign.Tables.CampaignInstanceException, Constants.Schemas.Campaign.Name, true));
+			modelBuilder.ApplyConfiguration(new MessageTemplateFluentMap(Constants.Schemas.Campaign.Tables.MessageTemplate, Constants.Schemas.Campaign.Name, true));
+			modelBuilder.ApplyConfiguration(new ScheduleFluentMap(Constants.Schemas.Campaign.Tables.Schedule, Constants.Schemas.Campaign.Name, true));
+			modelBuilder.ApplyConfiguration(new RecurrencePatternFluentMap(Constants.Schemas.Campaign.Tables.ScheduleRecurrencePattern, Constants.Schemas.Campaign.Name, true));
 		}
 	}
 }

@@ -25,7 +25,7 @@ namespace Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations
 		protected BaseGuidEntityConfiguration(string tableName, string schema)
 		{
 			_tableName = tableName;
-			_schema = string.IsNullOrWhiteSpace(schema) ? Constants.Schemas.Dbo : schema;
+			_schema = string.IsNullOrWhiteSpace(schema) ? Constants.Schemas.Dbo.Name : schema;
 		}
 
 		/// <summary>

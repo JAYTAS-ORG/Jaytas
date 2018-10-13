@@ -26,7 +26,7 @@ namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 		/// <summary>
 		/// 
 		/// </summary>
-		public int? DayOfWeek { get; set; }
+		public Days? DayOfWeek { get; set; }
 
 		/// <summary>
 		/// 
@@ -41,7 +41,7 @@ namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 		/// <summary>
 		/// 
 		/// </summary>
-		public int? MonthOfYear { get; set; }
+		public Months? MonthOfYear { get; set; }
 
 		/// <summary>
 		/// 
