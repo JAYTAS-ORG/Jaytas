@@ -7,17 +7,22 @@ namespace Jaytas.Omilos.Web.Service.Models.Account
 	/// <summary>
 	/// 
 	/// </summary>
-	public class UserData
+	public class User
 	{
 		/// <summary>
 		/// 
 		/// </summary>
-		public Common.Enumerations.ExternalIdentityProviders ExternalIdentityProvider { get; set; }
+		public Guid UserId { get; set; }
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public string Id { get; set; }
+		public string FirstName { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public string LastName { get; set; }
 
 		/// <summary>
 		/// 

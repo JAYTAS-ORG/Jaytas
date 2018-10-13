@@ -12,3 +12,5 @@ C:\Jaytas\System\Source\Jaytas.Omilos\Security\bin\Debug\netcoreapp2.1\Jaytas.Om
 C:\Jaytas\System\Source\Jaytas.Omilos\Security\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Common.pdb
 C:\Jaytas\System\Source\Jaytas.Omilos\Security\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Configuration.pdb
 C:\Jaytas\System\Source\Jaytas.Omilos\Security\obj\Debug\netcoreapp2.1\Security.csproj.CopyComplete
+C:\Jaytas\System\Source\Jaytas.Omilos\Security\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Web.Service.Models.dll
+C:\Jaytas\System\Source\Jaytas.Omilos\Security\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Web.Service.Models.pdb

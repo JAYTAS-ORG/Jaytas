@@ -1,4 +1,5 @@
-﻿using Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations;
+﻿using Jaytas.Omilos.Common;
+using Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations;
 using Jaytas.Omilos.Web.Account.DomainModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -22,7 +23,7 @@ namespace Jaytas.Omilos.Web.Account.Data.Map
 		/// <param name="schema"></param>
 		/// <param name="isDatabaseGenerated"></param>
 		public UserLoginDetailFluentMap(string tableName, string schema, bool isDatabaseGenerated) 
-				: base(tableName, schema, isDatabaseGenerated, new Common.Domain.CustomBaseFieldMapper())
+				: base(tableName, schema, isDatabaseGenerated, new Common.Domain.CustomBaseFieldMapper(LoginDetailFeildMappings.PrimaryKey))
 		{
 		}
 
@@ -32,12 +33,12 @@ namespace Jaytas.Omilos.Web.Account.Data.Map
 		/// <param name="builder"></param>
 		public override void Configure(EntityTypeBuilder<UserLoginDetail> builder)
 		{
-			base.Configure(builder);
+			builder.ToTable(TableName, Schema);
 
-			builder.Property(col => col.UserId)
-				 .HasColumnName(nameof(UserLoginDetail.UserId))
-				 .IsRequired();
-
+			builder.Property(col => col.Id)
+				.HasColumnName(LoginDetailFeildMappings.PrimaryKey)
+				.IsRequired();
+			
 			builder.Property(col => col.Salt)
 				 .HasColumnName(nameof(UserLoginDetail.Salt))
 				 .HasMaxLength(50);
@@ -59,7 +60,9 @@ namespace Jaytas.Omilos.Web.Account.Data.Map
 		/// <param name="builder"></param>
 		public override void ConfigureKey(EntityTypeBuilder<UserLoginDetail> builder)
 		{
-			base.ConfigureKey(builder);
+			builder.HasOne(user => user.User)
+				   .WithOne(user => user.UserLoginDetail)
+				   .HasForeignKey<User>(user => user.Id);
 		}
 	}
 }

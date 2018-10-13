@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "6b9c3b98d96288883944a3fae2c6c2fd0954235f"
+    "signature": "5507d29c21c1ce37cd2e649fadd2efd0e462a0f5"
   },
   "compilationOptions": {},
   "targets": {
@@ -16,6 +16,17 @@
         },
         "runtime": {
           "Jaytas.Omilos.ServiceClient.dll": {}
+        }
+      },
+      "AutoMapper/7.0.1": {
+        "dependencies": {
+          "System.ValueTuple": "4.5.0"
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/AutoMapper.dll": {
+            "assemblyVersion": "7.0.1.0",
+            "fileVersion": "7.0.1.0"
+          }
         }
       },
       "Microsoft.Extensions.Configuration/2.1.1": {
@@ -783,6 +794,7 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
+      "System.ValueTuple/4.5.0": {},
       "System.Xml.ReaderWriter/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -873,8 +885,10 @@
       },
       "Jaytas.Omilos.Security/1.0.0": {
         "dependencies": {
+          "AutoMapper": "7.0.1",
           "Jaytas.Omilos.Common": "1.0.0",
           "Jaytas.Omilos.Configuration": "1.0.0",
+          "Jaytas.Omilos.Web.Service.Models": "1.0.0",
           "Microsoft.IdentityModel.Tokens": "5.3.0",
           "Newtonsoft.Json": "11.0.2",
           "Refit": "4.6.48",
@@ -885,6 +899,9 @@
         }
       },
       "Jaytas.Omilos.Web.Service.Models/1.0.0": {
+        "dependencies": {
+          "Jaytas.Omilos.Common": "1.0.0"
+        },
         "runtime": {
           "Jaytas.Omilos.Web.Service.Models.dll": {}
         }
@@ -896,6 +913,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AutoMapper/7.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6xHbhsW09sWjjYuE1sqhYn25PQzB6UEUVPME5uhlaIz2NR2+L3+FGbVxvknJKug1BLp6VTLxDb5RcGXKMm0ieQ==",
+      "path": "automapper/7.0.1",
+      "hashPath": "automapper.7.0.1.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/2.1.1": {
       "type": "package",
@@ -1428,6 +1452,13 @@
       "sha512": "sha512-npvJkVKl5rKXrtl1Kkm6OhOUaYGEiF9wFbppFRWSMoApKzt2PiPHT2Bb8a5sAWxprvdOAtvaARS9QYMznEUtug==",
       "path": "system.threading.tasks.extensions/4.3.0",
       "hashPath": "system.threading.tasks.extensions.4.3.0.nupkg.sha512"
+    },
+    "System.ValueTuple/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xZtSZNEHGa+tGsKuP4sh257vxJ/yemShz4EusmomkynMzuEDDjVaErBNewpzEF6swUgbcrSQAX3ELsEp1zCOwA==",
+      "path": "system.valuetuple/4.5.0",
+      "hashPath": "system.valuetuple.4.5.0.nupkg.sha512"
     },
     "System.Xml.ReaderWriter/4.3.0": {
       "type": "package",

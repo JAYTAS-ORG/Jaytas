@@ -4,6 +4,8 @@ using Jaytas.Omilos.Common.Exceptions;
 using Jaytas.Omilos.Common.Web;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 
 namespace Jaytas.Omilos.Web.Mapping.Profiles
@@ -23,6 +25,7 @@ namespace Jaytas.Omilos.Web.Mapping.Profiles
 			FreindlyErrorTypeConverter _errorTypeConverter = new FreindlyErrorTypeConverter();
 			CreateMap<ApiErrors, FriendlyError>().ConvertUsing(_errorTypeConverter);
 			CreateMap<BusinessValidationException, FriendlyError>().ConvertUsing(_errorTypeConverter);
+			CreateMap<Service.Models.Account.User, List<Claim>>().ConvertUsing(Map);
 		}
 
 		/// <summary>
@@ -32,5 +35,21 @@ namespace Jaytas.Omilos.Web.Mapping.Profiles
 		/// The name of the profile.
 		/// </value>
 		public override string ProfileName => typeof(GlobalMappingProfile).FullName;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="user"></param>
+		/// <returns></returns>
+		private List<Claim> Map(Service.Models.Account.User user)
+		{
+			return new List<Claim>()
+			{
+				new Claim(ClaimTypes.Email, user.Email),
+				new Claim(ClaimTypes.Upn, user.UserId.ToString()),
+				new Claim(ClaimTypes.GivenName, user.FirstName ?? string.Empty),
+				new Claim(ClaimTypes.Surname, user.LastName ?? string.Empty)
+			};
+		}
 	}
 }

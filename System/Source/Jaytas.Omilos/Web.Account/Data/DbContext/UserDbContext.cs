@@ -39,6 +39,11 @@ namespace Jaytas.Omilos.Web.Account.Data.DbContext
 		public virtual DbSet<UserRole> UserRoles { get; set; }
 
 		/// <summary>
+		/// DbSet for UserLoginDetail entity.
+		/// </summary>
+		public virtual DbSet<UserLoginDetail> UserLoginDetails { get; set; }
+
+		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="modelBuilder"></param>
@@ -47,7 +52,7 @@ namespace Jaytas.Omilos.Web.Account.Data.DbContext
 			base.OnModelCreating(modelBuilder);
 			modelBuilder.ApplyConfiguration(new RoleFluentMap(Constants.Tables.Role, Constants.Schemas.Account, true));
 			modelBuilder.ApplyConfiguration(new UserFluentMap(Constants.Tables.User, Constants.Schemas.Account, true));
-			//modelBuilder.ApplyConfiguration(new UserLoginDetailFluentMap(Constants.Tables.UserLoginDetail, Constants.Schemas.Account, true));
+			modelBuilder.ApplyConfiguration(new UserLoginDetailFluentMap(Constants.Tables.UserLoginDetail, Constants.Schemas.Account, false));
 			modelBuilder.ApplyConfiguration(new UserRoleFluentMap(Constants.Tables.UserRole, Constants.Schemas.Account, true));
 		}
 	}

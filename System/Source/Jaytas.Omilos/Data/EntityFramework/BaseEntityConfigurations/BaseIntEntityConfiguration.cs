@@ -39,11 +39,18 @@ namespace Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations
 			builder.ToTable(_tableName, _schema);
 
 			// Default shared properties
-			var property = builder.Property(x => x.Id)
+			builder.Property(x => x.Id)
 				.HasColumnName(_baseFieldMapper.Id)
 				.IsRequired();
 
-			property = _isDatabaseGenerated ? property.ValueGeneratedOnAdd() : property.ValueGeneratedNever();
+			if (_isDatabaseGenerated)
+			{
+				builder.Property(_baseFieldMapper.Id).ValueGeneratedOnAdd();
+			}
+			else
+			{
+				builder.Property(_baseFieldMapper.Id).ValueGeneratedNever();
+			}
 
 			ConfigureKey(builder);
 		}

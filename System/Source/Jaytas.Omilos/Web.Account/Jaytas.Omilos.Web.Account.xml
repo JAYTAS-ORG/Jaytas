@@ -31,6 +31,20 @@
             The name of the profile.
             </value>
         </member>
+        <member name="M:Jaytas.Omilos.Web.Account.App_Start.AutoMapperConfigurations.WebProfile.Map(Jaytas.Omilos.Web.Service.Models.Account.UserData)">
+            <summary>
+            
+            </summary>
+            <param name="userData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.App_Start.AutoMapperConfigurations.WebProfile.MapLoginDetail(Jaytas.Omilos.Web.Service.Models.Account.UserData)">
+            <summary>
+            
+            </summary>
+            <param name="userData"></param>
+            <returns></returns>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Account.App_Start.ServiceConfigurations">
             <summary>
             
@@ -47,17 +61,28 @@
             
             </summary>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Account.Business.AccountProvider.#ctor(Jaytas.Omilos.ServiceClient.User.Interfaces.IFacebookUserServiceClient)">
+        <member name="M:Jaytas.Omilos.Web.Account.Business.AccountProvider.#ctor(Jaytas.Omilos.ServiceClient.User.Interfaces.IFacebookUserServiceClient,AutoMapper.IMapper,Jaytas.Omilos.Web.Account.Data.Repositories.Interfaces.IUserRepository,Jaytas.Omilos.Security.TokenProvider.ITokenProvider)">
             <summary>
             
             </summary>
             <param name="facebookUserServiceClient"></param>
+            <param name="userRepository"></param>
+            <param name="mapper"></param>
+            <param name="tokenProvider"></param>
         </member>
         <member name="M:Jaytas.Omilos.Web.Account.Business.AccountProvider.AcquireFacebookAccessToken(Jaytas.Omilos.Web.Service.Models.Account.ExternalSigninRequest)">
             <summary>
             
             </summary>
             <param name="signinRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Business.AccountProvider.RegisterOrUpdateUserDataAsync(Jaytas.Omilos.Web.Account.DomainModel.User,Jaytas.Omilos.Web.Service.Models.Account.UserData)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <param name="userData"></param>
             <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Account.Business.Interfaces.IAccountProvider">
@@ -167,6 +192,11 @@
         <member name="P:Jaytas.Omilos.Web.Account.Data.DbContext.UserDbContext.UserRoles">
             <summary>
             DbSet for UserRole entity.
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Account.Data.DbContext.UserDbContext.UserLoginDetails">
+            <summary>
+            DbSet for UserLoginDetail entity.
             </summary>
         </member>
         <member name="M:Jaytas.Omilos.Web.Account.Data.DbContext.UserDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
@@ -398,11 +428,6 @@
             
             </summary>
         </member>
-        <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserLoginDetail.UserId">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="P:Jaytas.Omilos.Web.Account.DomainModel.UserLoginDetail.Password">
             <summary>
             
@@ -427,6 +452,13 @@
             <summary>
             User who owns this login details
             </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.DomainModel.UserLoginDetail.Equals(Jaytas.Omilos.Web.Account.DomainModel.UserLoginDetail)">
+            <summary>
+            
+            </summary>
+            <param name="destination"></param>
+            <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Account.DomainModel.UserRole">
             <summary>
@@ -496,7 +528,7 @@
             
             </summary>
         </member>
-        <member name="M:Web.Account.Controllers.AccountController.#ctor(AutoMapper.IMapper,Jaytas.Omilos.Web.Account.Business.Interfaces.IAccountProvider)">
+        <member name="M:Web.Account.Controllers.AccountController.#ctor(AutoMapper.IMapper,Jaytas.Omilos.Web.Account.Business.Interfaces.IAccountProvider,System.Security.Principal.IPrincipal)">
             <summary>
             
             </summary>

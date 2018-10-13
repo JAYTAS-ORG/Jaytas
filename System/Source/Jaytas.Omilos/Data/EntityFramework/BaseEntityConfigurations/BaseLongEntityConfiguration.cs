@@ -16,7 +16,7 @@ namespace Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations
 	/// <seealso cref="Microsoft.EntityFrameworkCore.IEntityTypeConfiguration{TEntity}"/>
 	public abstract class BaseLongEntityConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> where TEntity : LongEntity
 	{
-		string _tableName, _schema;
+		protected string TableName, Schema;
 		IBaseFieldMapper _baseFieldMapper;
 		bool _isDatabaseGenerated;
 
@@ -28,22 +28,29 @@ namespace Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations
 		/// <param name="isDatabaseGenerated">Value of this generated at database</param>
 		protected BaseLongEntityConfiguration(string tableName, string schema, bool isDatabaseGenerated, IBaseFieldMapper baseFieldMapper)
 		{
-			_schema = string.IsNullOrWhiteSpace(schema) ? Constants.Schemas.Dbo : schema;
-			_tableName = tableName;
+			Schema = string.IsNullOrWhiteSpace(schema) ? Constants.Schemas.Dbo : schema;
+			TableName = tableName;
 			_baseFieldMapper = baseFieldMapper;
 			_isDatabaseGenerated = isDatabaseGenerated;
 		}
 
 		public virtual void Configure(EntityTypeBuilder<TEntity> builder)
 		{
-			builder.ToTable(_tableName, _schema);
+			builder.ToTable(TableName, Schema);
 
 			// Default shared properties
-			var property = builder.Property(x => x.Id)
+			builder.Property(x => x.Id)
 				.HasColumnName(_baseFieldMapper.Id)
 				.IsRequired();
 
-			property = _isDatabaseGenerated ? property.ValueGeneratedOnAdd() : property.ValueGeneratedNever();
+			if(_isDatabaseGenerated)
+			{
+				builder.Property(_baseFieldMapper.Id).ValueGeneratedOnAdd();
+			}
+			else
+			{
+				builder.Property(_baseFieldMapper.Id).ValueGeneratedNever();
+			}
 
 			ConfigureKey(builder);
 		}

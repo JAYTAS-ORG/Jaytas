@@ -16,7 +16,8 @@ namespace Jaytas.Omilos.Security.TokenProvider
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="user"></param>
 		/// <returns></returns>
-		string AcquireToken();
+		string AcquireToken(Web.Service.Models.Account.User user);
 	}
 }

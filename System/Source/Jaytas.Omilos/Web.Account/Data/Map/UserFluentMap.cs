@@ -66,11 +66,11 @@ namespace Jaytas.Omilos.Web.Account.Data.Map
 		{
 			base.ConfigureKey(builder);
 
-			builder.HasOne<UserLoginDetail>(user => user.UserLoginDetail)
+			builder.HasOne(user => user.UserLoginDetail)
 				   .WithOne(loginDetail => loginDetail.User)
-				   .HasForeignKey<UserLoginDetail>(loginDetail => loginDetail.UserId);
+				   .HasForeignKey<UserLoginDetail>(loginDetail => loginDetail.Id);
 
-			builder.HasMany<UserRole>(user => user.UserRoles)
+			builder.HasMany(user => user.UserRoles)
 				   .WithOne(userRole => userRole.User)
 				   .HasForeignKey(user => user.UserId);
 		}

@@ -1,15 +1,17 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "70bac0fcec52a65ba8673293dd63cf616337efa7"
+    "signature": "790507f7ca404ae310880b1a2d3b33293ecba2d7"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.1": {
       "Jaytas.Omilos.Security/1.0.0": {
         "dependencies": {
+          "AutoMapper": "7.0.1",
           "Jaytas.Omilos.Common": "1.0.0",
           "Jaytas.Omilos.Configuration": "1.0.0",
+          "Jaytas.Omilos.Web.Service.Models": "1.0.0",
           "Microsoft.IdentityModel.Tokens": "5.3.0",
           "Newtonsoft.Json": "11.0.2",
           "Refit": "4.6.48",
@@ -17,6 +19,17 @@
         },
         "runtime": {
           "Jaytas.Omilos.Security.dll": {}
+        }
+      },
+      "AutoMapper/7.0.1": {
+        "dependencies": {
+          "System.ValueTuple": "4.5.0"
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/AutoMapper.dll": {
+            "assemblyVersion": "7.0.1.0",
+            "fileVersion": "7.0.1.0"
+          }
         }
       },
       "Microsoft.Extensions.Configuration/2.1.1": {
@@ -717,6 +730,7 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
+      "System.ValueTuple/4.5.0": {},
       "System.Xml.ReaderWriter/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -804,6 +818,14 @@
         "runtime": {
           "Jaytas.Omilos.Configuration.dll": {}
         }
+      },
+      "Jaytas.Omilos.Web.Service.Models/1.0.0": {
+        "dependencies": {
+          "Jaytas.Omilos.Common": "1.0.0"
+        },
+        "runtime": {
+          "Jaytas.Omilos.Web.Service.Models.dll": {}
+        }
       }
     }
   },
@@ -812,6 +834,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AutoMapper/7.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6xHbhsW09sWjjYuE1sqhYn25PQzB6UEUVPME5uhlaIz2NR2+L3+FGbVxvknJKug1BLp6VTLxDb5RcGXKMm0ieQ==",
+      "path": "automapper/7.0.1",
+      "hashPath": "automapper.7.0.1.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/2.1.1": {
       "type": "package",
@@ -1303,6 +1332,13 @@
       "path": "system.threading.tasks.extensions/4.3.0",
       "hashPath": "system.threading.tasks.extensions.4.3.0.nupkg.sha512"
     },
+    "System.ValueTuple/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xZtSZNEHGa+tGsKuP4sh257vxJ/yemShz4EusmomkynMzuEDDjVaErBNewpzEF6swUgbcrSQAX3ELsEp1zCOwA==",
+      "path": "system.valuetuple/4.5.0",
+      "hashPath": "system.valuetuple.4.5.0.nupkg.sha512"
+    },
     "System.Xml.ReaderWriter/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1337,6 +1373,11 @@
       "sha512": ""
     },
     "Jaytas.Omilos.Configuration/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Jaytas.Omilos.Web.Service.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -39,7 +39,10 @@ namespace Jaytas.Omilos.ServiceClient.User.Implementations
 				Fields = Constants.Secrets.IdentityProviderSettings.Scope.Email
 			};
 
-			return await _facebookGraphClient.WhoAmI(graphRequest);
+			var userData = await _facebookGraphClient.WhoAmI(graphRequest);
+			userData.ExternalIdentityProvider = Common.Enumerations.ExternalIdentityProviders.Facebook;
+
+			return userData;
 		}
 	}
 }

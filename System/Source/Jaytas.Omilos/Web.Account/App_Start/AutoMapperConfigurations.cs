@@ -39,6 +39,15 @@ namespace Jaytas.Omilos.Web.Account.App_Start
 			public WebProfile()
 			{
 				CreateMap<string, SigninResponse>().ForMember(response => response.AccessToken, domain => domain.MapFrom(dom => dom));
+
+				CreateMap<UserData, DomainModel.User>().ConvertUsing(Map);
+				CreateMap<UserData, DomainModel.UserLoginDetail>().ConstructUsing(MapLoginDetail);
+
+				CreateMap<DomainModel.User, User>()
+						.ForMember(api => api.UserId, domain => domain.MapFrom(dom => dom.GraphId))
+						.ForMember(api => api.FirstName, domain => domain.MapFrom(dom => dom.FirstName))
+						.ForMember(api => api.LastName, domain => domain.MapFrom(dom => dom.LastName))
+						.ForMember(api => api.Email, domain => domain.MapFrom(dom => dom.EmailId));
 			}
 
 			/// <summary>
@@ -48,6 +57,46 @@ namespace Jaytas.Omilos.Web.Account.App_Start
 			/// The name of the profile.
 			/// </value>
 			public override string ProfileName => typeof(WebProfile).FullName;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="userData"></param>
+			/// <returns></returns>
+			private DomainModel.User Map(UserData userData)
+			{
+				var user = new DomainModel.User
+				{
+					GraphId = Guid.NewGuid(),
+					EmailId = userData.Email,
+					IsActive = true,
+					UserLoginDetail = MapLoginDetail(userData)
+				};
+
+				return user;
+			}
+
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="userData"></param>
+			/// <returns></returns>
+			private DomainModel.UserLoginDetail MapLoginDetail(UserData userData)
+			{
+				var userLoginDetail = new DomainModel.UserLoginDetail();
+
+				if (userData.ExternalIdentityProvider == Common.Enumerations.ExternalIdentityProviders.Facebook)
+				{
+					userLoginDetail.FacebookId = userData.Id;
+				}
+
+				if (userData.ExternalIdentityProvider == Common.Enumerations.ExternalIdentityProviders.Google)
+				{
+					userLoginDetail.GoogleId = userData.Id;
+				}
+
+				return userLoginDetail;
+			}
 		}
 	}
 }

@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Jaytas.Omilos.Common;
-using Jaytas.Omilos.Common.Domain.Interfaces;
 using Jaytas.Omilos.Common.Enumerations;
 using Jaytas.Omilos.Common.Exceptions;
 using Jaytas.Omilos.Common.Models;
@@ -10,8 +9,6 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Jaytas.Omilos.Web.Controllers

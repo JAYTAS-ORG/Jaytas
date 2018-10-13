@@ -1,14 +1,10 @@
 ﻿using AutoMapper;
-using Jaytas.Omilos.Common;
 using Jaytas.Omilos.Common.Web;
 using Jaytas.Omilos.Web.Account.Business;
 using Jaytas.Omilos.Web.Controllers;
-using Jaytas.Omilos.Web.Controllers.Commands;
 using Jaytas.Omilos.Web.Service.Models.Account;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 

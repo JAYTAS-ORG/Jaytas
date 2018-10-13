@@ -10,12 +10,7 @@ namespace Jaytas.Omilos.Web.Account.DomainModel
 	/// 
 	/// </summary>
 	public class UserLoginDetail : LongEntity
-	{
-		/// <summary>
-		/// 
-		/// </summary>
-		public long UserId { get; set; }
-		
+	{		
 		/// <summary>
 		/// 
 		/// </summary>
@@ -39,6 +34,19 @@ namespace Jaytas.Omilos.Web.Account.DomainModel
 		/// <summary>
 		/// User who owns this login details
 		/// </summary>
-		public User User { get; set; }
+		public virtual User User { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="destination"></param>
+		/// <returns></returns>
+		public bool Equals(UserLoginDetail destination)
+		{
+			return FacebookId == destination.FacebookId &&
+				   GoogleId == destination.GoogleId &&
+				   Salt == destination.Salt &&
+				   Password == destination.Password;
+		}
 	}
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
 using Jaytas.Omilos.Common;
@@ -9,7 +6,6 @@ using Jaytas.Omilos.Common.Web;
 using Jaytas.Omilos.Web.Account.Business.Interfaces;
 using Jaytas.Omilos.Web.Controllers;
 using Jaytas.Omilos.Web.Service.Models.Account;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Account.Controllers

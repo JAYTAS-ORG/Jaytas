@@ -21,7 +21,7 @@ namespace Jaytas.Omilos.Web.Repositories
 								  IBaseEntity<TBaseEntityType> where TBaseEntityType : struct
 							where TContext : IDbContext
 	{
-		DbSet<TEntity> _dbSet;
+		protected DbSet<TEntity> DbSet;
 
 		/// <summary>
 		/// 
@@ -30,7 +30,7 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// <param name="dbSet"></param>
 		public CrudBaseEntityRepository(TContext dbContext, DbSet<TEntity> dbSet) : base(dbContext)
 		{
-			_dbSet = dbSet;
+			DbSet = dbSet;
 		}
 
 		/// <summary>
@@ -40,7 +40,15 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// <returns></returns>
 		public virtual async Task<TBaseEntityType> AddAsync(TEntity entity)
 		{
-			await _dbSet.AddAsync(entity);
+			try
+			{
+				await DbSet.AddAsync(entity);
+				await DbContext.SaveChangesAsync();
+			}
+			catch(Exception ex)
+			{
+				var ee = ex;
+			}
 			return entity.Id;
 		}
 
@@ -51,7 +59,8 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// <returns></returns>
 		public virtual async Task AddRangeAsync(IEnumerable<TEntity> entities)
 		{
-			await _dbSet.AddRangeAsync(entities);
+			await DbSet.AddRangeAsync(entities);
+			await DbContext.SaveChangesAsync();
 		}
 
 		/// <summary>
@@ -61,7 +70,8 @@ namespace Jaytas.Omilos.Web.Repositories
 		public virtual async Task DeleteAsync(Expression<Func<TEntity, bool>> expression)
 		{
 			var entities = await GetAsync(expression);
-			_dbSet.RemoveRange(entities);
+			DbSet.RemoveRange(entities);
+			await DbContext.SaveChangesAsync();
 		}
 
 		/// <summary>
@@ -69,10 +79,10 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// </summary>
 		/// <param name="entity"></param>
 		/// <returns></returns>
-		public virtual Task DeleteAsync(TEntity entity)
+		public virtual async Task DeleteAsync(TEntity entity)
 		{
-			_dbSet.Remove(entity);
-			return Task.CompletedTask;
+			DbSet.Remove(entity);
+			await DbContext.SaveChangesAsync();
 		}
 
 		/// <summary>
@@ -84,6 +94,7 @@ namespace Jaytas.Omilos.Web.Repositories
 		{
 			var entity = await GetAsync(id);
 			await DeleteAsync(entity);
+			await DbContext.SaveChangesAsync();
 		}
 
 		/// <summary>
@@ -93,7 +104,7 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// <returns></returns>
 		public virtual async Task<TEntity> GetAsync(TBaseEntityType id)
 		{
-			return await _dbSet.FindAsync(id);
+			return await DbSet.FindAsync(id);
 		}
 
 		/// <summary>
@@ -103,7 +114,7 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// <returns></returns>
 		public virtual async Task<IEnumerable<TEntity>> GetAsync(Expression<Func<TEntity, bool>> expression)
 		{
-			return await _dbSet.Where(expression).ToListAsync();
+			return await DbSet.Where(expression).ToListAsync();
 		}
 
 		/// <summary>
@@ -113,8 +124,8 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// <returns></returns>
 		public virtual async Task UpdateAsync(TEntity entity)
 		{
-			_dbSet.Update(entity);
-			await Task.CompletedTask;
+			DbSet.Update(entity);
+			await DbContext.SaveChangesAsync();
 		}
 
 		/// <summary>
@@ -124,8 +135,8 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// <returns></returns>
 		public virtual async Task UpdateAsync(IEnumerable<TEntity> entities)
 		{
-			_dbSet.UpdateRange(entities);
-			await Task.CompletedTask;
+			DbSet.UpdateRange(entities);
+			await DbContext.SaveChangesAsync();
 		}
 	}
 }
