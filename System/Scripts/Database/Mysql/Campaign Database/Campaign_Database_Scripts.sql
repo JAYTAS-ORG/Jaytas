@@ -1,6 +1,6 @@
 CREATE DATABASE 'campaign';
 
-CREATE TABLE 'campaign'.'campaigns' (
+CREATE TABLE 'campaign'.'campaign' (
   'Id' int(19) unsigned NOT NULL AUTO_INCREMENT,
   'CampaignId' varchar(36) NOT NULL,
   'Name' varchar(150) NOT NULL,
@@ -74,6 +74,7 @@ CREATE TABLE 'campaign'.'schedule' (
 
 CREATE TABLE 'campaign'.'schedule_recurrencepattern' (
   'ScheduleId' int(19) unsigned NOT NULL,
+  'RecurringType' int(11) NOT NULL,
   'SeparationCount' int(11) DEFAULT NULL,
   'MaxNumberOfOccurrences' int(11) DEFAULT NULL,
   'DayOfWeek' int(11) DEFAULT NULL,

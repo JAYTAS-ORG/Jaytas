@@ -2,9 +2,6 @@
 using Jaytas.Omilos.Web.Mapping.Profiles;
 using Jaytas.Omilos.Web.Service.Models.Account;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Jaytas.Omilos.Web.Account.App_Start
 {

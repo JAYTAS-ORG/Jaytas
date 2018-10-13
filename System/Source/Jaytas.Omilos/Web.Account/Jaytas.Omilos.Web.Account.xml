@@ -500,6 +500,17 @@
             
             </summary>
         </member>
+        <member name="T:Jaytas.Omilos.Web.Account.Program">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Account.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Account.Startup">
             <summary>
             

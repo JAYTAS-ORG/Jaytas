@@ -3,8 +3,15 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace Jaytas.Omilos.Web.Account
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public class Program : KestrelHostBuilderConfiguration
 	{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="args"></param>
 		public static void Main(string[] args)
 		{
 			CreateWebHostBuilder<Startup>(args).Build().Run();
