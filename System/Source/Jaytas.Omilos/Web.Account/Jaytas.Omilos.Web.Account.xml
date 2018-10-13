@@ -528,7 +528,7 @@
             
             </summary>
         </member>
-        <member name="M:Web.Account.Controllers.AccountController.#ctor(AutoMapper.IMapper,Jaytas.Omilos.Web.Account.Business.Interfaces.IAccountProvider,System.Security.Principal.IPrincipal)">
+        <member name="M:Web.Account.Controllers.AccountController.#ctor(AutoMapper.IMapper,Jaytas.Omilos.Web.Account.Business.Interfaces.IAccountProvider)">
             <summary>
             
             </summary>
