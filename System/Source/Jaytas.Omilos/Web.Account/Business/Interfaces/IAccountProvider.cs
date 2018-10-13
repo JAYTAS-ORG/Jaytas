@@ -2,7 +2,7 @@
 using Jaytas.Omilos.Web.Service.Models.Account;
 using System.Threading.Tasks;
 
-namespace Jaytas.Omilos.Web.Account.Business.Interfaces
+namespace Jaytas.Omilos.Web.Service.Account.Business.Interfaces
 {
 	/// <summary>
 	/// 

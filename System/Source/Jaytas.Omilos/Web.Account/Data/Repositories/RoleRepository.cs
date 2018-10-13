@@ -1,14 +1,14 @@
 ﻿using Jaytas.Omilos.Common.Disposable;
 using Jaytas.Omilos.Data.EntityFramework.BaseImplementations;
 using Jaytas.Omilos.Data.EntityFramework.Interfaces;
-using Jaytas.Omilos.Web.Account.Data.DbContext;
-using Jaytas.Omilos.Web.Account.Data.Repositories.Interfaces;
-using Jaytas.Omilos.Web.Account.DomainModel;
+using Jaytas.Omilos.Web.Service.Account.Data.DbContext;
+using Jaytas.Omilos.Web.Service.Account.Data.Repositories.Interfaces;
+using Jaytas.Omilos.Web.Service.Account.DomainModel;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Jaytas.Omilos.Web.Account.Data.Repositories
+namespace Jaytas.Omilos.Web.Service.Account.Data.Repositories
 {
 	/// <summary>
 	/// Repostiory layer for Role.

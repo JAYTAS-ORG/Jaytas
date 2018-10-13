@@ -1,9 +1,9 @@
-﻿using Jaytas.Omilos.Web.Account.Data.Repositories.Interfaces;
-using Jaytas.Omilos.Web.Account.DomainModel;
+﻿using Jaytas.Omilos.Web.Service.Account.Data.Repositories.Interfaces;
+using Jaytas.Omilos.Web.Service.Account.DomainModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Jaytas.Omilos.Web.Account.Business
+namespace Jaytas.Omilos.Web.Service.Account.Business
 {
 	/// <summary>
 	/// 

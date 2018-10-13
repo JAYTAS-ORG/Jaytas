@@ -1,7 +1,7 @@
 ﻿using Jaytas.Omilos.Common.Domain;
 using System;
 
-namespace Jaytas.Omilos.Web.Account.DomainModel
+namespace Jaytas.Omilos.Web.Service.Account.DomainModel
 {
 	/// <summary>
 	/// UserRole Entity representation of database table.

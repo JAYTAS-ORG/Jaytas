@@ -1,7 +1,7 @@
 ﻿using Jaytas.Omilos.Web.HostConfigurations;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Jaytas.Omilos.Web.Account
+namespace Jaytas.Omilos.Web.Service.Account
 {
 	/// <summary>
 	/// 

@@ -1,6 +1,6 @@
 ﻿using Jaytas.Omilos.Common;
 using Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations;
-using Jaytas.Omilos.Web.Account.DomainModel;
+using Jaytas.Omilos.Web.Service.Account.DomainModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Jaytas.Omilos.Web.Account.Data.Map
+namespace Jaytas.Omilos.Web.Service.Account.Data.Map
 {
 	/// <summary>
 	/// Mapping entity for role table with the database model.

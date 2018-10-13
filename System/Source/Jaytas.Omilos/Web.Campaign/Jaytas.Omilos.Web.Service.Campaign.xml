@@ -1,0 +1,437 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Jaytas.Omilos.Web.Service.Campaign</name>
+    </assembly>
+    <members>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.App_Start.AutoMapperConfigurations">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.App_Start.AutoMapperConfigurations.RegisterMaps">
+            <summary>
+            Registers both middle tier and web tier maps since our portal is currently running as a two-
+            tier system (web &amp; data).
+            </summary>
+            <returns>Mapper</returns>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.App_Start.AutoMapperConfigurations.WebProfile">
+             <summary>
+             Registers the mappings used by the web tier to go to and from business models.
+             </summary>
+            
+             <seealso cref="T:AutoMapper.Profile"/>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.App_Start.AutoMapperConfigurations.WebProfile.ProfileName">
+            <summary>
+            Gets the name of the profile.
+            </summary>
+            <value>
+            The name of the profile.
+            </value>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.App_Start.ServiceConfigurations.RegisterTypes(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.CampaignDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.CampaignDbContext})">
+            <summary>
+            Constructor which sets the db Initializer.
+            </summary>
+            <param name="options">Db context options.</param>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.CampaignDbContext.Campaigns">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.CampaignDbContext.CampaignInstances">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.CampaignDbContext.CampaignInstanceExceptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.CampaignDbContext.MessageTemplates">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.CampaignDbContext.Schedules">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.CampaignDbContext.RecurrencePatterns">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.CampaignDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.ICampaignDbContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.ICampaignDbContext.Campaigns">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.ICampaignDbContext.CampaignInstances">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.ICampaignDbContext.CampaignInstanceExceptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.ICampaignDbContext.MessageTemplates">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.ICampaignDbContext.Schedules">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.ICampaignDbContext.RecurrencePatterns">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Map.CampaignFluentMap">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Map.CampaignFluentMap.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jaytas.Omilos.Web.Service.Campaign.Data.Map.CampaignFluentMap" /> class.
+            </summary>
+            <param name="tableName"></param>
+            <param name="schema"></param>
+            <param name="isDatabaseGenerated"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Map.CampaignFluentMap.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign})">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Map.CampaignFluentMap.ConfigureKey(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign})">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.CampaignId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.SubscriptionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.GroupId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.NotificationChannels">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.IsWelcomeMessageRequired">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.IsRemainderMessageRequired">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.IsOverDueMessageRequired">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.Status">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.CampaignManagerMailId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance.InstanceId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance.StartDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance.EndDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance.StartTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance.EndTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance.CampaignInstanceException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException.CampaignInstanceExceptionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException.InstanceId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException.IsRescheduled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException.IsCancelled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException.StartDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException.EndDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException.StartTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException.EndTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate.MessageId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate.CampaignId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate.NotificationChannel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate.WelcomeMessage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate.RemainderMessage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate.OverDueMessage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.DomainModel.RecurrencePattern">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.RecurrencePattern.RecurringType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.RecurrencePattern.SeparationCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.RecurrencePattern.MaxNumberOfOccurrences">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.RecurrencePattern.DayOfWeek">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.RecurrencePattern.WeekOfMonth">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.RecurrencePattern.DayOfMonth">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.RecurrencePattern.MonthOfYear">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.RecurrencePattern.Schedule">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule.ScheduleId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule.CampaignId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule.IsRecurrence">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule.StartDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule.EndDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule.StartTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule.EndTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule.RecurrencePattern">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Web.Service.Campaign.Program">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Web.Service.Campaign.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="T:Web.Service.Campaign.Startup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Web.Service.Campaign.Startup.ConfigureMaps">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Startup.RegisterTypes(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Web.Service.Campaign.Startup.GetMicroServiceAssembly">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,7 +1,7 @@
 ﻿using Jaytas.Omilos.Web.HostConfigurations;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Web.Campaign
+namespace Web.Service.Campaign
 {
 	/// <summary>
 	/// 

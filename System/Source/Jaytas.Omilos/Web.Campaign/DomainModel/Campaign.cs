@@ -2,7 +2,7 @@
 using Jaytas.Omilos.Common.Enumerations;
 using System;
 
-namespace Jaytas.Omilos.Web.Campaign.DomainModel
+namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 {
 	/// <summary>
 	/// 

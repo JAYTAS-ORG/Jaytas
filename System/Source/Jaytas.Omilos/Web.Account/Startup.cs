@@ -1,10 +1,10 @@
 ﻿using System.Reflection;
 using AutoMapper;
-using Jaytas.Omilos.Web.Account.App_Start;
+using Jaytas.Omilos.Web.Service.Account.App_Start;
 using Jaytas.Omilos.Web.StartupConfigurations;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Jaytas.Omilos.Web.Account
+namespace Jaytas.Omilos.Web.Service.Account
 {
 	/// <summary>
 	/// 

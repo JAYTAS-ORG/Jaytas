@@ -21,11 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "Web\Web.csproj", "{1
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configuration", "Configuration\Configuration.csproj", "{23637F02-8149-4A05-BAA1-D5DB8CC0E2DA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Account", "Web.Account\Web.Account.csproj", "{92A3AD59-5F59-49A4-8C2D-3CCA095CF945}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Service.Account", "Web.Account\Web.Service.Account.csproj", "{92A3AD59-5F59-49A4-8C2D-3CCA095CF945}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Service.Models", "Web.Service.Models\Web.Service.Models.csproj", "{0D961CB0-6001-4D4F-8BE4-1E2153ED269F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Campaign", "Web.Campaign\Web.Campaign.csproj", "{6B75DDB3-92BE-4957-BCF4-E8BBCCA2B72E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Service.Campaign", "Web.Campaign\Web.Service.Campaign.csproj", "{6B75DDB3-92BE-4957-BCF4-E8BBCCA2B72E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

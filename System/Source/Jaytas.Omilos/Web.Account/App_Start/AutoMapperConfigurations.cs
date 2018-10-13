@@ -3,7 +3,7 @@ using Jaytas.Omilos.Web.Mapping.Profiles;
 using Jaytas.Omilos.Web.Service.Models.Account;
 using System;
 
-namespace Jaytas.Omilos.Web.Account.App_Start
+namespace Jaytas.Omilos.Web.Service.Account.App_Start
 {
 	/// <summary>
 	/// 

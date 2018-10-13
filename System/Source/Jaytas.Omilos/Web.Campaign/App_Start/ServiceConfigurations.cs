@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Jaytas.Omilos.Web.Campaign.App_Start
+namespace Jaytas.Omilos.Web.Service.Campaign.App_Start
 {
 	public class ServiceConfigurations
 	{

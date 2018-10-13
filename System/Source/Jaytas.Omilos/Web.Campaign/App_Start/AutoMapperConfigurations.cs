@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Jaytas.Omilos.Web.Mapping.Profiles;
 
-namespace Jaytas.Omilos.Web.Campaign.App_Start
+namespace Jaytas.Omilos.Web.Service.Campaign.App_Start
 {
 	/// <summary>
 	/// 

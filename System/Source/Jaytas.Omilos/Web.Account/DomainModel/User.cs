@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Jaytas.Omilos.Web.Account.DomainModel
+namespace Jaytas.Omilos.Web.Service.Account.DomainModel
 {
 	/// <summary>
 	/// User Entity representation of database table.

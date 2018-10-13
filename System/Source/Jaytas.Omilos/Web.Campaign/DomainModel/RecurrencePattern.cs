@@ -1,7 +1,7 @@
 ﻿using Jaytas.Omilos.Common.Domain;
 using Jaytas.Omilos.Common.Enumerations;
 
-namespace Jaytas.Omilos.Web.Campaign.DomainModel
+namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 {
 	/// <summary>
 	/// 
@@ -42,5 +42,10 @@ namespace Jaytas.Omilos.Web.Campaign.DomainModel
 		/// 
 		/// </summary>
 		public int? MonthOfYear { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public virtual Schedule Schedule { get; set; }
 	}
 }

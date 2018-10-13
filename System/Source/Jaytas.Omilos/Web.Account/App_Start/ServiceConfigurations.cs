@@ -6,17 +6,17 @@ using Jaytas.Omilos.Security.ExternalAuthentication.Interfaces;
 using Jaytas.Omilos.Security.ExternalAuthentication.Providers;
 using Jaytas.Omilos.ServiceClient.User.Implementations;
 using Jaytas.Omilos.ServiceClient.User.Interfaces;
-using Jaytas.Omilos.Web.Account.Business;
-using Jaytas.Omilos.Web.Account.Business.Interfaces;
-using Jaytas.Omilos.Web.Account.Data.DbContext;
-using Jaytas.Omilos.Web.Account.Data.Repositories;
-using Jaytas.Omilos.Web.Account.Data.Repositories.Interfaces;
+using Jaytas.Omilos.Web.Service.Account.Business;
+using Jaytas.Omilos.Web.Service.Account.Business.Interfaces;
+using Jaytas.Omilos.Web.Service.Account.Data.DbContext;
+using Jaytas.Omilos.Web.Service.Account.Data.Repositories;
+using Jaytas.Omilos.Web.Service.Account.Data.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Refit;
 using System;
 
-namespace Jaytas.Omilos.Web.Account.App_Start
+namespace Jaytas.Omilos.Web.Service.Account.App_Start
 {
 	/// <summary>
 	/// 

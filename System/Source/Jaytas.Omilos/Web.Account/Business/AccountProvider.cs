@@ -1,15 +1,15 @@
 ﻿using AutoMapper;
 using Jaytas.Omilos.Security.TokenProvider;
 using Jaytas.Omilos.ServiceClient.User.Interfaces;
-using Jaytas.Omilos.Web.Account.Business.Interfaces;
-using Jaytas.Omilos.Web.Account.Data.Repositories.Interfaces;
+using Jaytas.Omilos.Web.Service.Account.Business.Interfaces;
+using Jaytas.Omilos.Web.Service.Account.Data.Repositories.Interfaces;
 using Jaytas.Omilos.Web.Service.Models.Account;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Jaytas.Omilos.Web.Account.Business
+namespace Jaytas.Omilos.Web.Service.Account.Business
 {
 	/// <summary>
 	/// 

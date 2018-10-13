@@ -1,10 +1,10 @@
 ﻿using System.Reflection;
 using AutoMapper;
-using Jaytas.Omilos.Web.Campaign.App_Start;
+using Jaytas.Omilos.Web.Service.Campaign.App_Start;
 using Jaytas.Omilos.Web.StartupConfigurations;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Web.Campaign
+namespace Web.Service.Campaign
 {
 	/// <summary>
 	/// 

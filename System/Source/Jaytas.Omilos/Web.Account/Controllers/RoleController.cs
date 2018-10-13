@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Jaytas.Omilos.Common.Web;
-using Jaytas.Omilos.Web.Account.Business;
+using Jaytas.Omilos.Web.Service.Account.Business;
 using Jaytas.Omilos.Web.Controllers;
 using Jaytas.Omilos.Web.Service.Models.Account;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace Jaytas.Omilos.Web.Account.Controllers
+namespace Jaytas.Omilos.Web.Service.Account.Controllers
 {
 	/// <summary>
 	/// 
