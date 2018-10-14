@@ -13,7 +13,7 @@ namespace Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations
 	/// </summary>
 	/// <typeparam name="TEntity">The type of the entity.</typeparam>
 	/// <seealso cref="Microsoft.EntityFrameworkCore.IEntityTypeConfiguration{TEntity}"/>
-	public abstract class BaseGuidEntityConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> where TEntity : GuidEntity
+	public abstract class BaseGuidEntityConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> where TEntity : GuidBaseEntity
 	{
 		string _tableName, _schema;
 
@@ -38,7 +38,7 @@ namespace Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations
 
 			// Default shared properties
 			builder.Property(x => x.Id)
-				   .HasColumnName(nameof(GuidEntity.Id))
+				   .HasColumnName(nameof(GuidBaseEntity.Id))
 				   .IsRequired()
 				   .ValueGeneratedNever();
 

@@ -14,9 +14,9 @@ namespace Jaytas.Omilos.Web.Providers
 	/// <typeparam name="TRepository">The type of the t repository.</typeparam>
 	/// <typeparam name="TBaseEntityType">the base enity type lile (Guid, int, long..)</typeparam>
 	public abstract class CrudBaseProvider<TEntity, TRepository, TBaseEntityType> : ICrudBaseProvider<TEntity, TBaseEntityType>
-		where TEntity : class, IBaseEntity<TBaseEntityType>
-		where TRepository : class, ICrudBaseEntityRepository<TEntity, TBaseEntityType>
-		where TBaseEntityType : struct
+							where TEntity : class, IBaseEntity<TBaseEntityType>
+							where TRepository : class, ICrudBaseEntityRepository<TEntity, TBaseEntityType>
+							where TBaseEntityType : struct
 	{
 
 		/// <summary>
@@ -109,12 +109,11 @@ namespace Jaytas.Omilos.Web.Providers
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
-		public async Task<TEntity> GetAsync(TBaseEntityType id)
+		public async virtual Task<TEntity> GetAsync(TBaseEntityType id)
 		{
 			return await Repository.GetAsync(id);
 		}
-
-
+		
 		/// <summary>
 		/// 
 		/// </summary>

@@ -9,7 +9,7 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces
 	/// <summary>
 	/// 
 	/// </summary>
-	public interface IScheduleRepository : ICrudBaseEntityRepository<DomainModel.Schedule, long>
+	public interface IScheduleRepository : ICrudByFieldBaseEntityRepository<DomainModel.Schedule, long, Guid>
 	{
 	}
 }

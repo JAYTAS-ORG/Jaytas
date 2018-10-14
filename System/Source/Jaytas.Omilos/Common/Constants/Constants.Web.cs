@@ -421,5 +421,13 @@ namespace Jaytas.Omilos.Common
 				public const string Audience = "Jaytas.Omilos";
 			}
 		}
+
+		public struct CommonLinkRelValues
+		{
+			/// <summary>
+			/// The self.
+			/// </summary>
+			public const string Self = "self";
+		}
 	}
 }

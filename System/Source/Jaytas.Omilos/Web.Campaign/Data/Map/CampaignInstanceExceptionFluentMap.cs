@@ -1,10 +1,7 @@
-﻿using Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations;
+﻿using Jaytas.Omilos.Common;
+using Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Jaytas.Omilos.Web.Service.Campaign.Data.Map
 {
@@ -20,7 +17,7 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Map
 		/// <param name="schema"></param>
 		/// <param name="isDatabaseGenerated"></param>
 		public CampaignInstanceExceptionFluentMap(string tableName, string schema, bool isDatabaseGenerated)
-				: base(tableName, schema, isDatabaseGenerated, new Common.Domain.DefaultAuditableBaseFieldMapper())
+				: base(tableName, schema, isDatabaseGenerated, new Omilos.Common.Domain.DefaultAuditableBaseFieldMapper())
 		{
 		}
 
@@ -32,8 +29,8 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Map
 		{
 			base.Configure(builder);
 
-			builder.Property(col => col.CampaignInstanceExceptionId)
-				 .HasColumnName(nameof(DomainModel.CampaignInstanceException.CampaignInstanceExceptionId))
+			builder.Property(col => col.ExposedId)
+				 .HasColumnName(Constants.CustomFeildMappings.CampaignInstanceExceptionId)
 				 .IsRequired();
 
 			builder.Property(col => col.InstanceId)

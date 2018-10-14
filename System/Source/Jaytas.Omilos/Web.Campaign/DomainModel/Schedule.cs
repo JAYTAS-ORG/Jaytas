@@ -9,13 +9,8 @@ namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 	/// <summary>
 	/// 
 	/// </summary>
-	public partial class Schedule : LongEntity
+	public partial class Schedule : GuidFieldLongBaseEntity
 	{
-		/// <summary>
-		/// 
-		/// </summary>
-		public Guid ScheduleId { get; set; }
-
 		/// <summary>
 		/// 
 		/// </summary>

@@ -9,7 +9,7 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces
 	/// <summary>
 	/// 
 	/// </summary>
-	public interface IMessageTemplateRepository : ICrudBaseEntityRepository<DomainModel.MessageTemplate, long>
+	public interface IMessageTemplateRepository : ICrudByFieldBaseEntityRepository<DomainModel.MessageTemplate, long, Guid>
 	{
 	}
 }

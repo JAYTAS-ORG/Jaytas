@@ -6,13 +6,8 @@ namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 	/// <summary>
 	/// 
 	/// </summary>
-	public partial class CampaignInstance : LongEntity
+	public partial class CampaignInstance : GuidFieldLongBaseEntity
 	{
-		/// <summary>
-		/// 
-		/// </summary>
-		public Guid InstanceId { get; set; }
-
 		/// <summary>
 		/// 
 		/// </summary>

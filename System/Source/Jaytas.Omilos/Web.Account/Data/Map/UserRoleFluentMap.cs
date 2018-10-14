@@ -2,10 +2,6 @@
 using Jaytas.Omilos.Web.Service.Account.DomainModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Jaytas.Omilos.Web.Service.Account.Data.Map
 {
@@ -21,7 +17,7 @@ namespace Jaytas.Omilos.Web.Service.Account.Data.Map
 		/// <param name="schema"></param>
 		/// <param name="isDatabaseGenerated"></param>
 		public UserRoleFluentMap(string tableName, string schema, bool isDatabaseGenerated)
-				: base(tableName, schema, isDatabaseGenerated, new Common.Domain.DefaultAuditableBaseFieldMapper())
+				: base(tableName, schema, isDatabaseGenerated, new Omilos.Common.Domain.DefaultAuditableBaseFieldMapper())
 		{
 		}
 

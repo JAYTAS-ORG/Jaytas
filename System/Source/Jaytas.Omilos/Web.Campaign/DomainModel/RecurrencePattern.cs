@@ -6,7 +6,7 @@ namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 	/// <summary>
 	/// 
 	/// </summary>
-	public partial class RecurrencePattern : LongEntity
+	public partial class RecurrencePattern : LongBaseEntity
 	{
 		/// <summary>
 		/// 

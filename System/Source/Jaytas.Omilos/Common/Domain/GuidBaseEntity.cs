@@ -9,12 +9,12 @@ namespace Jaytas.Omilos.Common.Domain
 	/// 
 	/// </summary>
 	/// 
-	public class GuidEntity : IBaseEntity<Guid>, IEquatable<IBaseEntity<Guid>>
+	public class GuidBaseEntity : IBaseEntity<Guid>, IEquatable<IBaseEntity<Guid>>
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="GuidEntity"/> class.
 		/// </summary>
-		public GuidEntity()
+		public GuidBaseEntity()
 		{
 			Id = Guid.Empty;
 		}

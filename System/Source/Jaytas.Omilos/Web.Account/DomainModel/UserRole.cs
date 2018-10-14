@@ -6,7 +6,7 @@ namespace Jaytas.Omilos.Web.Service.Account.DomainModel
 	/// <summary>
 	/// UserRole Entity representation of database table.
 	/// </summary>
-	public class UserRole : LongEntity
+	public class UserRole : LongBaseEntity
 	{
 		/// <summary>
 		/// UserId property represenation of database column.

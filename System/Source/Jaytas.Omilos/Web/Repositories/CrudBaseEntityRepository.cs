@@ -40,15 +40,8 @@ namespace Jaytas.Omilos.Web.Repositories
 		/// <returns></returns>
 		public virtual async Task<TBaseEntityType> AddAsync(TEntity entity)
 		{
-			try
-			{
-				await DbSet.AddAsync(entity);
-				await DbContext.SaveChangesAsync();
-			}
-			catch(Exception ex)
-			{
-				var ee = ex;
-			}
+			await DbSet.AddAsync(entity);
+			await DbContext.SaveChangesAsync();
 			return entity.Id;
 		}
 

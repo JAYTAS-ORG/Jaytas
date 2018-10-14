@@ -118,6 +118,31 @@ namespace Jaytas.Omilos.Common
 			/// 
 			/// </summary>
 			public const string ScheduleId = "ScheduleId";
+
+			/// <summary>
+			/// 
+			/// </summary>
+			public const string GraphId = "GraphId";
+
+			/// <summary>
+			/// 
+			/// </summary>
+			public const string CampaignId = "CampaignId";
+
+			/// <summary>
+			/// 
+			/// </summary>
+			public const string MessageId = "MessageId";
+
+			/// <summary>
+			/// 
+			/// </summary>
+			public const string InstanceId = "InstanceId";
+
+			/// <summary>
+			/// 
+			/// </summary>
+			public const string CampaignInstanceExceptionId = "CampaignInstanceExceptionId";
 		}
 	}
 }

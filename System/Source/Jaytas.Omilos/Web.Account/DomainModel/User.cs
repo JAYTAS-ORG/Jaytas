@@ -7,7 +7,7 @@ namespace Jaytas.Omilos.Web.Service.Account.DomainModel
 	/// <summary>
 	/// User Entity representation of database table.
 	/// </summary>
-	public partial class User : LongEntity
+	public partial class User : GuidFieldLongBaseEntity
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="User" /> class and also UerRoles.
@@ -16,12 +16,7 @@ namespace Jaytas.Omilos.Web.Service.Account.DomainModel
 		{
 			UserRoles = new HashSet<UserRole>();
 		}
-
-		/// <summary>
-		/// GraphId property represenation of database column.
-		/// </summary>
-		public Guid GraphId { get; set; }
-
+		
 		/// <summary>
 		/// FirstName property represenation of database column.
 		/// </summary>

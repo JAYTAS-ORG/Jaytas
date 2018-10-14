@@ -12,7 +12,7 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Repositories
 	/// <summary>
 	/// 
 	/// </summary>
-	public class CampignInstanceRepository : CrudBaseEntityRepository<ICampaignDbContext, CampaignInstance, long>, ICampaignInstanceRepository
+	public class CampignInstanceRepository : CrudByFieldBaseEntityRepository<ICampaignDbContext, CampaignInstance, long, Guid>, ICampaignInstanceRepository
 	{
 		/// <summary>
 		/// 
@@ -20,6 +20,16 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Repositories
 		/// <param name="campaignDbContext"></param>
 		public CampignInstanceRepository(ICampaignDbContext campaignDbContext) : base(campaignDbContext, campaignDbContext.CampaignInstances)
 		{
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		public async override Task<CampaignInstance> GetAsync(Guid id)
+		{
+			return (await GetAsync(campaignInstance => campaignInstance.ExposedId == id)).FirstOrDefault();
 		}
 	}
 }

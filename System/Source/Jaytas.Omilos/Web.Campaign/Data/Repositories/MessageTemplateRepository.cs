@@ -12,7 +12,7 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Repositories
 	/// <summary>
 	/// 
 	/// </summary>
-	public class MessageTemplateRepository : CrudBaseEntityRepository<ICampaignDbContext, MessageTemplate, long>, IMessageTemplateRepository
+	public class MessageTemplateRepository : CrudByFieldBaseEntityRepository<ICampaignDbContext, MessageTemplate, long, Guid>, IMessageTemplateRepository
 	{
 		/// <summary>
 		/// 
@@ -20,6 +20,16 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Repositories
 		/// <param name="campaignDbContext"></param>
 		public MessageTemplateRepository(ICampaignDbContext campaignDbContext) : base(campaignDbContext, campaignDbContext.MessageTemplates)
 		{
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		public async override Task<MessageTemplate> GetAsync(Guid id)
+		{
+			return (await GetAsync(messageTemplate => messageTemplate.ExposedId == id)).FirstOrDefault();
 		}
 	}
 }

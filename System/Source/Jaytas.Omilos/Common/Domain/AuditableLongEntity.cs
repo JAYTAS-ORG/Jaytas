@@ -9,7 +9,7 @@ namespace Jaytas.Omilos.Common.Domain
 	/// 
 	/// </summary>
 	/// 
-	public class AuditableLongEntity : LongEntity, IAuditableEntity
+	public class AuditableLongEntity : LongBaseEntity, IAuditableEntity
 	{
 		/// <summary>
 		/// 

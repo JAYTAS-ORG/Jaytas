@@ -1,12 +1,7 @@
-﻿using Jaytas.Omilos.Common;
-using Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations;
+﻿using Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations;
 using Jaytas.Omilos.Web.Service.Account.DomainModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using static Jaytas.Omilos.Common.Constants;
 
 namespace Jaytas.Omilos.Web.Service.Account.Data.Map
@@ -23,7 +18,7 @@ namespace Jaytas.Omilos.Web.Service.Account.Data.Map
 		/// <param name="schema"></param>
 		/// <param name="isDatabaseGenerated"></param>
 		public UserLoginDetailFluentMap(string tableName, string schema, bool isDatabaseGenerated) 
-				: base(tableName, schema, isDatabaseGenerated, new Common.Domain.CustomBaseFieldMapper(CustomFeildMappings.UserId))
+				: base(tableName, schema, isDatabaseGenerated, new Omilos.Common.Domain.CustomBaseFieldMapper(CustomFeildMappings.UserId))
 		{
 		}
 

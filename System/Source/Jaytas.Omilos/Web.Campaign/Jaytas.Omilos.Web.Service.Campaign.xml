@@ -37,6 +37,191 @@
             </summary>
             <param name="services"></param>
         </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignInstanceExceptionProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignInstanceExceptionProvider.#ctor(Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces.ICampaignInstanceExceptionRepository)">
+            <summary>
+            
+            </summary>
+            <param name="campaignInstanceExceptionRepository"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignInstanceExceptionProvider.AssertEntityToCreateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException})">
+            <summary>
+            
+            </summary>
+            <param name="domains"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignInstanceExceptionProvider.AssertEntityToDeleteIsValidAsync(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="identifiers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignInstanceExceptionProvider.AssertEntityToUpdateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException})">
+            <summary>
+            
+            </summary>
+            <param name="domains"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignInstanceProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignInstanceProvider.#ctor(Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces.ICampaignInstanceRepository)">
+            <summary>
+            
+            </summary>
+            <param name="campaignInstanceRepository"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignInstanceProvider.AssertEntityToCreateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance})">
+            <summary>
+            
+            </summary>
+            <param name="domains"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignInstanceProvider.AssertEntityToDeleteIsValidAsync(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="identifiers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignInstanceProvider.AssertEntityToUpdateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance})">
+            <summary>
+            
+            </summary>
+            <param name="domains"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignProvider.#ctor(Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces.ICampaignRepository)">
+            <summary>
+            
+            </summary>
+            <param name="campaignRepository"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignProvider.AssertEntityToCreateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign})">
+            <summary>
+            
+            </summary>
+            <param name="domains"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignProvider.AssertEntityToDeleteIsValidAsync(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="identifiers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignProvider.AssertEntityToUpdateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign})">
+            <summary>
+            
+            </summary>
+            <param name="domains"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.ICampaignInstanceExceptionProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.ICampaignInstanceProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.ICampaignProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.IMessageTemplateProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.IScheduleProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.MessageTemplateProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.MessageTemplateProvider.#ctor(Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces.IMessageTemplateRepository)">
+            <summary>
+            
+            </summary>
+            <param name="messageTemplateRepository"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.MessageTemplateProvider.AssertEntityToCreateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate})">
+            <summary>
+            
+            </summary>
+            <param name="domains"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.MessageTemplateProvider.AssertEntityToDeleteIsValidAsync(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="identifiers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.MessageTemplateProvider.AssertEntityToUpdateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate})">
+            <summary>
+            
+            </summary>
+            <param name="domains"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.ScheduleProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.ScheduleProvider.#ctor(Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces.IScheduleRepository)">
+            <summary>
+            
+            </summary>
+            <param name="scheduleRepository"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.ScheduleProvider.AssertEntityToCreateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule})">
+            <summary>
+            
+            </summary>
+            <param name="domains"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.ScheduleProvider.AssertEntityToDeleteIsValidAsync(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="identifiers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.ScheduleProvider.AssertEntityToUpdateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule})">
+            <summary>
+            
+            </summary>
+            <param name="domains"></param>
+            <returns></returns>
+        </member>
         <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.CampaignDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.CampaignDbContext})">
             <summary>
             Constructor which sets the db Initializer.
@@ -275,6 +460,13 @@
             </summary>
             <param name="campaignDbContext"></param>
         </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampaignInstanceExceptionRepository.GetAsync(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampaignRepository">
             <summary>
             
@@ -286,6 +478,13 @@
             </summary>
             <param name="campaignDbContext"></param>
         </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampaignRepository.GetAsync(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampignInstanceRepository">
             <summary>
             
@@ -296,6 +495,13 @@
             
             </summary>
             <param name="campaignDbContext"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampignInstanceRepository.GetAsync(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces.ICampaignInstanceExceptionRepository">
             <summary>
@@ -333,6 +539,13 @@
             </summary>
             <param name="campaignDbContext"></param>
         </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.MessageTemplateRepository.GetAsync(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.ScheduleRepository">
             <summary>
             
@@ -344,12 +557,14 @@
             </summary>
             <param name="campaignDbContext"></param>
         </member>
-        <member name="T:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign">
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.ScheduleRepository.GetAsync(System.Guid)">
             <summary>
             
             </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
-        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.CampaignId">
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign">
             <summary>
             
             </summary>
@@ -404,11 +619,6 @@
             
             </summary>
         </member>
-        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance.InstanceId">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance.StartDate">
             <summary>
             
@@ -435,11 +645,6 @@
             </summary>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException.CampaignInstanceExceptionId">
             <summary>
             
             </summary>
@@ -480,11 +685,6 @@
             </summary>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate.MessageId">
             <summary>
             
             </summary>
@@ -560,11 +760,6 @@
             </summary>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule.ScheduleId">
             <summary>
             
             </summary>

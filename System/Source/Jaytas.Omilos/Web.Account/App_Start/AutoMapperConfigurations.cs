@@ -41,7 +41,7 @@ namespace Jaytas.Omilos.Web.Service.Account.App_Start
 				CreateMap<UserData, DomainModel.UserLoginDetail>().ConstructUsing(MapLoginDetail);
 
 				CreateMap<DomainModel.User, User>()
-						.ForMember(api => api.UserId, domain => domain.MapFrom(dom => dom.GraphId))
+						.ForMember(api => api.UserId, domain => domain.MapFrom(dom => dom.ExposedId))
 						.ForMember(api => api.FirstName, domain => domain.MapFrom(dom => dom.FirstName))
 						.ForMember(api => api.LastName, domain => domain.MapFrom(dom => dom.LastName))
 						.ForMember(api => api.Email, domain => domain.MapFrom(dom => dom.EmailId));
@@ -64,7 +64,7 @@ namespace Jaytas.Omilos.Web.Service.Account.App_Start
 			{
 				var user = new DomainModel.User
 				{
-					GraphId = Guid.NewGuid(),
+					ExposedId = Guid.NewGuid(),
 					EmailId = userData.Email,
 					IsActive = true,
 					UserLoginDetail = MapLoginDetail(userData)
@@ -82,12 +82,12 @@ namespace Jaytas.Omilos.Web.Service.Account.App_Start
 			{
 				var userLoginDetail = new DomainModel.UserLoginDetail();
 
-				if (userData.ExternalIdentityProvider == Common.Enumerations.ExternalIdentityProviders.Facebook)
+				if (userData.ExternalIdentityProvider == Omilos.Common.Enumerations.ExternalIdentityProviders.Facebook)
 				{
 					userLoginDetail.FacebookId = userData.Id;
 				}
 
-				if (userData.ExternalIdentityProvider == Common.Enumerations.ExternalIdentityProviders.Google)
+				if (userData.ExternalIdentityProvider == Omilos.Common.Enumerations.ExternalIdentityProviders.Google)
 				{
 					userLoginDetail.GoogleId = userData.Id;
 				}

@@ -9,7 +9,7 @@ namespace Jaytas.Omilos.Common.Domain
 	/// 
 	/// </summary>
 	/// 
-	public class LongEntity : IBaseEntity<long>
+	public class LongBaseEntity : IBaseEntity<long>
 	{
 		/// <summary>
 		/// 

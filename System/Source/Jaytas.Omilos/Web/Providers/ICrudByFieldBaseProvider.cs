@@ -1,26 +1,29 @@
 ﻿using Jaytas.Omilos.Common.Domain.Interfaces;
+using Jaytas.Omilos.Common.Providers;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jaytas.Omilos.Common.Providers
+namespace Jaytas.Omilos.Web.Providers
 {
 	/// <summary>
 	/// 
 	/// </summary>
 	/// <typeparam name="TEntity"></typeparam>
 	/// <typeparam name="TBaseEntityType"></typeparam>
-	public interface ICrudBaseProvider<TEntity, TBaseEntityType> : IBaseProvider 
-			where TEntity : class, 
-				  IBaseEntity<TBaseEntityType> where TBaseEntityType : struct
+	/// <typeparam name="TFieldEntityType"></typeparam>
+	public interface ICrudByFieldBaseProvider<TEntity, TBaseEntityType, TFieldEntityType> : IBaseProvider
+						where TEntity : class, IFieldEntity<TFieldEntityType>, IBaseEntity<TBaseEntityType>
+						where TFieldEntityType : struct
+						where TBaseEntityType : struct
 	{
 		/// <summary>
 		/// Creates the specified <paramref name="domain"/>.
 		/// </summary>
 		/// <param name="domain">The <paramref name="domain"/>.</param>
 		/// <returns>A DomainId.</returns>
-		Task<TBaseEntityType> CreateAsync(TEntity domain);
+		Task<TFieldEntityType> CreateAsync(TEntity domain);
 
 		/// <summary>
 		/// Creates the specified <paramref name="domains"/>.
@@ -32,7 +35,7 @@ namespace Jaytas.Omilos.Common.Providers
 		/// Deletes the specified identifier.
 		/// </summary>
 		/// <param name="id">The identifier.</param>
-		Task DeleteAsync(TBaseEntityType id);
+		Task DeleteAsync(TFieldEntityType id);
 
 		/// <summary>
 		/// Deletes the specified identifier.
@@ -57,6 +60,6 @@ namespace Jaytas.Omilos.Common.Providers
 		/// </summary>
 		/// <param name="id">The identifier.</param>
 		/// <returns>A TModel.</returns>
-		Task<TEntity> GetAsync(TBaseEntityType id);
+		Task<TEntity> GetAsync(TFieldEntityType id);
 	}
 }

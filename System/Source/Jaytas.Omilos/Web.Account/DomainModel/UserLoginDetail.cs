@@ -9,7 +9,7 @@ namespace Jaytas.Omilos.Web.Service.Account.DomainModel
 	/// <summary>
 	/// 
 	/// </summary>
-	public class UserLoginDetail : LongEntity
+	public class UserLoginDetail : LongBaseEntity
 	{		
 		/// <summary>
 		/// 

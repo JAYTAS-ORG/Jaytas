@@ -12,7 +12,7 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Repositories
 	/// <summary>
 	/// 
 	/// </summary>
-	public class ScheduleRepository : CrudBaseEntityRepository<ICampaignDbContext, Schedule, long>, IScheduleRepository
+	public class ScheduleRepository : CrudByFieldBaseEntityRepository<ICampaignDbContext, Schedule, long, Guid>, IScheduleRepository
 	{
 		/// <summary>
 		/// 
@@ -20,6 +20,16 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Repositories
 		/// <param name="campaignDbContext"></param>
 		public ScheduleRepository(ICampaignDbContext campaignDbContext) : base(campaignDbContext, campaignDbContext.Schedules)
 		{
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		public async override Task<Schedule> GetAsync(Guid id)
+		{
+			return (await GetAsync(schedule => schedule.ExposedId == id)).FirstOrDefault();
 		}
 	}
 }

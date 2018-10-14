@@ -1,14 +1,11 @@
-﻿using Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations;
+﻿using Jaytas.Omilos.Common;
+using Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations;
 using Jaytas.Omilos.Web.Service.Account.DomainModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Jaytas.Omilos.Web.Service.Account.Data.Map
-{ 
+{
 	/// <summary>
 	/// 
 	/// </summary>
@@ -21,7 +18,7 @@ namespace Jaytas.Omilos.Web.Service.Account.Data.Map
 		/// <param name="schema"></param>
 		/// <param name="isDatabaseGenerated"></param>
 		public UserFluentMap(string tableName, string schema, bool isDatabaseGenerated)
-				: base(tableName, schema, isDatabaseGenerated, new Common.Domain.DefaultAuditableBaseFieldMapper())
+				: base(tableName, schema, isDatabaseGenerated, new Omilos.Common.Domain.DefaultAuditableBaseFieldMapper())
 		{
 		}
 
@@ -33,8 +30,8 @@ namespace Jaytas.Omilos.Web.Service.Account.Data.Map
 		{
 			base.Configure(builder);
 
-			builder.Property(col => col.GraphId)
-				 .HasColumnName(nameof(User.GraphId))
+			builder.Property(col => col.ExposedId)
+				 .HasColumnName(nameof(Constants.CustomFeildMappings.GraphId))
 				 .IsRequired();
 
 			builder.Property(col => col.FirstName)

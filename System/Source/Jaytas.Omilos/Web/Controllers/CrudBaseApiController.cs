@@ -5,7 +5,6 @@ using Jaytas.Omilos.Web.Controllers.Commands;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Jaytas.Omilos.Web.Controllers
@@ -17,7 +16,7 @@ namespace Jaytas.Omilos.Web.Controllers
 	/// <typeparam name="TModel"></typeparam>
 	/// <typeparam name="TCommand"></typeparam>
 	/// <typeparam name="TBizBaseType"></typeparam>
-	public abstract class BaseCrudApiController<TBiz, TModel, TCommand, TBizBaseType> : BaseApiController
+	public abstract class CrudBaseApiController<TBiz, TModel, TCommand, TBizBaseType> : BaseApiController
 		where TModel : class
 		where TBiz : IBaseEntity<TBizBaseType>
 		where TCommand : class, ICommand<TModel, TBizBaseType>
@@ -28,8 +27,7 @@ namespace Jaytas.Omilos.Web.Controllers
 		/// </summary>
 		/// <param name="mapper"></param>
 		/// 
-
-		protected BaseCrudApiController(IMapper mapper) : base(mapper)
+		protected CrudBaseApiController(IMapper mapper) : base(mapper)
 		{
 		}
 

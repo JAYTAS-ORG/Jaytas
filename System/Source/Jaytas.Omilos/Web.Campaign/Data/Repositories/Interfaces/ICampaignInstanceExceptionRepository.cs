@@ -9,7 +9,7 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces
 	/// <summary>
 	/// 
 	/// </summary>
-	public interface ICampaignInstanceExceptionRepository : ICrudBaseEntityRepository<DomainModel.CampaignInstanceException, long>
+	public interface ICampaignInstanceExceptionRepository : ICrudByFieldBaseEntityRepository<DomainModel.CampaignInstanceException, long, Guid>
 	{
 	}
 }

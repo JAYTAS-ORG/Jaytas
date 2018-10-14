@@ -2,10 +2,6 @@
 using Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Jaytas.Omilos.Web.Service.Campaign.Data.Map
 {
@@ -21,7 +17,7 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Map
 		/// <param name="schema"></param>
 		/// <param name="isDatabaseGenerated"></param>
 		public RecurrencePatternFluentMap(string tableName, string schema, bool isDatabaseGenerated)
-				: base(tableName, schema, isDatabaseGenerated, new Common.Domain.CustomBaseFieldMapper(Constants.CustomFeildMappings.ScheduleId))
+				: base(tableName, schema, isDatabaseGenerated, new Omilos.Common.Domain.CustomBaseFieldMapper(Constants.CustomFeildMappings.ScheduleId))
 		{
 		}
 

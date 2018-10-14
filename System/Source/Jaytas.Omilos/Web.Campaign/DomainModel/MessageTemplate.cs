@@ -10,13 +10,8 @@ namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 	/// <summary>
 	/// 
 	/// </summary>
-	public partial class MessageTemplate : LongEntity
+	public partial class MessageTemplate : GuidFieldLongBaseEntity
 	{
-		/// <summary>
-		/// 
-		/// </summary>
-		public Guid MessageId { get; set; }
-
 		/// <summary>
 		/// 
 		/// </summary>

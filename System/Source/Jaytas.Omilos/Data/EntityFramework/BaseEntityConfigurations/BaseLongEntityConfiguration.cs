@@ -14,7 +14,7 @@ namespace Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations
 	/// </summary>
 	/// <typeparam name="TEntity">The type of the entity.</typeparam>
 	/// <seealso cref="Microsoft.EntityFrameworkCore.IEntityTypeConfiguration{TEntity}"/>
-	public abstract class BaseLongEntityConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> where TEntity : LongEntity
+	public abstract class BaseLongEntityConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> where TEntity : LongBaseEntity
 	{
 		protected string TableName, Schema;
 		IBaseFieldMapper _baseFieldMapper;
