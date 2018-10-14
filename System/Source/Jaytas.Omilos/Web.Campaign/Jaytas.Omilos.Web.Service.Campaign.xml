@@ -264,6 +264,86 @@
             </summary>
             <param name="builder"></param>
         </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampaignInstanceExceptionRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampaignInstanceExceptionRepository.#ctor(Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.ICampaignDbContext)">
+            <summary>
+            
+            </summary>
+            <param name="campaignDbContext"></param>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampaignRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampaignRepository.#ctor(Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.ICampaignDbContext)">
+            <summary>
+            
+            </summary>
+            <param name="campaignDbContext"></param>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampignInstanceRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampignInstanceRepository.#ctor(Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.ICampaignDbContext)">
+            <summary>
+            
+            </summary>
+            <param name="campaignDbContext"></param>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces.ICampaignInstanceExceptionRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces.ICampaignInstanceRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces.ICampaignRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces.IMessageTemplateRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces.IScheduleRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.MessageTemplateRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.MessageTemplateRepository.#ctor(Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.ICampaignDbContext)">
+            <summary>
+            
+            </summary>
+            <param name="campaignDbContext"></param>
+        </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.ScheduleRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.ScheduleRepository.#ctor(Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.ICampaignDbContext)">
+            <summary>
+            
+            </summary>
+            <param name="campaignDbContext"></param>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign">
             <summary>
             
