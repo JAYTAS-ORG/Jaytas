@@ -46,6 +46,9 @@ namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 		/// </summary>
 		public TimeSpan? EndTime { get; set; }
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public virtual CampaignInstance CampaignInstance { get; set; }
 	}
 }

@@ -609,7 +609,7 @@
             
             </summary>
         </member>
-        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.CampaignManagerMailId">
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.CampaignManagerId">
             <summary>
             
             </summary>
@@ -680,6 +680,11 @@
             </summary>
         </member>
         <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException.EndTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException.CampaignInstance">
             <summary>
             
             </summary>
@@ -798,6 +803,406 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="T:Web.Service.Campaign.Controllers.CampaignController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.#ctor(Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.ICampaignProvider,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="campaignProvider"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.Get(System.Guid,System.Guid)">
+            <summary>
+            Gets campaign.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.Post(System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Campaign)">
+            <summary>
+            Creates campaign.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.Update(System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Campaign)">
+            <summary>
+            Updates campaign.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.Delete(System.Guid,System.Guid)">
+            <summary>
+            Deletes campaign.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.CreateAsync(Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.Campaign,System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="resourceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Campaign,System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Campaign,System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Campaign,System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Campaign,System.Guid},Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign)">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Service.Campaign.Controllers.CampaignInstanceController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.#ctor(Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.ICampaignInstanceProvider,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="campaignInstaneProvider"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.Get(System.Guid,System.Guid,System.Guid)">
+            <summary>
+            Gets campaign instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.Post(System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance)">
+            <summary>
+            Creates campaign instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.Update(System.Guid,System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance)">
+            <summary>
+            Updates campaign instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.Delete(System.Guid,System.Guid,System.Guid)">
+            <summary>
+            Deletes campaign instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.CreateAsync(Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance,System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="resourceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance,System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance,System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance,System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance,System.Guid},Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance)">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.#ctor(Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.ICampaignInstanceExceptionProvider,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="campaignInstaneExceptionProvider"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.Get(System.Guid,System.Guid,System.Guid,System.Guid)">
+            <summary>
+            Gets campaign instance exception.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.Post(System.Guid,System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstanceException)">
+            <summary>
+            Creates campaign instance exception.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.Update(System.Guid,System.Guid,System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstanceException)">
+            <summary>
+            Updates campaign instance exception.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.Delete(System.Guid,System.Guid,System.Guid,System.Guid)">
+            <summary>
+            Deletes campaign instance exception.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.CreateAsync(Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstanceException,System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="resourceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstanceException,System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstanceException,System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstanceException,System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstanceException,System.Guid},Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException)">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Service.Campaign.Controllers.MessageTemplateController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.#ctor(Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.IMessageTemplateProvider,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="messageTemplateProvider"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.Get(System.Guid,System.Guid,System.Guid)">
+            <summary>
+            Gets campaign MessageTemplate.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.Post(System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate)">
+            <summary>
+            Creates campaign MessageTemplate.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.Update(System.Guid,System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate)">
+            <summary>
+            Updates campaign MessageTemplate.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.Delete(System.Guid,System.Guid,System.Guid)">
+            <summary>
+            Deletes campaign MessageTemplate.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.CreateAsync(Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate,System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="resourceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate,System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate,System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate,System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate,System.Guid},Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate)">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Service.Campaign.Controllers.ScheduleController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.#ctor(Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.IScheduleProvider,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="scheduleProvider"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.Get(System.Guid,System.Guid,System.Guid)">
+            <summary>
+            Gets campaign Schedule.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.Post(System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Schedule)">
+            <summary>
+            Creates campaign Schedule.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.Update(System.Guid,System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Schedule)">
+            <summary>
+            Updates campaign Schedule.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.Delete(System.Guid,System.Guid,System.Guid)">
+            <summary>
+            Deletes campaign Schedule.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.CreateAsync(Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.Schedule,System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="resourceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Schedule,System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Schedule,System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Schedule,System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Schedule,System.Guid},Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule)">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <param name="model"></param>
+            <returns></returns>
         </member>
         <member name="T:Web.Service.Campaign.Program">
             <summary>

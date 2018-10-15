@@ -365,11 +365,11 @@ namespace Jaytas.Omilos.Common
 		{
 			public struct Crud
 			{
-				private const string BasePath = "/{id}";
+				private const string BasePath = "{id}";
 
 				public const string Get = BasePath;
 
-				public const string GetAll = "/GetAll";
+				public const string GetAll = "GetAll";
 
 				public const string Create = "";
 
@@ -382,9 +382,64 @@ namespace Jaytas.Omilos.Common
 
 			public struct Account
 			{
+				public struct Name
+				{
+					public const string GetById = "Account.GetById";
+				}
+
 				public const string RootPath = "/api/account";
 
 				public const string FacebookSignin = RootPath + "/facebooksigin";
+			}
+
+			public struct Campaign
+			{
+				public struct Name
+				{
+					public const string GetById = "Campaign.GetById";
+				}
+
+				public const string RootPath = "/api/subscription/{subscriptionId}/campaign";
+			}
+
+			public struct CampaignInstance
+			{
+				public struct Name
+				{
+					public const string GetById = "CampaignInstance.GetById";
+				}
+
+				public const string RootPath = "/api/subscription/{subscriptionId}/campaign/{campaignId}/Instance";
+			}
+
+			public struct CampaignInstanceException
+			{
+				public struct Name
+				{
+					public const string GetById = "CampaignInstanceException.GetById";
+				}
+
+				public const string RootPath = "/api/subscription/{subscriptionId}/campaign/{campaignId}/Instance{instanceId}/Exception";
+			}
+
+			public struct MessageTemplate
+			{
+				public struct Name
+				{
+					public const string GetById = "MessageTemplate.GetById";
+				}
+
+				public const string RootPath = "/api/subscription/{subscriptionId}/campaign/{campaignId}/MessageTemplate";
+			}
+
+			public struct Schedule
+			{
+				public struct Name
+				{
+					public const string GetById = "Schedule.GetById";
+				}
+
+				public const string RootPath = "/api/subscription/{subscriptionId}/campaign/{campaignId}/Schedule";
 			}
 		}
 

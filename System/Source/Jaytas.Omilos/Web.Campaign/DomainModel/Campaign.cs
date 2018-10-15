@@ -52,6 +52,6 @@ namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 		/// <summary>
 		/// 
 		/// </summary>
-		public string CampaignManagerMailId { get; set; }
+		public Guid? CampaignManagerId { get; set; }
 	}
 }

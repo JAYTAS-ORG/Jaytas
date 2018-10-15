@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +26,7 @@
     <ProjectReference Include="..\Data\Data.csproj" />
     <ProjectReference Include="..\Security\Security.csproj" />
     <ProjectReference Include="..\ServiceClient\ServiceClient.csproj" />
+    <ProjectReference Include="..\Web.Service.Models\Web.Service.Models.csproj" />
     <ProjectReference Include="..\Web\Web.csproj" />
   </ItemGroup>
 
