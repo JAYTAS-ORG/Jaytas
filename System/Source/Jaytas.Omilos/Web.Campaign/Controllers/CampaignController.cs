@@ -52,6 +52,22 @@ namespace Web.Service.Campaign.Controllers
 		}
 
 		/// <summary>
+		/// Gets all the campaign for the logged in user.
+		/// </summary>
+		/// <returns></returns>
+		[HttpGet]
+		[HttpHead]
+		[Route(Constants.Route.Campaign.MyCampaigns)]
+		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
+		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
+		[ProducesResponseType((int)HttpStatusCode.NotFound)]
+		[ProducesResponseType(typeof(IEnumerable<Jaytas.Omilos.Web.Service.Models.Campaign.Campaign>), (int)HttpStatusCode.OK)]
+		public async Task<IActionResult> MyCampaings()
+		{
+			return await GetAllOrStatusCodeAsync().ConfigureAwait(true);
+		}
+
+		/// <summary>
 		/// Creates campaign.
 		/// </summary>
 		/// <returns></returns>
@@ -131,7 +147,7 @@ namespace Web.Service.Campaign.Controllers
 		/// <returns></returns>
 		protected async override Task<IEnumerable<Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign>> GetAllAsync(Command<Jaytas.Omilos.Web.Service.Models.Campaign.Campaign, Guid> command)
 		{
-			throw new NotSupportedException();
+			return await _campaignProvider.GetMyCampaigns();
 		}
 
 		/// <summary>

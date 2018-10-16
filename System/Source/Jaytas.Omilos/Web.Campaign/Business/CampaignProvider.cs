@@ -55,5 +55,14 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Business
 			//throw new NotImplementedException();
 			await Task.CompletedTask;
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		public async Task<IEnumerable<DomainModel.Campaign>> GetMyCampaigns()
+		{
+			return await Repository.GetAsync(x => true);
+		}
 	}
 }

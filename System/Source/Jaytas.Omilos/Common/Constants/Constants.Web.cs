@@ -400,6 +400,8 @@ namespace Jaytas.Omilos.Common
 				}
 
 				public const string RootPath = "/api/subscription/{subscriptionId}/campaign";
+
+				public const string MyCampaigns = "/api/campaign/mycampaings";
 			}
 
 			public struct CampaignInstance

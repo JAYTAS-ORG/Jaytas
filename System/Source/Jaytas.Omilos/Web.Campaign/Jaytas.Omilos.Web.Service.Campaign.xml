@@ -138,6 +138,12 @@
             <param name="domains"></param>
             <returns></returns>
         </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignProvider.GetMyCampaigns">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.ICampaignInstanceExceptionProvider">
             <summary>
             
@@ -152,6 +158,12 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.ICampaignProvider.GetMyCampaigns">
+            <summary>
+            
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.IMessageTemplateProvider">
             <summary>
@@ -824,6 +836,12 @@
         <member name="M:Web.Service.Campaign.Controllers.CampaignController.Get(System.Guid,System.Guid)">
             <summary>
             Gets campaign.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.MyCampaings">
+            <summary>
+            Gets all the campaign for the logged in user.
             </summary>
             <returns></returns>
         </member>
