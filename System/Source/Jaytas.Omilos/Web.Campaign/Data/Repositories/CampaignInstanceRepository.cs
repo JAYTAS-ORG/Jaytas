@@ -12,13 +12,13 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Repositories
 	/// <summary>
 	/// 
 	/// </summary>
-	public class CampignInstanceRepository : CrudByFieldBaseEntityRepository<ICampaignDbContext, CampaignInstance, long, Guid>, ICampaignInstanceRepository
+	public class CampaignInstanceRepository : CrudByFieldBaseEntityRepository<ICampaignDbContext, CampaignInstance, long, Guid>, ICampaignInstanceRepository
 	{
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="campaignDbContext"></param>
-		public CampignInstanceRepository(ICampaignDbContext campaignDbContext) : base(campaignDbContext, campaignDbContext.CampaignInstances)
+		public CampaignInstanceRepository(ICampaignDbContext campaignDbContext) : base(campaignDbContext, campaignDbContext.CampaignInstances)
 		{
 		}
 

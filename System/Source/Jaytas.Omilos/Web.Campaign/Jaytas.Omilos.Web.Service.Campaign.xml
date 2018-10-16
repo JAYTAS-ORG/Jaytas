@@ -31,6 +31,11 @@
             The name of the profile.
             </value>
         </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.App_Start.ServiceConfigurations">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Jaytas.Omilos.Web.Service.Campaign.App_Start.ServiceConfigurations.RegisterTypes(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             
@@ -467,6 +472,24 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampaignInstanceRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampaignInstanceRepository.#ctor(Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.ICampaignDbContext)">
+            <summary>
+            
+            </summary>
+            <param name="campaignDbContext"></param>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampaignInstanceRepository.GetAsync(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampaignRepository">
             <summary>
             
@@ -479,24 +502,6 @@
             <param name="campaignDbContext"></param>
         </member>
         <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampaignRepository.GetAsync(System.Guid)">
-            <summary>
-            
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampignInstanceRepository">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampignInstanceRepository.#ctor(Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.ICampaignDbContext)">
-            <summary>
-            
-            </summary>
-            <param name="campaignDbContext"></param>
-        </member>
-        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.CampignInstanceRepository.GetAsync(System.Guid)">
             <summary>
             
             </summary>

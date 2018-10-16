@@ -33,6 +33,20 @@ namespace Jaytas.Omilos.Web.Service.Campaign.App_Start
 		{
 			public WebProfile()
 			{
+				CreateMap<DomainModel.Campaign, Models.Campaign.Campaign>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
+				CreateMap<Models.Campaign.Campaign, DomainModel.Campaign>().ForMember(dom => dom.ExposedId, api => api.MapFrom(model => model.Id));
+
+				CreateMap<DomainModel.CampaignInstance, Models.Campaign.CampaignInstance>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
+				CreateMap<Models.Campaign.CampaignInstance, DomainModel.CampaignInstance>().ForMember(dom => dom.ExposedId, api => api.MapFrom(model => model.Id));
+
+				CreateMap<DomainModel.CampaignInstanceException, Models.Campaign.CampaignInstanceException>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
+				CreateMap<Models.Campaign.CampaignInstanceException, DomainModel.CampaignInstanceException>().ForMember(dom => dom.ExposedId, api => api.MapFrom(model => model.Id));
+
+				CreateMap<DomainModel.MessageTemplate, Models.Campaign.MessageTemplate>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
+				CreateMap<Models.Campaign.MessageTemplate, DomainModel.MessageTemplate>().ForMember(dom => dom.ExposedId, api => api.MapFrom(model => model.Id));
+
+				CreateMap<DomainModel.Schedule, Models.Campaign.Schedule>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
+				CreateMap<Models.Campaign.Schedule, DomainModel.Schedule>().ForMember(dom => dom.ExposedId, api => api.MapFrom(model => model.Id));
 			}
 
 			/// <summary>

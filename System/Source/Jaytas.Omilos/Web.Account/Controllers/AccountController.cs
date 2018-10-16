@@ -29,7 +29,7 @@ namespace Web.Service.Account.Controllers
 		}
 
 		/// <summary>
-		/// Gets all the roles from the table.
+		/// Gets access token for the logged in user.
 		/// </summary>
 		/// <returns></returns>
 		[HttpPost]

@@ -389,7 +389,7 @@ namespace Jaytas.Omilos.Common
 
 				public const string RootPath = "/api/account";
 
-				public const string FacebookSignin = RootPath + "/facebooksigin";
+				public const string FacebookSignin = RootPath + "/facebooksignin";
 			}
 
 			public struct Campaign

@@ -40,6 +40,7 @@ namespace Web.Service.Campaign.Controllers
 		/// </summary>
 		/// <returns></returns>
 		[HttpGet]
+		[HttpHead]
 		[Route(Constants.Route.Crud.Get, Name = Constants.Route.Campaign.Name.GetById)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
