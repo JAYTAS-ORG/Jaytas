@@ -12,57 +12,6 @@ namespace Jaytas.Omilos.Common
 		/// <summary>
 		/// 
 		/// </summary>
-		public struct ResponseMessages
-		{
-			/// <summary>
-			/// The bad request response message.
-			/// </summary>
-			public const string BadRequestMessage = "Bad Request";
-
-			/// <summary>
-			/// The client accepted response message.
-			/// </summary>
-			public const string AcceptedMessage = "The request was accepted";
-
-			/// <summary>
-			/// The client created response message.
-			/// </summary>
-			public const string CreatedMessage = "A object was created";
-
-			/// <summary>
-			/// The list of clients response message.
-			/// </summary>
-			public const string ListOfItemsMessage = "A list of objects";
-
-			/// <summary>
-			/// The no content response message.
-			/// </summary>
-			public const string NoContentMessage = "No Content";
-
-			/// <summary>
-			/// The not found message.
-			/// </summary>
-			public const string NotFoundMessage = "Not found";
-
-			/// <summary>
-			/// The single client response message.
-			/// </summary>
-			public const string SingleItemMessage = "A single object";
-
-			/// <summary>
-			/// The unauthorized response message.
-			/// </summary>
-			public const string UnauthorizedMessage = "Unauthorized";
-
-			/// <summary>
-			/// The unknown error response message.
-			/// </summary>
-			public const string UnknownErrorMessage = "An unknown error has occurred";
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
 		public struct ErrorCodes
 		{
 			/// <summary>

@@ -90,5 +90,21 @@ namespace Jaytas.Omilos.Common
 				}
 			}
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public struct Claims
+		{
+			public const string Email = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress";
+
+			public const string Upn = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn";
+
+			public const string FirstName = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname";
+
+			public const string Surname = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname";
+
+			public const string AppId = "appid";
+		}
 	}
 }

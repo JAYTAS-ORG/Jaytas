@@ -25,6 +25,7 @@ using System.Reflection;
 using Jaytas.Omilos.Common.DelegationHandlers;
 using Microsoft.AspNetCore.Http;
 using System.Security.Principal;
+using Jaytas.Omilos.Security.Identity;
 
 namespace Jaytas.Omilos.Web.StartupConfigurations
 {
@@ -174,6 +175,7 @@ namespace Jaytas.Omilos.Web.StartupConfigurations
 			services.AddTransient<HttpBootstrapHandler>();
 			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 			services.AddTransient<IPrincipal>(provider => provider.GetService<IHttpContextAccessor>().HttpContext.User);
+			services.AddTransient<IIdentityProvider, IdentityProvider>();
 		}
 
 		/// <summary>

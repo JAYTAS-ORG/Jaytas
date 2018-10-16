@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Jaytas.Omilos.Common;
 using Jaytas.Omilos.Common.Enumerations;
 using Jaytas.Omilos.Common.Exceptions;
 using Jaytas.Omilos.Common.Web;
@@ -45,10 +46,10 @@ namespace Jaytas.Omilos.Web.Mapping.Profiles
 		{
 			return new List<Claim>()
 			{
-				new Claim(ClaimTypes.Email, user.Email),
-				new Claim(ClaimTypes.Upn, user.UserId.ToString()),
-				new Claim(ClaimTypes.GivenName, user.FirstName ?? string.Empty),
-				new Claim(ClaimTypes.Surname, user.LastName ?? string.Empty)
+				new Claim(Constants.Claims.Email, user.Email),
+				new Claim(Constants.Claims.Upn, user.UserId.ToString()),
+				new Claim(Constants.Claims.FirstName, user.FirstName ?? string.Empty),
+				new Claim(Constants.Claims.Surname, user.LastName ?? string.Empty)
 			};
 		}
 	}
