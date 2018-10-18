@@ -89,7 +89,7 @@ namespace Jaytas.Omilos.Web.Service.Account.App_Start
 
 				if (userData.ExternalIdentityProvider == Omilos.Common.Enumerations.ExternalIdentityProviders.Google)
 				{
-					userLoginDetail.GoogleId = userData.Id;
+					userLoginDetail.GoogleId = userData.Sub;
 				}
 
 				return userLoginDetail;

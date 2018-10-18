@@ -33,5 +33,10 @@ namespace Jaytas.Omilos.Configuration.Interfaces
 		/// 
 		/// </summary>
 		string RedirectUri { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		string GrantType { get; set; }
 	}
 }

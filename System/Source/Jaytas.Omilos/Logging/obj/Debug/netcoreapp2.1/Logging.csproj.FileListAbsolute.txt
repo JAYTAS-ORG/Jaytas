@@ -6,3 +6,4 @@ C:\Jaytas\System\Source\Jaytas.Omilos\Logging\obj\Debug\netcoreapp2.1\Logging.As
 C:\Jaytas\System\Source\Jaytas.Omilos\Logging\obj\Debug\netcoreapp2.1\Logging.AssemblyInfo.cs
 C:\Jaytas\System\Source\Jaytas.Omilos\Logging\obj\Debug\netcoreapp2.1\Jaytas.Omilos.Logging.dll
 C:\Jaytas\System\Source\Jaytas.Omilos\Logging\obj\Debug\netcoreapp2.1\Jaytas.Omilos.Logging.pdb
+C:\Jaytas\System\Source\Jaytas.Omilos\Logging\obj\Debug\netcoreapp2.1\Logging.csprojAssemblyReference.cache

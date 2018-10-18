@@ -15,5 +15,12 @@ namespace Jaytas.Omilos.Web.Service.Account.Business.Interfaces
 		/// <param name="signinRequest"></param>
 		/// <returns></returns>
 		Task<string> AcquireFacebookAccessToken(ExternalSigninRequest signinRequest);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="signinRequest"></param>
+		/// <returns></returns>
+		Task<string> AcquireGoogleAccessToken(ExternalSigninRequest signinRequest);
 	}
 }

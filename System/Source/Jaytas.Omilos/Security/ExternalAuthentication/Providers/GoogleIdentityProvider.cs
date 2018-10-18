@@ -1,5 +1,6 @@
 ﻿using Jaytas.Omilos.Common.Enumerations;
 using Jaytas.Omilos.Configuration.Interfaces;
+using Jaytas.Omilos.Security.ExternalAuthentication.Clients;
 using Jaytas.Omilos.Security.ExternalAuthentication.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -14,14 +15,16 @@ namespace Jaytas.Omilos.Security.ExternalAuthentication.Providers
 	public class GoogleIdentityProvider : IExternalIdentityProvider
 	{
 		readonly IIdentityProviderSettings _identityProviderSettings;
+		readonly IGoogleGraphClient _googleGraphClient;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="identityProviderSettings"></param>
-		public GoogleIdentityProvider(IIdentityProviderSettings identityProviderSettings)
+		public GoogleIdentityProvider(IIdentityProviderSettings identityProviderSettings, IGoogleGraphClient googleGraphClient)
 		{
 			_identityProviderSettings = identityProviderSettings;
+			_googleGraphClient = googleGraphClient;
 		}
 
 		/// <summary>
@@ -41,7 +44,17 @@ namespace Jaytas.Omilos.Security.ExternalAuthentication.Providers
 		/// <returns></returns>
 		public async Task<string> AcquireTokenByCodeAsync(string code)
 		{
-			throw new NotImplementedException();
+			var request = new Models.IdentityProviderRequestModel
+			{
+				ClientId = _identityProviderSettings.AppId,
+				ClientSecret = _identityProviderSettings.AppSecret,
+				Code = code,
+				RedirectUri = _identityProviderSettings.RedirectUri,
+				GrantType = _identityProviderSettings.GrantType
+			};
+
+			var response = await _googleGraphClient.AcquireTokenAsync(request);
+			return response.AccessToken;
 		}
 	}
 }

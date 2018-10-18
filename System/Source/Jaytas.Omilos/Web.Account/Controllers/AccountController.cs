@@ -41,5 +41,19 @@ namespace Web.Service.Account.Controllers
 		{
 			return await ExecuteWithExceptionHandlingAsync<string, SigninResponse>(() => _accountProvider.AcquireFacebookAccessToken(signinRequest));
 		}
+
+		/// <summary>
+		/// Gets access token for the logged in user.
+		/// </summary>
+		/// <returns></returns>
+		[HttpPost]
+		[Route(Constants.Route.Account.GoogleSignin)]
+		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
+		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
+		[ProducesResponseType(typeof(SigninResponse), (int)HttpStatusCode.OK)]
+		public async Task<IActionResult> GoogleSignin([FromBody] ExternalSigninRequest signinRequest)
+		{
+			return await ExecuteWithExceptionHandlingAsync<string, SigninResponse>(() => _accountProvider.AcquireGoogleAccessToken(signinRequest));
+		}
 	}
 }

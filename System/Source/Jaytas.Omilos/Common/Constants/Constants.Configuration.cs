@@ -35,11 +35,13 @@ namespace Jaytas.Omilos.Common
 				{
 					public const string SettingsSectionName = "Secrets:Identity:Google";
 
-					public const string GraphBaseUri = "";
+					public const string GraphBaseUri = "https://www.googleapis.com";
 
-					public const string AccessTokenUri = "";
+					public const string AccessTokenUri = "/oauth2/v4/token";
 
-					public const string UserUri = "";
+					public const string UserUri = "/oauth2/v3/userinfo";
+
+					public const string GrantType = "authorization_code";
 				}
 
 				public struct RequestParameters
@@ -53,6 +55,8 @@ namespace Jaytas.Omilos.Common
 					public const string State = "state";
 
 					public const string RedirectUri = "redirect_uri";
+
+					public const string GrantType = "grant_type";
 
 					public const string Fields = "fields";
 				}

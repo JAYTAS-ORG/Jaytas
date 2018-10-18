@@ -339,6 +339,8 @@ namespace Jaytas.Omilos.Common
 				public const string RootPath = "/api/account";
 
 				public const string FacebookSignin = RootPath + "/facebooksignin";
+
+				public const string GoogleSignin = RootPath + "/googlesignin";
 			}
 
 			public struct Campaign
@@ -426,6 +428,8 @@ namespace Jaytas.Omilos.Common
 
 				public const string Audience = "Jaytas.Omilos";
 			}
+
+			public const string Scheme = "Bearer";
 		}
 
 		public struct CommonLinkRelValues

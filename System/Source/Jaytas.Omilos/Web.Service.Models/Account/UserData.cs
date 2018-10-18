@@ -22,6 +22,11 @@ namespace Jaytas.Omilos.Web.Service.Models.Account
 		/// <summary>
 		/// 
 		/// </summary>
+		public string Sub { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public string Email { get; set; }
 	}
 }

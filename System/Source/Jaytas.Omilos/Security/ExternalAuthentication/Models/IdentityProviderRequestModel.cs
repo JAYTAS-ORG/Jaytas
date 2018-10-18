@@ -41,5 +41,11 @@ namespace Jaytas.Omilos.Security.ExternalAuthentication.Models
 		/// </summary>
 		[AliasAs(Constants.Secrets.IdentityProviderSettings.RequestParameters.RedirectUri)]
 		public string RedirectUri { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[AliasAs(Constants.Secrets.IdentityProviderSettings.RequestParameters.GrantType)]
+		public string GrantType { get; set; }
 	}
 }

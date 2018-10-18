@@ -39,10 +39,16 @@ namespace Jaytas.Omilos.Configuration.Models
 		/// <summary>
 		/// 
 		/// </summary>
+		public string GrantType { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public GoogleIdentityProviderSettings()
 		{
 			AccessTokenUri = Constants.Secrets.IdentityProviderSettings.Google.AccessTokenUri;
 			UserUri = Constants.Secrets.IdentityProviderSettings.Google.UserUri;
+			GrantType = Constants.Secrets.IdentityProviderSettings.Google.GrantType;
 		}
 	}
 }

@@ -32,6 +32,9 @@ namespace Jaytas.Omilos.Web.Service.Account.App_Start
 			services.AddRefitClient<IFacebookGraphClient>()
 						.ConfigureHttpClient(c => c.BaseAddress = new Uri(Constants.Secrets.IdentityProviderSettings.Facebook.GraphBaseUri))
 						.AddHttpMessageHandler<HttpBootstrapHandler>();
+			services.AddRefitClient<IGoogleGraphClient>()
+						.ConfigureHttpClient(c => c.BaseAddress = new Uri(Constants.Secrets.IdentityProviderSettings.Google.GraphBaseUri))
+						.AddHttpMessageHandler<HttpBootstrapHandler>();
 
 			IBaseConfiguration configurationProvider = null;
 			services.AddSingleton<IExternalIdentityProvider, FacebookIdentityProvider>(serviceProvider =>
@@ -44,7 +47,8 @@ namespace Jaytas.Omilos.Web.Service.Account.App_Start
 			services.AddSingleton<IExternalIdentityProvider, GoogleIdentityProvider>(serviceProvider =>
 			{
 				configurationProvider = serviceProvider.GetService<IBaseConfiguration>();
-				return new GoogleIdentityProvider(configurationProvider.GoogleAuthenticationSettings);
+				IGoogleGraphClient googleGraphClient = serviceProvider.GetService<IGoogleGraphClient>();
+				return new GoogleIdentityProvider(configurationProvider.GoogleAuthenticationSettings, googleGraphClient);
 			});
 
 			services.AddSingleton<IExternalIdentityProviderFactory, ExternalIdentityProviderFactory>();
@@ -52,8 +56,12 @@ namespace Jaytas.Omilos.Web.Service.Account.App_Start
 			services.AddRefitClient<IFacebookUserClient>()
 						.ConfigureHttpClient(c => c.BaseAddress = new Uri(Constants.Secrets.IdentityProviderSettings.Facebook.GraphBaseUri))
 						.AddHttpMessageHandler<HttpBootstrapHandler>();
+			services.AddRefitClient<IGoogleUserClient>()
+						.ConfigureHttpClient(c => c.BaseAddress = new Uri(Constants.Secrets.IdentityProviderSettings.Google.GraphBaseUri))
+						.AddHttpMessageHandler<HttpBootstrapHandler>();
 
 			services.AddSingleton<IFacebookUserServiceClient, FacebookUserServiceClient>();
+			services.AddSingleton<IGoogleUserServiceClient, GoogleUserServiceClient>();
 
 			services.AddDbContextPool<IUserDbContext, UserDbContext>((serviceProvider, options) =>
 			{
