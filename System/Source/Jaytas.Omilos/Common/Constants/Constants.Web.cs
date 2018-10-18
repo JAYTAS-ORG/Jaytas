@@ -352,7 +352,7 @@ namespace Jaytas.Omilos.Common
 
 				public const string RootPath = "/api/subscription/{subscriptionId}/campaign";
 
-				public const string MyCampaigns = "/api/campaign/mycampaings";
+				public const string MyCampaigns = "/api/campaign/mycampaingns";
 			}
 
 			public struct CampaignInstance
@@ -393,6 +393,42 @@ namespace Jaytas.Omilos.Common
 				}
 
 				public const string RootPath = "/api/subscription/{subscriptionId}/campaign/{campaignId}/Schedule";
+			}
+
+			public struct Subscription
+			{
+				public struct Name
+				{
+					public const string GetById = "Subscription.GetById";
+				}
+
+				public const string RootPath = "/api/subscription";
+
+				public const string MySubscriptions = "/api/campaign/mysubscriptions";
+			}
+
+			public struct Group
+			{
+				public struct Name
+				{
+					public const string GetById = "Group.GetById";
+				}
+
+				public const string RootPath = "/api/subscription/{subscriptionId}/group";
+
+				public const string MyGroups = "/api/campaign/mygroups";
+			}
+
+			public struct Contact
+			{
+				public struct Name
+				{
+					public const string GetById = "Contact.GetById";
+				}
+
+				public const string RootPath = "/api/subscription/{subscriptionId}/contact";
+
+				public const string MyContacts = "/api/campaign/mycontacts";
 			}
 		}
 

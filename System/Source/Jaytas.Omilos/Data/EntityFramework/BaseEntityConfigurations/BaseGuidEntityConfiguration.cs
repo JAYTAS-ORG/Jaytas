@@ -12,29 +12,25 @@ namespace Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations
 	/// A data model configuration.
 	/// </summary>
 	/// <typeparam name="TEntity">The type of the entity.</typeparam>
-	/// <seealso cref="Microsoft.EntityFrameworkCore.IEntityTypeConfiguration{TEntity}"/>
-	public abstract class BaseGuidEntityConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> where TEntity : GuidBaseEntity
+	/// <seealso cref="BaseEntityConfigurations.BaseEntityConfiguration{TEntity}"/>
+	public abstract class BaseGuidEntityConfiguration<TEntity> : BaseEntityConfiguration<TEntity> where TEntity : GuidBaseEntity
 	{
-		string _tableName, _schema;
-
 		/// <summary>
 		/// Initializes a new instance of the <see cref="BaseGuidEntityConfiguration{TEntity}"/> class.
 		/// </summary>
 		/// <param name="tableName">Name of the table.</param>
 		/// <param name="schema">The schema.</param>
-		protected BaseGuidEntityConfiguration(string tableName, string schema)
+		protected BaseGuidEntityConfiguration(string tableName, string schema) : base(tableName, schema)
 		{
-			_tableName = tableName;
-			_schema = string.IsNullOrWhiteSpace(schema) ? Constants.Schemas.Dbo.Name : schema;
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="builder"></param>
-		public void Configure(EntityTypeBuilder<TEntity> builder)
+		public override void Configure(EntityTypeBuilder<TEntity> builder)
 		{
-			builder.ToTable(_tableName, _schema);
+			base.Configure(builder);
 
 			// Default shared properties
 			builder.Property(x => x.Id)

@@ -239,6 +239,11 @@
             <param name="domains"></param>
             <returns></returns>
         </member>
+        <member name="T:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.CampaignDbContext">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.CampaignDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Jaytas.Omilos.Web.Service.Campaign.Data.DbContext.CampaignDbContext})">
             <summary>
             Constructor which sets the db Initializer.

@@ -73,6 +73,31 @@ namespace Jaytas.Omilos.Common
 				}
 			}
 
+			/// <summary>
+			/// Schema for Subscription Management
+			/// </summary>
+			public struct Subscription
+			{
+				/// <summary>
+				/// 
+				/// </summary>
+				public const string Name = "subscription";
+
+				/// <summary>
+				/// 
+				/// </summary>
+				public struct Tables
+				{
+					public const string Subscription = "subscription";
+
+					public const string Group = "group";
+
+					public const string Contact = "contact";
+
+					public const string GroupContactAssociation = "group_contact_association";
+				}
+			}
+
 		}
 
 
@@ -143,6 +168,21 @@ namespace Jaytas.Omilos.Common
 			/// 
 			/// </summary>
 			public const string CampaignInstanceExceptionId = "CampaignInstanceExceptionId";
+
+			/// <summary>
+			/// 
+			/// </summary>
+			public const string SubscriptionId = "SubscriptionId";
+
+			/// <summary>
+			/// 
+			/// </summary>
+			public const string GroupId = "GroupId";
+
+			/// <summary>
+			/// 
+			/// </summary>
+			public const string ContactId = "ContactId";
 		}
 	}
 }

@@ -13,10 +13,9 @@ namespace Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations
 	/// A data model configuration.
 	/// </summary>
 	/// <typeparam name="TEntity">The type of the entity.</typeparam>
-	/// <seealso cref="Microsoft.EntityFrameworkCore.IEntityTypeConfiguration{TEntity}"/>
-	public abstract class BaseLongEntityConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> where TEntity : LongBaseEntity
+	/// <seealso cref="BaseEntityConfigurations.BaseEntityConfiguration{TEntity}"/>
+	public abstract class BaseLongEntityConfiguration<TEntity> : BaseEntityConfiguration<TEntity> where TEntity : LongBaseEntity
 	{
-		protected string TableName, Schema;
 		IBaseFieldMapper _baseFieldMapper;
 		bool _isDatabaseGenerated;
 
@@ -26,17 +25,19 @@ namespace Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations
 		/// <param name="tableName">Name of the table.</param>
 		/// <param name="schema">The schema. dbo will be used if null or empty </param>
 		/// <param name="isDatabaseGenerated">Value of this generated at database</param>
-		protected BaseLongEntityConfiguration(string tableName, string schema, bool isDatabaseGenerated, IBaseFieldMapper baseFieldMapper)
+		protected BaseLongEntityConfiguration(string tableName, string schema, bool isDatabaseGenerated, IBaseFieldMapper baseFieldMapper) : base(tableName, schema)
 		{
-			Schema = string.IsNullOrWhiteSpace(schema) ? Constants.Schemas.Dbo.Name : schema;
-			TableName = tableName;
 			_baseFieldMapper = baseFieldMapper;
 			_isDatabaseGenerated = isDatabaseGenerated;
 		}
 
-		public virtual void Configure(EntityTypeBuilder<TEntity> builder)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="builder"></param>
+		public override void Configure(EntityTypeBuilder<TEntity> builder)
 		{
-			builder.ToTable(TableName, Schema);
+			base.Configure(builder);
 
 			// Default shared properties
 			builder.Property(x => x.Id)

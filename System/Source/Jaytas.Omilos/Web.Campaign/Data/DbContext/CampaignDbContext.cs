@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace Jaytas.Omilos.Web.Service.Campaign.Data.DbContext
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public class CampaignDbContext : MicroServiceDbContext<CampaignDbContext>, ICampaignDbContext
 	{
 		/// <summary>

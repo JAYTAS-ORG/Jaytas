@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Service.Account", "Web.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Service.Models", "Web.Service.Models\Web.Service.Models.csproj", "{0D961CB0-6001-4D4F-8BE4-1E2153ED269F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Service.Campaign", "Web.Campaign\Web.Service.Campaign.csproj", "{6B75DDB3-92BE-4957-BCF4-E8BBCCA2B72E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Service.Campaign", "Web.Campaign\Web.Service.Campaign.csproj", "{6B75DDB3-92BE-4957-BCF4-E8BBCCA2B72E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Service.Subscription", "Web.Service.Subscription\Web.Service.Subscription.csproj", "{27AAB534-334F-4C9C-BBD7-E0D4FFF79BBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{6B75DDB3-92BE-4957-BCF4-E8BBCCA2B72E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B75DDB3-92BE-4957-BCF4-E8BBCCA2B72E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B75DDB3-92BE-4957-BCF4-E8BBCCA2B72E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27AAB534-334F-4C9C-BBD7-E0D4FFF79BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27AAB534-334F-4C9C-BBD7-E0D4FFF79BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27AAB534-334F-4C9C-BBD7-E0D4FFF79BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27AAB534-334F-4C9C-BBD7-E0D4FFF79BBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

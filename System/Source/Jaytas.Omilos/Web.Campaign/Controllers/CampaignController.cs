@@ -78,7 +78,6 @@ namespace Web.Service.Campaign.Controllers
 		[ProducesResponseType((int)HttpStatusCode.NotFound)]
 		public async Task<IActionResult> Post(Guid subscriptionId, [FromBody] Jaytas.Omilos.Web.Service.Models.Campaign.Campaign campaign)
 		{
-			campaign.SubscriptionId = subscriptionId;
 			return await PostOrStatusCodeAsync(campaign, Constants.Route.Campaign.Name.GetById).ConfigureAwait(true);
 		}
 
