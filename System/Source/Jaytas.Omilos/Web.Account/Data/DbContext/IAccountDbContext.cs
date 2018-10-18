@@ -11,7 +11,7 @@ namespace Jaytas.Omilos.Web.Service.Account.Data.DbContext
 	/// <summary>
 	/// User API IDbContext.
 	/// </summary>
-	public interface IUserDbContext : IDbContext
+	public interface IAccountDbContext : IDbContext
 	{
 		/// <summary>
 		/// DbSet for Users entity.

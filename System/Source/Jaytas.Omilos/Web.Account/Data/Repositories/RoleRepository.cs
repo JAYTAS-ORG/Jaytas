@@ -13,13 +13,13 @@ namespace Jaytas.Omilos.Web.Service.Account.Data.Repositories
 	/// <summary>
 	/// Repostiory layer for Role.
 	/// </summary>
-	public class RoleRepository : BaseEntityRepository<IUserDbContext>, IRoleRepository
+	public class RoleRepository : BaseEntityRepository<IAccountDbContext>, IRoleRepository
 	{
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="userDbContext"></param>
-		public RoleRepository(IUserDbContext userDbContext) : base(userDbContext)
+		public RoleRepository(IAccountDbContext userDbContext) : base(userDbContext)
 		{
 		}
 

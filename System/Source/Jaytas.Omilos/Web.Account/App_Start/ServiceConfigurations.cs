@@ -63,7 +63,7 @@ namespace Jaytas.Omilos.Web.Service.Account.App_Start
 			services.AddSingleton<IFacebookUserServiceClient, FacebookUserServiceClient>();
 			services.AddSingleton<IGoogleUserServiceClient, GoogleUserServiceClient>();
 
-			services.AddDbContextPool<IUserDbContext, UserDbContext>((serviceProvider, options) =>
+			services.AddDbContextPool<IAccountDbContext, AccountDbContext>((serviceProvider, options) =>
 			{
 				configurationProvider = serviceProvider.GetService<IBaseConfiguration>();
 				options.UseLazyLoadingProxies();

@@ -13,13 +13,13 @@ namespace Jaytas.Omilos.Web.Service.Account.Data.DbContext
 	/// <summary>
 	/// DbContext for the User Management Web API
 	/// </summary>
-	public class UserDbContext : MicroServiceDbContext<UserDbContext>, IUserDbContext
+	public class AccountDbContext : MicroServiceDbContext<AccountDbContext>, IAccountDbContext
 	{
 		/// <summary>
 		/// Constructor which sets the db Initializer.
 		/// </summary>
 		/// <param name="options">Represents the Identity of the logged in user.</param>
-		public UserDbContext(DbContextOptions<UserDbContext> options) : base(options)
+		public AccountDbContext(DbContextOptions<AccountDbContext> options) : base(options)
 		{
 		}
 

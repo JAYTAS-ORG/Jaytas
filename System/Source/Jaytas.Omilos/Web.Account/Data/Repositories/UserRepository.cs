@@ -14,13 +14,13 @@ namespace Jaytas.Omilos.Web.Service.Account.Data.Repositories
 	/// <summary>
 	/// 
 	/// </summary>
-	public class UserRepository : CrudBaseEntityRepository<IUserDbContext, User, long>, IUserRepository
+	public class UserRepository : CrudBaseEntityRepository<IAccountDbContext, User, long>, IUserRepository
 	{
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="userDbContext"></param>
-		public UserRepository(IUserDbContext userDbContext) : base(userDbContext, userDbContext.Users)
+		public UserRepository(IAccountDbContext userDbContext) : base(userDbContext, userDbContext.Users)
 		{
 		}
 	}
