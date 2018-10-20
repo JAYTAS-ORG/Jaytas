@@ -636,6 +636,21 @@
             
             </summary>
         </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.CampaignInstances">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.MessageTemplates">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.Schedule">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance">
             <summary>
             
@@ -661,7 +676,17 @@
             
             </summary>
         </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance.CampaignId">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance.CampaignInstanceException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance.Campaign">
             <summary>
             
             </summary>
@@ -741,6 +766,11 @@
             
             </summary>
         </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate.Campaign">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.DomainModel.RecurrencePattern">
             <summary>
             
@@ -777,6 +807,11 @@
             </summary>
         </member>
         <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.RecurrencePattern.MonthOfYear">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.RecurrencePattern.ScheduleId">
             <summary>
             
             </summary>
@@ -822,6 +857,11 @@
             </summary>
         </member>
         <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule.RecurrencePattern">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule.Campaign">
             <summary>
             
             </summary>

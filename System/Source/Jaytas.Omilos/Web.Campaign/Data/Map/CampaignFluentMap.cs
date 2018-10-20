@@ -77,6 +77,17 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Map
 		{
 			base.ConfigureKey(builder);
 
+			builder.HasMany(campaign => campaign.CampaignInstances)
+				   .WithOne(campaignInstance => campaignInstance.Campaign)
+				   .HasForeignKey(campaignInstance => campaignInstance.CampaignId);
+
+			builder.HasMany(campaign => campaign.MessageTemplates)
+				   .WithOne(messageTemplate => messageTemplate.Campaign)
+				   .HasForeignKey(messageTemplate => messageTemplate.CampaignId);
+
+			builder.HasOne(campaign => campaign.Schedule)
+				   .WithOne(schedule => schedule.Campaign)
+				   .HasForeignKey<DomainModel.Schedule>(schedule => schedule.CampaignId);
 		}
 	}
 }

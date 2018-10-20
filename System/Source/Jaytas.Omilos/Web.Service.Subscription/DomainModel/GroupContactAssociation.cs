@@ -24,5 +24,15 @@ namespace Jaytas.Omilos.Web.Service.Subscription.DomainModel
 		/// 
 		/// </summary>
 		public bool HasOptedOut { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public virtual Group Group { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public virtual Contact Contact { get; set; }
 	}
 }

@@ -31,6 +31,16 @@ namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 		/// <summary>
 		/// 
 		/// </summary>
+		public long CampaignId { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public virtual CampaignInstanceException CampaignInstanceException { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public virtual Campaign Campaign { get; set; }
 	}
 }

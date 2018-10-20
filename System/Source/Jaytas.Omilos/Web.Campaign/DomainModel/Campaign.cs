@@ -1,6 +1,7 @@
 ﻿using Jaytas.Omilos.Common.Domain;
 using Jaytas.Omilos.Common.Enumerations;
 using System;
+using System.Collections.Generic;
 
 namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 {
@@ -53,5 +54,20 @@ namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 		/// 
 		/// </summary>
 		public Guid? CampaignManagerId { get; set; }
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		public virtual ICollection<CampaignInstance> CampaignInstances { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public virtual ICollection<MessageTemplate> MessageTemplates { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public virtual Schedule Schedule { get; set; }
 	}
 }

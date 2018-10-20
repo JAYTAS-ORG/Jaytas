@@ -13,5 +13,10 @@ namespace Jaytas.Omilos.Common.Domain.Interfaces
 		///
 		/// <value> The Exposed identifier. </value>
 		TFieldEntityType ExposedId { get; set; }
+
+		/// <summary>
+		/// Generates exposed field
+		/// </summary>
+		void GenerateExposedField();
 	}
 }

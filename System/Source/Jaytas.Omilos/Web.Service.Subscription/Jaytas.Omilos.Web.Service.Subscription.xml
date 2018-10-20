@@ -438,6 +438,16 @@
             
             </summary>
         </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Subscription.DomainModel.Contact.Subscription">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Subscription.DomainModel.Contact.GroupContactAssociations">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group">
             <summary>
             
@@ -449,6 +459,16 @@
             </summary>
         </member>
         <member name="P:Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group.Subscription">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group.GroupContactAssociations">
             <summary>
             
             </summary>
@@ -473,12 +493,32 @@
             
             </summary>
         </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Subscription.DomainModel.GroupContactAssociation.Group">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Subscription.DomainModel.GroupContactAssociation.Contact">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Subscription.DomainModel.Subscription">
             <summary>
             
             </summary>
         </member>
         <member name="P:Jaytas.Omilos.Web.Service.Subscription.DomainModel.Subscription.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Subscription.DomainModel.Subscription.Contacts">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Subscription.DomainModel.Subscription.Groups">
             <summary>
             
             </summary>

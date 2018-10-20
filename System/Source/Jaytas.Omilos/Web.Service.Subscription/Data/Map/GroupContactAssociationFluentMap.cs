@@ -31,7 +31,7 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Data.Map
 			base.Configure(builder);
 
 			builder.Property(col => col.GroupId)
-				 .HasColumnName(nameof(DomainModel.GroupContactAssociation.ContactId))
+				 .HasColumnName(nameof(DomainModel.GroupContactAssociation.GroupId))
 				 .IsRequired();
 
 			builder.Property(col => col.ContactId)
@@ -49,6 +49,15 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Data.Map
 		/// <param name="builder"></param>
 		public virtual void ConfigureKey(EntityTypeBuilder<DomainModel.GroupContactAssociation> builder)
 		{
+			builder.HasKey(groupContactAssociation => new { groupContactAssociation.ContactId, groupContactAssociation.GroupId });
+
+			builder.HasOne(groupContactAssociation => groupContactAssociation.Contact)
+				   .WithMany(contact => contact.GroupContactAssociations)
+				   .HasForeignKey(groupContactAssociation => groupContactAssociation.ContactId);
+
+			builder.HasOne(groupContactAssociation => groupContactAssociation.Group)
+				   .WithMany(group => group.GroupContactAssociations)
+				   .HasForeignKey(groupContactAssociation => groupContactAssociation.GroupId);
 		}
 	}
 }

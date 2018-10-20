@@ -58,6 +58,9 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Map
 		{
 			base.ConfigureKey(builder);
 
+			builder.HasOne(campaignInstance => campaignInstance.CampaignInstanceException)
+				   .WithOne(campaignInstanceException => campaignInstanceException.CampaignInstance)
+				   .HasForeignKey<DomainModel.CampaignInstanceException>(campaignInstanceException => campaignInstanceException.InstanceId);
 		}
 	}
 }

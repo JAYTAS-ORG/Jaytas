@@ -50,6 +50,14 @@ namespace Jaytas.Omilos.Common.Domain
 		}
 
 		/// <summary>
+		/// Generates exposed field
+		/// </summary>
+		public void GenerateExposedField()
+		{
+			ExposedId = Guid.NewGuid();
+		}
+
+		/// <summary>
 		/// Returns a hash code for this instance.
 		/// </summary>
 		/// <returns>

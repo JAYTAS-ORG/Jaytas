@@ -45,5 +45,10 @@ namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 		/// 
 		/// </summary>
 		public virtual RecurrencePattern RecurrencePattern { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public virtual Campaign Campaign { get; set; }
 	}
 }

@@ -55,6 +55,8 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Data.DbContext
 			modelBuilder.ApplyConfiguration(new GroupFluentMap(Constants.Schemas.Subscription.Tables.Group, Constants.Schemas.Subscription.Name, true));
 			modelBuilder.ApplyConfiguration(new ContactFluentMap(Constants.Schemas.Subscription.Tables.Contact, Constants.Schemas.Subscription.Name, true));
 			modelBuilder.ApplyConfiguration(new GroupContactAssociationFluentMap(Constants.Schemas.Subscription.Tables.GroupContactAssociation, Constants.Schemas.Subscription.Name));
+
+			modelBuilder.Entity<DomainModel.GroupContactAssociation>().HasKey(groupContactAssociation => new { groupContactAssociation.ContactId, groupContactAssociation.GroupId });
 		}
 	}
 }

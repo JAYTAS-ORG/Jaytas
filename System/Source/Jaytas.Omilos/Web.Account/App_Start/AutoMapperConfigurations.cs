@@ -64,7 +64,6 @@ namespace Jaytas.Omilos.Web.Service.Account.App_Start
 			{
 				var user = new DomainModel.User
 				{
-					ExposedId = Guid.NewGuid(),
 					EmailId = userData.Email,
 					IsActive = true,
 					UserLoginDetail = MapLoginDetail(userData)

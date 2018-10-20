@@ -20,5 +20,15 @@ namespace Jaytas.Omilos.Web.Service.Subscription.DomainModel
 		/// 
 		/// </summary>
 		public string Name { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public virtual Subscription Subscription { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public virtual ICollection<GroupContactAssociation> GroupContactAssociations { get; set; }
 	}
 }

@@ -53,6 +53,10 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Data.Map
 		public override void ConfigureKey(EntityTypeBuilder<DomainModel.Group> builder)
 		{
 			base.ConfigureKey(builder);
+
+			builder.HasMany(group => group.GroupContactAssociations)
+				   .WithOne(groupContactAssociation => groupContactAssociation.Group)
+				   .HasForeignKey(groupContactAssociation => groupContactAssociation.GroupId);
 		}
 	}
 }

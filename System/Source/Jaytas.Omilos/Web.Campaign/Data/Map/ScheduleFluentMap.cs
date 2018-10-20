@@ -66,6 +66,9 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Map
 		{
 			base.ConfigureKey(builder);
 
+			builder.HasOne(schedule => schedule.RecurrencePattern)
+				   .WithOne(recurrencePattern => recurrencePattern.Schedule)
+				   .HasForeignKey<DomainModel.RecurrencePattern>(recurrencePattern => recurrencePattern.ScheduleId);
 		}
 	}
 }

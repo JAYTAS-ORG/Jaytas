@@ -36,5 +36,10 @@ namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 		/// 
 		/// </summary>
 		public string OverDueMessage { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public virtual Campaign Campaign { get; set; }
 	}
 }
