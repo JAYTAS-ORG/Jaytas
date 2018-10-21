@@ -65,8 +65,8 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Map
 				 .HasColumnName(nameof(DomainModel.Campaign.Status))
 				 .IsRequired();
 
-			builder.Property(col => col.CampaignManagerId)
-				 .HasColumnName(nameof(DomainModel.Campaign.CampaignManagerId));
+			builder.Property(col => col.CampaignManagerEmailId)
+				 .HasColumnName(nameof(DomainModel.Campaign.CampaignManagerEmailId));
 		}
 
 		/// <summary>

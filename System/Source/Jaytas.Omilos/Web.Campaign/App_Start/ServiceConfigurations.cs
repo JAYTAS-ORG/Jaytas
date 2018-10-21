@@ -10,6 +10,10 @@ using Jaytas.Omilos.Web.Service.Campaign.Data.Repositories;
 using Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces;
 using Jaytas.Omilos.Web.Service.Campaign.Business;
 using Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces;
+using Jaytas.Omilos.ServiceClient.Subscription.Implementations;
+using Jaytas.Omilos.ServiceClient.Subscription.Interfaces;
+using Refit;
+using Jaytas.Omilos.Common.DelegationHandlers;
 
 namespace Jaytas.Omilos.Web.Service.Campaign.App_Start
 {
@@ -32,6 +36,16 @@ namespace Jaytas.Omilos.Web.Service.Campaign.App_Start
 				options.UseMySql(configurationProvider.DatabaseConnectionIdentifier.RootConnection,
 								 builderOptions => builderOptions.ServerVersion(new Version(5, 7), Pomelo.EntityFrameworkCore.MySql.Infrastructure.ServerType.MySql));
 			});
+
+			services.AddRefitClient<ISubscriptionClient>()
+						.ConfigureHttpClient((serviceProvider, httpClient) =>
+						{
+							configurationProvider = serviceProvider.GetService<IBaseConfiguration>();
+							httpClient.BaseAddress = new Uri(configurationProvider.SubscriptionServiceEndpointSettings.PrivateEndpoint);
+						})
+						.AddHttpMessageHandler<HttpBootstrapHandler>();
+
+			services.AddSingleton<ISubscriptionServiceClient, SubscriptionServiceClient>();
 
 			services.AddScoped<ICampaignRepository, CampaignRepository>();
 			services.AddScoped<ICampaignInstanceRepository, CampaignInstanceRepository>();

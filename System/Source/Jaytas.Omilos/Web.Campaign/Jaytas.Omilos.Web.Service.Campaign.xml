@@ -111,11 +111,13 @@
             
             </summary>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignProvider.#ctor(Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces.ICampaignRepository)">
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignProvider.#ctor(Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces.ICampaignRepository,AutoMapper.IMapper,Jaytas.Omilos.ServiceClient.Subscription.Interfaces.ISubscriptionServiceClient)">
             <summary>
             
             </summary>
             <param name="campaignRepository"></param>
+            <param name="mapper"></param>
+            <param name="subscriptionServiceClient"></param>
         </member>
         <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignProvider.AssertEntityToCreateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign})">
             <summary>
@@ -138,10 +140,11 @@
             <param name="domains"></param>
             <returns></returns>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignProvider.GetMyCampaigns">
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignProvider.GetMyCampaigns(Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
             <summary>
             
             </summary>
+            <param name="pageDetails"></param>
             <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.ICampaignInstanceExceptionProvider">
@@ -159,10 +162,11 @@
             
             </summary>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.ICampaignProvider.GetMyCampaigns">
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.ICampaignProvider.GetMyCampaigns(Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
             <summary>
             
             </summary>
+            <param name="pageDetails"></param>
             <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.IMessageTemplateProvider">
@@ -631,7 +635,7 @@
             
             </summary>
         </member>
-        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.CampaignManagerId">
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign.CampaignManagerEmailId">
             <summary>
             
             </summary>
@@ -884,9 +888,9 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignController.MyCampaings">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.MyCampaings(Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
             <summary>
-            Gets all the campaign for the logged in user.
+            Gets the campaign for the logged in user.
             </summary>
             <returns></returns>
         </member>

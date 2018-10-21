@@ -44,7 +44,7 @@ namespace Jaytas.Omilos.Common.Models
 
 
 		/// <summary>
-		/// Constructs a new pagged results from the Inumerable query.
+		/// Constructs a new pagged results from the Ienumerable query.
 		/// </summary>
 		/// <param name="items">The items.</param>
 		/// <param name="start">The start.</param>

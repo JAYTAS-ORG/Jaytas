@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Jaytas.Omilos.Common.Web;
 using System.Net;
+using Jaytas.Omilos.Web.Service.Models.Common;
 
 namespace Web.Service.Campaign.Controllers
 {
@@ -52,7 +53,7 @@ namespace Web.Service.Campaign.Controllers
 		}
 
 		/// <summary>
-		/// Gets all the campaign for the logged in user.
+		/// Gets the campaign for the logged in user.
 		/// </summary>
 		/// <returns></returns>
 		[HttpGet]
@@ -61,10 +62,10 @@ namespace Web.Service.Campaign.Controllers
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
 		[ProducesResponseType((int)HttpStatusCode.NotFound)]
-		[ProducesResponseType(typeof(IEnumerable<Jaytas.Omilos.Web.Service.Models.Campaign.Campaign>), (int)HttpStatusCode.OK)]
-		public async Task<IActionResult> MyCampaings()
+		[ProducesResponseType(typeof(IEnumerable<CampaignSummary>), (int)HttpStatusCode.OK)]
+		public async Task<IActionResult> MyCampaings(PageDetails pageDetails)
 		{
-			return await GetAllOrStatusCodeAsync().ConfigureAwait(true);
+			return await ExecutePagedResultWithExceptionHandlingAsync(() => _campaignProvider.GetMyCampaigns(pageDetails));
 		}
 
 		/// <summary>
@@ -147,7 +148,8 @@ namespace Web.Service.Campaign.Controllers
 		/// <returns></returns>
 		protected async override Task<IEnumerable<Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign>> GetAllAsync(Command<Jaytas.Omilos.Web.Service.Models.Campaign.Campaign, Guid> command)
 		{
-			return await _campaignProvider.GetMyCampaigns();
+			throw new NotImplementedException();
+			//return await _campaignProvider.GetMyCampaigns();
 		}
 
 		/// <summary>

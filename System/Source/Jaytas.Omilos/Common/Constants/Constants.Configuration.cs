@@ -95,6 +95,11 @@ namespace Jaytas.Omilos.Common
 			}
 		}
 
+		public struct ServiceEndpointSettings
+		{
+			public const string SubscriptionService = "ServiceEndpoints:Subscription";
+		}
+
 		/// <summary>
 		/// 
 		/// </summary>

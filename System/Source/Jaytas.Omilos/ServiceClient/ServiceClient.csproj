@@ -17,4 +17,8 @@
     <ProjectReference Include="..\Web.Service.Models\Web.Service.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Subscription\Models\" />
+  </ItemGroup>
+
 </Project>

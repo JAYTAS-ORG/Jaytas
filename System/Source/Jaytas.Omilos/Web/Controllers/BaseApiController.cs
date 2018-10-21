@@ -79,6 +79,39 @@ namespace Jaytas.Omilos.Web.Controllers
 		}
 
 		/// <summary>
+		/// Executes the provided function asynchronously with exception handling.  It converts the TDomain result from the function
+		/// to TResponse and returns it as an OK/200 response. 
+		/// </summary>
+		/// <typeparam name="TResponse">The type of the response.</typeparam>
+		/// <param name="action">The action asynchronous.</param>
+		/// <returns></returns>
+		protected internal async Task<IActionResult> ExecuteWithExceptionHandlingAsync<TResponse>(Func<Task<TResponse>> action)
+		{
+			try
+			{
+				var webModel = await action().ConfigureAwait(true);
+				if (webModel == null)
+				{
+					return NotFound();
+				}
+
+				return Ok(webModel);
+			}
+			catch (BusinessValidationException bveEx)
+			{
+				return BadRequest(bveEx);
+			}
+			catch (AggregateException aggregateEx)
+			{
+				return BadRequest(aggregateEx);
+			}
+			catch (Exception ex)
+			{
+				return InternalServerError(GenericApiErrorCode, ex);
+			}
+		}
+
+		/// <summary>
 		/// Executes the paged result with (global) exception handling.
 		/// </summary>
 		/// <typeparam name="TDomain">The type of the result.</typeparam>
@@ -98,6 +131,39 @@ namespace Jaytas.Omilos.Web.Controllers
 				var webModel = Mapper.Map<TResponse>(pagedModel.Items);
 				AddPagingHeaders(pagedModel);
 				return Ok(webModel);
+			}
+			catch (BusinessValidationException bveEx)
+			{
+				return BadRequest(bveEx);
+			}
+			catch (AggregateException aggregateEx)
+			{
+				return BadRequest(aggregateEx);
+			}
+			catch (Exception ex)
+			{
+				return InternalServerError(GenericApiErrorCode, ex);
+			}
+		}
+
+		/// <summary>
+		/// Executes the paged result with (global) exception handling.
+		/// </summary>
+		/// <typeparam name="TResponse">The type of the result.</typeparam>
+		/// <param name="action">The action.</param>
+		/// <returns></returns>
+		protected internal async Task<IActionResult> ExecutePagedResultWithExceptionHandlingAsync<TResponse>(Func<Task<PagedResultSet<TResponse>>> action)
+		{
+			try
+			{
+				var pagedModel = await action().ConfigureAwait(true);
+				if (pagedModel == null || pagedModel.Items == null)
+				{
+					return NotFound();
+				}
+
+				AddPagingHeaders(pagedModel);
+				return Ok(pagedModel.Items);
 			}
 			catch (BusinessValidationException bveEx)
 			{

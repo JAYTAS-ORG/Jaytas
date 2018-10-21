@@ -7,6 +7,7 @@ using Jaytas.Omilos.Common;
 using Jaytas.Omilos.Common.Web;
 using Jaytas.Omilos.Web.Controllers;
 using Jaytas.Omilos.Web.Controllers.Commands;
+using Jaytas.Omilos.Web.Service.Models.Subscription.Input;
 using Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -63,6 +64,23 @@ namespace Web.Service.Subscription.Controllers
 		public async Task<IActionResult> MySubscriptions()
 		{
 			return await GetAllOrStatusCodeAsync().ConfigureAwait(true);
+		}
+
+		/// <summary>
+		/// Gets all the subscription for the logged in user.
+		/// </summary>
+		/// <returns></returns>
+		[HttpPost]
+		[Route(Constants.Route.Subscription.GetSubscriptionsAndGroupSummaryById)]
+		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
+		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
+		[ProducesResponseType((int)HttpStatusCode.NotFound)]
+		[ProducesResponseType(typeof(IEnumerable<Jaytas.Omilos.Web.Service.Models.Subscription.SubscriptionWithGroupSummary>), (int)HttpStatusCode.OK)]
+		public async Task<IActionResult> GetSubscriptionsAndGroupSummaryById([FromBody] List<IdentifierFilter> identifierFilters)
+		{
+			return await ExecuteWithExceptionHandlingAsync<IEnumerable<Jaytas.Omilos.Web.Service.Subscription.DomainModel.Subscription>, 
+														   IEnumerable<Jaytas.Omilos.Web.Service.Models.Subscription.SubscriptionWithGroupSummary>>
+														   (() => _subscriptionProvider.GetSubscriptionsAndGroupSummaryById(identifierFilters));
 		}
 
 		/// <summary>

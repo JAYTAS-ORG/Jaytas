@@ -12,7 +12,7 @@ namespace Jaytas.Omilos.Web.Service.Models.Account
 		/// <summary>
 		/// 
 		/// </summary>
-		public Common.Enumerations.ExternalIdentityProviders ExternalIdentityProvider { get; set; }
+		public Omilos.Common.Enumerations.ExternalIdentityProviders ExternalIdentityProvider { get; set; }
 
 		/// <summary>
 		/// 

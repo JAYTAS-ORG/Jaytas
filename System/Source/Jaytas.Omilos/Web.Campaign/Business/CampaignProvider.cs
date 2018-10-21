@@ -1,7 +1,12 @@
-﻿using Jaytas.Omilos.Web.Providers;
+﻿using AutoMapper;
+using Jaytas.Omilos.Common.Models;
+using Jaytas.Omilos.ServiceClient.Subscription.Interfaces;
+using Jaytas.Omilos.Web.Providers;
 using Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces;
 using Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces;
 using Jaytas.Omilos.Web.Service.Campaign.DomainModel;
+using Jaytas.Omilos.Web.Service.Models.Common;
+using Jaytas.Omilos.Web.Service.Models.Subscription;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +19,19 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Business
 	/// </summary>
 	public class CampaignProvider : CrudByFieldBaseProvider<DomainModel.Campaign, ICampaignRepository, long, Guid>, ICampaignProvider
 	{
+		readonly IMapper _mapper;
+		readonly ISubscriptionServiceClient _subscriptionServiceClient;
+
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="campaignRepository"></param>
-		public CampaignProvider(ICampaignRepository campaignRepository) : base(campaignRepository)
+		/// <param name="mapper"></param>
+		/// <param name="subscriptionServiceClient"></param>
+		public CampaignProvider(ICampaignRepository campaignRepository, IMapper mapper, ISubscriptionServiceClient subscriptionServiceClient) : base(campaignRepository)
 		{
-
+			_mapper = mapper;
+			_subscriptionServiceClient = subscriptionServiceClient;
 		}
 
 		/// <summary>
@@ -59,10 +70,35 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Business
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="pageDetails"></param>
 		/// <returns></returns>
-		public async Task<IEnumerable<DomainModel.Campaign>> GetMyCampaigns()
+		public async Task<PagedResultSet<Models.Campaign.CampaignSummary>> GetMyCampaigns(PageDetails pageDetails)
 		{
-			return await Repository.GetAsync(x => true);
+			var campaigns = await Repository.GetAsync(x => true);
+
+			if (!campaigns.Any())
+			{
+				return PagedResultSet<Models.Campaign.CampaignSummary>.Construct(new List<Models.Campaign.CampaignSummary>(), null, null);
+			}
+
+			var campaignsSummary = _mapper.Map<IEnumerable<Models.Campaign.CampaignSummary>>(campaigns);
+			var IdentifierFilter = campaignsSummary.Select(campaignSummary => new Models.Subscription.Input.IdentifierFilter {
+																						SubscriptionId = campaignSummary.SubscriptionId,
+																						GroupId = campaignSummary.GroupId
+																}).ToList();
+			var subscriptionsAndGroupSummary = await _subscriptionServiceClient.GetSubscriptionsAndGroupSummaryByIdAsync(IdentifierFilter);
+
+			campaignsSummary.ToList().ForEach(summary =>
+			{
+				var subscriptionSummary = subscriptionsAndGroupSummary.First(subscriptionAndGroupSummary => subscriptionAndGroupSummary.Id == summary.SubscriptionId);
+				summary.Subscription = _mapper.Map<SubscriptionWithGroupSummary, Subscription>(subscriptionSummary);
+				summary.GroupSummary = subscriptionSummary.GroupSummary != null ? 
+									   _mapper.Map<SubscriptionWithGroupSummary, GroupSummary>(subscriptionSummary) : null;
+			});
+
+
+			var skip = pageDetails.PageSize.HasValue ? pageDetails.PageSize.Value * (pageDetails.PageNo.Value - 1) : pageDetails.PageSize.GetValueOrDefault();
+			return PagedResultSet<Models.Campaign.CampaignSummary>.Construct(campaignsSummary, skip, pageDetails.PageSize.GetValueOrDefault());
 		}
 	}
 }

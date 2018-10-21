@@ -1,3 +1,7 @@
+C:\Jaytas\System\Source\Jaytas.Omilos\Web\obj\Debug\netcoreapp2.1\Web.csprojAssemblyReference.cache
+C:\Jaytas\System\Source\Jaytas.Omilos\Web\obj\Debug\netcoreapp2.1\Web.csproj.CoreCompileInputs.cache
+C:\Jaytas\System\Source\Jaytas.Omilos\Web\obj\Debug\netcoreapp2.1\Web.AssemblyInfoInputs.cache
+C:\Jaytas\System\Source\Jaytas.Omilos\Web\obj\Debug\netcoreapp2.1\Web.AssemblyInfo.cs
 C:\Jaytas\System\Source\Jaytas.Omilos\Web\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Web.deps.json
 C:\Jaytas\System\Source\Jaytas.Omilos\Web\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Web.dll
 C:\Jaytas\System\Source\Jaytas.Omilos\Web\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Web.pdb
@@ -15,10 +19,6 @@ C:\Jaytas\System\Source\Jaytas.Omilos\Web\bin\Debug\netcoreapp2.1\Jaytas.Omilos.
 C:\Jaytas\System\Source\Jaytas.Omilos\Web\bin\Debug\netcoreapp2.1\Jaytas.Omilos.ServiceClient.pdb
 C:\Jaytas\System\Source\Jaytas.Omilos\Web\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Configuration.pdb
 C:\Jaytas\System\Source\Jaytas.Omilos\Web\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Web.Service.Models.pdb
-C:\Jaytas\System\Source\Jaytas.Omilos\Web\obj\Debug\netcoreapp2.1\Web.csprojAssemblyReference.cache
-C:\Jaytas\System\Source\Jaytas.Omilos\Web\obj\Debug\netcoreapp2.1\Web.csproj.CoreCompileInputs.cache
-C:\Jaytas\System\Source\Jaytas.Omilos\Web\obj\Debug\netcoreapp2.1\Web.AssemblyInfoInputs.cache
-C:\Jaytas\System\Source\Jaytas.Omilos\Web\obj\Debug\netcoreapp2.1\Web.AssemblyInfo.cs
 C:\Jaytas\System\Source\Jaytas.Omilos\Web\obj\Debug\netcoreapp2.1\Web.csproj.CopyComplete
 C:\Jaytas\System\Source\Jaytas.Omilos\Web\obj\Debug\netcoreapp2.1\Jaytas.Omilos.Web.dll
 C:\Jaytas\System\Source\Jaytas.Omilos\Web\obj\Debug\netcoreapp2.1\Jaytas.Omilos.Web.pdb

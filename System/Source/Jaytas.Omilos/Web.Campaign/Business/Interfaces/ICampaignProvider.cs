@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Jaytas.Omilos.Common.Domain.Interfaces;
-using Jaytas.Omilos.Web;
+using Jaytas.Omilos.Common.Models;
+using Jaytas.Omilos.Web.Service.Models.Common;
 
 namespace Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces
 {
@@ -16,7 +15,8 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="pageDetails"></param>
 		/// <returns></returns>
-		Task<IEnumerable<DomainModel.Campaign>> GetMyCampaigns();
+		Task<PagedResultSet<Models.Campaign.CampaignSummary>> GetMyCampaigns(PageDetails pageDetails);
 	}
 }

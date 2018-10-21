@@ -35,5 +35,10 @@ namespace Jaytas.Omilos.Configuration.Interfaces
 		/// 
 		/// </summary>
 		IConnectionIdentifierSettings CacheConnectionIdentifier { get; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		IServiceEndpointSettings SubscriptionServiceEndpointSettings { get; }
 	}
 }

@@ -39,6 +39,9 @@ namespace Jaytas.Omilos.Web.Service.Subscription.App_Start
 			{
 				CreateMap<DomainModel.Subscription, Models.Subscription.Subscription>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
 				CreateMap<Models.Subscription.Subscription, DomainModel.Subscription>().ForMember(dom => dom.ExposedId, api => api.MapFrom(model => model.Id));
+				CreateMap<DomainModel.Subscription, Models.Subscription.SubscriptionWithGroupSummary>()
+														.ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId))
+														.ForMember(api => api.GroupSummary, dom => dom.ResolveUsing(Map));
 
 				CreateMap<DomainModel.Group, Models.Subscription.Group>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
 				CreateMap<Models.Subscription.Group, DomainModel.Group>().ForMember(dom => dom.ExposedId, api => api.MapFrom(model => model.Id));
@@ -54,6 +57,27 @@ namespace Jaytas.Omilos.Web.Service.Subscription.App_Start
 			/// The name of the profile.
 			/// </value>
 			public override string ProfileName => typeof(WebProfile).FullName;
+			
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="subscription"></param>
+			/// <returns></returns>
+			private Models.Subscription.GroupSummary Map(DomainModel.Subscription subscription)
+			{
+				if(subscription.Groups == null || subscription.Groups.Count() < 1)
+				{
+					return null;
+				}
+
+				var group = subscription.Groups.First();
+				return new Models.Subscription.GroupSummary
+				{
+					Id = group.ExposedId,
+					Name = group.Name,
+					NumberOfContacts = group.GroupContactAssociations.Count()
+				};
+			}
 		}
 	}
 }

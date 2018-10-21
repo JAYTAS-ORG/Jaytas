@@ -48,11 +48,17 @@ namespace Jaytas.Omilos.Configuration.Interfaces
 		/// <summary>
 		/// 
 		/// </summary>
+		public IServiceEndpointSettings SubscriptionServiceEndpointSettings { get; private set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
 		protected void ParseConfiguration()
 		{
 			LoadJwtBearerAuthSettings();
 			LoadAuthenticationSettings();
 			LoadConnectionIdentifierSettings();
+			LoadServiceEndpointSettings();
 		}
 
 		private void LoadJwtBearerAuthSettings()
@@ -77,6 +83,14 @@ namespace Jaytas.Omilos.Configuration.Interfaces
 			DatabaseConnectionIdentifier = _configuration.GetSection(Constants.Secrets.ConnectionIdentifierSettings.Database.Default).Get<Models.ConnectionIdentifierSettings>();
 			IntegrationConnectionIdentifier = _configuration.GetSection(Constants.Secrets.ConnectionIdentifierSettings.Integration.Default).Get<Models.ConnectionIdentifierSettings>();
 			CacheConnectionIdentifier = _configuration.GetSection(Constants.Secrets.ConnectionIdentifierSettings.Cache.Default).Get<Models.ConnectionIdentifierSettings>();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void LoadServiceEndpointSettings()
+		{
+			SubscriptionServiceEndpointSettings = _configuration.GetSection(Constants.ServiceEndpointSettings.SubscriptionService).Get<Models.ServiceEndpointSettings>();
 		}
 	}
 }

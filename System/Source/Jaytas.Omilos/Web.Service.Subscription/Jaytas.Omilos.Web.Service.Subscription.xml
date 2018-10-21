@@ -31,6 +31,13 @@
             The name of the profile.
             </value>
         </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.App_Start.AutoMapperConfigurations.WebProfile.Map(Jaytas.Omilos.Web.Service.Subscription.DomainModel.Subscription)">
+            <summary>
+            
+            </summary>
+            <param name="subscription"></param>
+            <returns></returns>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Subscription.App_Start.ServiceConfigurations">
             <summary>
             
@@ -121,16 +128,24 @@
             
             </summary>
         </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces.ISubscriptionProvider.GetSubscriptionsAndGroupSummaryById(System.Collections.Generic.List{Jaytas.Omilos.Web.Service.Models.Subscription.Input.IdentifierFilter})">
+            <summary>
+            
+            </summary>
+            <param name="identifierFilters"></param>
+            <returns></returns>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Subscription.Business.SubscriptionProvider">
             <summary>
             
             </summary>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.SubscriptionProvider.#ctor(Jaytas.Omilos.Web.Service.Subscription.Data.Repositories.Interfaces.ISubscriptionRepository)">
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.SubscriptionProvider.#ctor(Jaytas.Omilos.Web.Service.Subscription.Data.Repositories.Interfaces.ISubscriptionRepository,AutoMapper.IMapper)">
             <summary>
             
             </summary>
             <param name="subscriptionRepository"></param>
+            <param name="mapper"></param>
         </member>
         <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.SubscriptionProvider.AssertEntityToCreateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Service.Subscription.DomainModel.Subscription})">
             <summary>
@@ -151,6 +166,13 @@
             
             </summary>
             <param name="domains"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.SubscriptionProvider.GetSubscriptionsAndGroupSummaryById(System.Collections.Generic.List{Jaytas.Omilos.Web.Service.Models.Subscription.Input.IdentifierFilter})">
+            <summary>
+            
+            </summary>
+            <param name="identifierFilters"></param>
             <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Subscription.Data.DbContext.ISubscriptionDbContext">
@@ -714,6 +736,12 @@
             <returns></returns>
         </member>
         <member name="M:Web.Service.Subscription.Controllers.SubscriptionController.MySubscriptions">
+            <summary>
+            Gets all the subscription for the logged in user.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Subscription.Controllers.SubscriptionController.GetSubscriptionsAndGroupSummaryById(System.Collections.Generic.List{Jaytas.Omilos.Web.Service.Models.Subscription.Input.IdentifierFilter})">
             <summary>
             Gets all the subscription for the logged in user.
             </summary>

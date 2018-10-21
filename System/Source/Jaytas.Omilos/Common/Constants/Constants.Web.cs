@@ -404,7 +404,9 @@ namespace Jaytas.Omilos.Common
 
 				public const string RootPath = "/api/subscription";
 
-				public const string MySubscriptions = "/api/campaign/mysubscriptions";
+				public const string MySubscriptions = "/api/subscription/mysubscriptions";
+
+				public const string GetSubscriptionsAndGroupSummaryById = "/api/subscription/GetSubscriptionsAndGroupSummaryById";
 			}
 
 			public struct Group
