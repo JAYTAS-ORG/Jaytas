@@ -1,9 +1,11 @@
-﻿using Jaytas.Omilos.Web.Providers;
+﻿using Jaytas.Omilos.Common.Models;
+using Jaytas.Omilos.Web.Providers;
 using Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces;
 using Jaytas.Omilos.Web.Service.Subscription.Data.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Jaytas.Omilos.Web.Service.Subscription.Business
@@ -52,6 +54,22 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Business
 		{
 			//throw new NotImplementedException();
 			await Task.CompletedTask;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="pageDetails"></param>
+		/// <returns></returns>
+		public async Task<PagedResultSet<DomainModel.Contact>> MyContacts(Models.Common.PageDetails pageDetails)
+		{
+			var contacts = await Repository.GetAsync(contact => contact.FirstName.Contains(pageDetails.SearchText) ||
+															    contact.LastName.Contains(pageDetails.SearchText) ||
+															    contact.Email.Contains(pageDetails.SearchText) ||
+															    contact.PhoneNumber.Contains(pageDetails.SearchText));
+
+			var skip = pageDetails.PageSize.HasValue ? pageDetails.PageSize.Value * (pageDetails.PageNo.Value - 1) : pageDetails.PageSize.GetValueOrDefault();
+			return PagedResultSet<DomainModel.Contact>.Construct(contacts, skip, pageDetails.PageSize.GetValueOrDefault());
 		}
 	}
 }

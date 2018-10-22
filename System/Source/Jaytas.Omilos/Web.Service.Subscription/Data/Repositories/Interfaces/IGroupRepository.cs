@@ -11,5 +11,11 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Data.Repositories.Interfaces
 	/// </summary>
 	public interface IGroupRepository : ICrudByFieldBaseEntityRepository<DomainModel.Group, long, Guid>
 	{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="groupContactAssociations"></param>
+		/// <returns></returns>
+		Task AddContactsAsync(IEnumerable<DomainModel.GroupContactAssociation> groupContactAssociations);
 	}
 }

@@ -81,16 +81,24 @@
             <param name="domains"></param>
             <returns></returns>
         </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.ContactProvider.MyContacts(Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
+            <summary>
+            
+            </summary>
+            <param name="pageDetails"></param>
+            <returns></returns>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Subscription.Business.GroupProvider">
             <summary>
             
             </summary>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.GroupProvider.#ctor(Jaytas.Omilos.Web.Service.Subscription.Data.Repositories.Interfaces.IGroupRepository)">
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.GroupProvider.#ctor(Jaytas.Omilos.Web.Service.Subscription.Data.Repositories.Interfaces.IGroupRepository,Jaytas.Omilos.Web.Service.Subscription.Data.Repositories.Interfaces.IContactRepository)">
             <summary>
             
             </summary>
             <param name="groupRepository"></param>
+            <param name="contactRepository"></param>
         </member>
         <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.GroupProvider.AssertEntityToCreateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group})">
             <summary>
@@ -113,15 +121,52 @@
             <param name="domains"></param>
             <returns></returns>
         </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.GroupProvider.GetContacts(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="groupId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.GroupProvider.AddContactsToGroup(System.Guid,System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="groupId"></param>
+            <param name="contacts"></param>
+            <returns></returns>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces.IContactProvider">
             <summary>
             
             </summary>
         </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces.IContactProvider.MyContacts(Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
+            <summary>
+            
+            </summary>
+            <param name="pageDetails"></param>
+            <returns></returns>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces.IGroupProvider">
             <summary>
             
             </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces.IGroupProvider.GetContacts(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="groupId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces.IGroupProvider.AddContactsToGroup(System.Guid,System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="groupId"></param>
+            <param name="contacts"></param>
+            <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces.ISubscriptionProvider">
             <summary>
@@ -365,6 +410,13 @@
             </summary>
             <param name="subscriptionDbContext"></param>
         </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Data.Repositories.GroupRepository.AddContactsAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Service.Subscription.DomainModel.GroupContactAssociation})">
+            <summary>
+            
+            </summary>
+            <param name="groupContactAssociations"></param>
+            <returns></returns>
+        </member>
         <member name="M:Jaytas.Omilos.Web.Service.Subscription.Data.Repositories.GroupRepository.GetAsync(System.Guid)">
             <summary>
             
@@ -381,6 +433,13 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Data.Repositories.Interfaces.IGroupRepository.AddContactsAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Service.Subscription.DomainModel.GroupContactAssociation})">
+            <summary>
+            
+            </summary>
+            <param name="groupContactAssociations"></param>
+            <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Subscription.Data.Repositories.Interfaces.ISubscriptionRepository">
             <summary>
@@ -563,7 +622,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.ContactController.MyContacts(System.Guid)">
+        <member name="M:Web.Service.Subscription.Controllers.ContactController.MyContacts(System.Guid,Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
             <summary>
             Gets all the contact for the logged in user.
             </summary>
@@ -655,6 +714,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Web.Service.Subscription.Controllers.GroupController.GetContacts(System.Guid,System.Guid)">
+            <summary>
+            Gets all the group for the logged in user.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Web.Service.Subscription.Controllers.GroupController.Post(System.Guid,Jaytas.Omilos.Web.Service.Models.Subscription.Group)">
             <summary>
             Creates group.
@@ -670,6 +735,12 @@
         <member name="M:Web.Service.Subscription.Controllers.GroupController.Delete(System.Guid,System.Guid)">
             <summary>
             Deletes group.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Subscription.Controllers.GroupController.AddContactsToGroup(System.Guid,System.Guid,System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Creates group.
             </summary>
             <returns></returns>
         </member>

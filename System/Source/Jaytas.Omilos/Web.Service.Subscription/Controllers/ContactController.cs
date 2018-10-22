@@ -55,16 +55,16 @@ namespace Web.Service.Subscription.Controllers
 		/// Gets all the contact for the logged in user.
 		/// </summary>
 		/// <returns></returns>
-		[HttpGet]
-		[HttpHead]
+		[HttpPatch]
 		[Route(Constants.Route.Contact.MyContacts)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
 		[ProducesResponseType((int)HttpStatusCode.NotFound)]
 		[ProducesResponseType(typeof(IEnumerable<Jaytas.Omilos.Web.Service.Models.Subscription.Group>), (int)HttpStatusCode.OK)]
-		public async Task<IActionResult> MyContacts(Guid subscriptionId)
+		public async Task<IActionResult> MyContacts(Guid subscriptionId, [FromBody] Jaytas.Omilos.Web.Service.Models.Common.PageDetails pageDetails)
 		{
-			return await GetAllOrStatusCodeAsync().ConfigureAwait(true);
+			return await ExecutePagedResultWithExceptionHandlingAsync<Jaytas.Omilos.Web.Service.Subscription.DomainModel.Contact, Jaytas.Omilos.Web.Service.Models.Subscription.Contact>
+								(() => _contactProvider.MyContacts(pageDetails)).ConfigureAwait(true);
 		}
 
 		/// <summary>

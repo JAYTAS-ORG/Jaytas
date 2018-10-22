@@ -46,6 +46,18 @@ namespace Jaytas.Omilos.Web.Service.Subscription.App_Start
 				CreateMap<DomainModel.Group, Models.Subscription.Group>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
 				CreateMap<Models.Subscription.Group, DomainModel.Group>().ForMember(dom => dom.ExposedId, api => api.MapFrom(model => model.Id));
 
+				CreateMap<DomainModel.GroupContactAssociation, Models.Subscription.ContactWithAssociationStatus>()
+							.ForMember(api => api.Id, dom => dom.MapFrom(model => model.Contact.ExposedId))
+							.ForMember(api => api.FirstName, dom => dom.MapFrom(model => model.Contact.FirstName))
+							.ForMember(api => api.LastName, dom => dom.MapFrom(model => model.Contact.LastName))
+							.ForMember(api => api.Email, dom => dom.MapFrom(model => model.Contact.Email))
+							.ForMember(api => api.PhoneNumber, dom => dom.MapFrom(model => model.Contact.PhoneNumber))
+							.ForMember(api => api.CustomColumn1, dom => dom.MapFrom(model => model.Contact.CustomColumn1))
+							.ForMember(api => api.CustomColumn2, dom => dom.MapFrom(model => model.Contact.CustomColumn2))
+							.ForMember(api => api.CustomColumn3, dom => dom.MapFrom(model => model.Contact.CustomColumn3))
+							.ForMember(api => api.CustomColumn4, dom => dom.MapFrom(model => model.Contact.CustomColumn4))
+							.ForMember(api => api.CustomColumn5, dom => dom.MapFrom(model => model.Contact.CustomColumn5));
+
 				CreateMap<DomainModel.Contact, Models.Subscription.Contact>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
 				CreateMap<Models.Subscription.Contact, DomainModel.Contact>().ForMember(dom => dom.ExposedId, api => api.MapFrom(model => model.Id));
 			}

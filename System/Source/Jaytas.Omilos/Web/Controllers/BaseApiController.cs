@@ -239,6 +239,47 @@ namespace Jaytas.Omilos.Web.Controllers
 				{
 					{"id", newId}
 				};
+
+				return CreatedAtRoute(routeName, routeValues, null);
+			}
+			catch (BusinessValidationException bveEx)
+			{
+				return BadRequest(bveEx);
+			}
+			catch (AggregateException aggregateEx)
+			{
+				return BadRequest(aggregateEx);
+			}
+			catch (HttpRestException restEx)
+			{
+				return HandleRestError(restEx);
+			}
+			catch (Exception ex)
+			{
+				return InternalServerError(GenericApiErrorCode, ex);
+			}
+		}
+
+
+		/// <summary>
+		/// Creates the provided Resource and translates any errors into appropriate status code responses.
+		/// </summary>
+		/// <param name="action">The command to process containing the Resource to create.</param>
+		/// <param name="routeName">Name of the get-by-identifier route.</param>
+		/// <param name="routeValues">route values.</param>
+		/// <returns></returns>
+		protected internal async Task<IActionResult> PostOrStatusCodeAsync(Func<Task> action, string routeName, Dictionary<string, object> routeValues)
+		{
+			try
+			{
+				// ensure our model is valid
+				if (!ModelState.IsValid)
+				{
+					return BadRequest(ModelState);
+				}
+
+				await action().ConfigureAwait(true);
+
 				return CreatedAtRoute(routeName, routeValues, null);
 			}
 			catch (BusinessValidationException bveEx)

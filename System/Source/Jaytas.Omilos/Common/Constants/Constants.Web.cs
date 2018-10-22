@@ -414,11 +414,17 @@ namespace Jaytas.Omilos.Common
 				public struct Name
 				{
 					public const string GetById = "Group.GetById";
+
+					public const string GetContactsById = "Group.GetContactsById";
 				}
 
 				public const string RootPath = "/api/subscription/{subscriptionId}/group";
 
 				public const string MyGroups = "/api/campaign/mygroups";
+
+				public const string GetContacts = "/api/subscription/{subscriptionId}/group/{id}/contacts";
+
+				public const string AddContactsToGroup = RootPath + "/{id}/AddContactsToGroup";
 			}
 
 			public struct Contact

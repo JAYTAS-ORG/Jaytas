@@ -66,6 +66,22 @@ namespace Web.Service.Subscription.Controllers
 		}
 
 		/// <summary>
+		/// Gets all the group for the logged in user.
+		/// </summary>
+		/// <returns></returns>
+		[HttpGet]
+		[HttpHead]
+		[Route(Constants.Route.Group.GetContacts)]
+		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
+		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
+		[ProducesResponseType((int)HttpStatusCode.NotFound)]
+		[ProducesResponseType(typeof(IEnumerable<Jaytas.Omilos.Web.Service.Models.Subscription.ContactWithAssociationStatus>), (int)HttpStatusCode.OK)]
+		public async Task<IActionResult> GetContacts(Guid subscriptionId, Guid id)
+		{
+			return await ExecuteWithExceptionHandlingAsync(() => _groupProvider.GetContacts(id)).ConfigureAwait(true);
+		}
+
+		/// <summary>
 		/// Creates group.
 		/// </summary>
 		/// <returns></returns>
@@ -105,6 +121,27 @@ namespace Web.Service.Subscription.Controllers
 		public async Task<IActionResult> Delete(Guid subscriptionId, Guid id)
 		{
 			return await DeleteOrStatusCodeAsync(id).ConfigureAwait(true);
+		}
+
+		/// <summary>
+		/// Creates group.
+		/// </summary>
+		/// <returns></returns>
+		[HttpPost]
+		[Route(Constants.Route.Group.AddContactsToGroup)]
+		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
+		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
+		[ProducesResponseType((int)HttpStatusCode.NotFound)]
+		public async Task<IActionResult> AddContactsToGroup(Guid subscriptionId, Guid id, [FromBody] IEnumerable<Guid> contacts)
+		{
+			return await PostOrStatusCodeAsync(() => _groupProvider.AddContactsToGroup(id, contacts), 
+											   Constants.Route.Group.Name.GetContactsById, 
+											   new Dictionary<string, object>
+											   {
+												   { nameof(subscriptionId), subscriptionId },
+												   { nameof(id), id }
+											   }
+											  ).ConfigureAwait(true);
 		}
 
 		/// <summary>

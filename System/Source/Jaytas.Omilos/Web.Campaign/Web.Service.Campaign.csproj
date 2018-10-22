@@ -11,6 +11,10 @@
     <DocumentationFile>C:\Jaytas\System\Source\Jaytas.Omilos\Web.Campaign\Jaytas.Omilos.Web.Service.Campaign.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Jaytas\System\Source\Jaytas.Omilos\Web.Campaign\Jaytas.Omilos.Web.Service.Campaign.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>

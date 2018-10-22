@@ -22,6 +22,11 @@ namespace Jaytas.Omilos.Web.Service.Models.Common
 		/// <summary>
 		/// 
 		/// </summary>
-		public Dictionary<string, string> SearchCriteria { get; set; }
+		public string SearchText { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public Dictionary<string, string> AdditionalSearchCriteria { get; set; }
 	}
 }

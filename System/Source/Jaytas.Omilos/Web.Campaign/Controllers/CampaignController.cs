@@ -65,7 +65,7 @@ namespace Web.Service.Campaign.Controllers
 		[ProducesResponseType(typeof(IEnumerable<CampaignSummary>), (int)HttpStatusCode.OK)]
 		public async Task<IActionResult> MyCampaings(PageDetails pageDetails)
 		{
-			return await ExecutePagedResultWithExceptionHandlingAsync(() => _campaignProvider.GetMyCampaigns(pageDetails));
+			return await ExecutePagedResultWithExceptionHandlingAsync(() => _campaignProvider.GetMyCampaigns(pageDetails)).ConfigureAwait(true);
 		}
 
 		/// <summary>

@@ -9,6 +9,12 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>C:\Jaytas\System\Source\Jaytas.Omilos\Web.Service.Subscription\Jaytas.Omilos.Web.Service.Subscription.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Jaytas\System\Source\Jaytas.Omilos\Web.Service.Subscription\Jaytas.Omilos.Web.Service.Subscription.xml</DocumentationFile>
+    <Optimize>true</Optimize>
   </PropertyGroup>
 
   <ItemGroup>

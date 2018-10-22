@@ -80,7 +80,7 @@ namespace Web.Service.Subscription.Controllers
 		{
 			return await ExecuteWithExceptionHandlingAsync<IEnumerable<Jaytas.Omilos.Web.Service.Subscription.DomainModel.Subscription>, 
 														   IEnumerable<Jaytas.Omilos.Web.Service.Models.Subscription.SubscriptionWithGroupSummary>>
-														   (() => _subscriptionProvider.GetSubscriptionsAndGroupSummaryById(identifierFilters));
+														   (() => _subscriptionProvider.GetSubscriptionsAndGroupSummaryById(identifierFilters)).ConfigureAwait(true);
 		}
 
 		/// <summary>
