@@ -420,7 +420,7 @@ namespace Jaytas.Omilos.Common
 
 				public const string RootPath = "/api/subscription/{subscriptionId}/group";
 
-				public const string MyGroups = "/api/campaign/mygroups";
+				public const string MyGroups = "/api/group/mygroups";
 
 				public const string GetContacts = "/api/subscription/{subscriptionId}/group/{id}/contacts";
 
@@ -436,7 +436,7 @@ namespace Jaytas.Omilos.Common
 
 				public const string RootPath = "/api/subscription/{subscriptionId}/contact";
 
-				public const string MyContacts = "/api/campaign/mycontacts";
+				public const string MyContacts = "/api/contact/mycontacts";
 			}
 		}
 

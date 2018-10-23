@@ -55,7 +55,8 @@ namespace Web.Service.Subscription.Controllers
 		/// Gets all the contact for the logged in user.
 		/// </summary>
 		/// <returns></returns>
-		[HttpPatch]
+		[HttpGet]
+		[HttpHead]
 		[Route(Constants.Route.Contact.MyContacts)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
