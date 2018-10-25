@@ -132,6 +132,20 @@ namespace Web.Service.Campaign.Controllers
 		}
 
 		/// <summary>
+		/// publishes campaign.
+		/// </summary>
+		/// <returns></returns>
+		[HttpPatch]
+		[Route(Constants.Route.Campaign.PublishCampaign)]
+		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
+		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
+		[ProducesResponseType((int)HttpStatusCode.NotFound)]
+		public async Task<IActionResult> PublishCampaign(Guid subscriptionId, Guid id)
+		{
+			return await PatchOrStatusCodeAsync(() => _campaignProvider.PublishCampaign(id)).ConfigureAwait(true);
+		}
+
+		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="model"></param>

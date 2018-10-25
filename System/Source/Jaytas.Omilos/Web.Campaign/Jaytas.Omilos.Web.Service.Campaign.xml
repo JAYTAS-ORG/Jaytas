@@ -148,6 +148,13 @@
             <param name="pageDetails"></param>
             <returns></returns>
         </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignProvider.PublishCampaign(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="campaignId"></param>
+            <returns></returns>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.ICampaignInstanceExceptionProvider">
             <summary>
             
@@ -162,6 +169,13 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.ICampaignProvider.PublishCampaign(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="campaignId"></param>
+            <returns></returns>
         </member>
         <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.ICampaignProvider.GetMyCampaigns(System.Nullable{System.Guid},Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
             <summary>
@@ -926,6 +940,12 @@
         <member name="M:Web.Service.Campaign.Controllers.CampaignController.Delete(System.Guid,System.Guid)">
             <summary>
             Deletes campaign.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.PublishCampaign(System.Guid,System.Guid)">
+            <summary>
+            publishes campaign.
             </summary>
             <returns></returns>
         </member>

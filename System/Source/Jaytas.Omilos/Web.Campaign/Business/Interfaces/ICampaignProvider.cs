@@ -11,6 +11,12 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces
 	/// </summary>
 	public interface ICampaignProvider : Providers.ICrudByFieldBaseProvider<DomainModel.Campaign, long, Guid>
 	{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="campaignId"></param>
+		/// <returns></returns>
+		Task PublishCampaign(Guid campaignId);
 
 		/// <summary>
 		/// 

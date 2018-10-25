@@ -109,5 +109,18 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Business
 			var skip = pageDetails.PageSize.HasValue ? pageDetails.PageSize.Value * (pageDetails.PageNo.Value - 1) : pageDetails.PageSize.GetValueOrDefault();
 			return PagedResultSet<Models.Campaign.CampaignSummary>.Construct(campaignsSummary, skip, pageDetails.PageSize.GetValueOrDefault());
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="campaignId"></param>
+		/// <returns></returns>
+		public async Task PublishCampaign(Guid campaignId)
+		{
+			var campaign = await Repository.GetAsync(campaignId);
+			campaign.Status = Omilos.Common.Enumerations.CampaignStatus.Active;
+
+			await Repository.UpdateAsync(campaign);
+		}
 	}
 }
