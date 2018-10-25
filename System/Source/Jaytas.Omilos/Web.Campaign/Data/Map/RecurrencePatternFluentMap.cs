@@ -1,5 +1,6 @@
 ﻿using Jaytas.Omilos.Common;
 using Jaytas.Omilos.Data.EntityFramework.BaseEntityConfigurations;
+using Jaytas.Omilos.Web.Service.Campaign.DomainModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -60,8 +61,11 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Map
 		/// 
 		/// </summary>
 		/// <param name="builder"></param>
-		public override void ConfigureKey(EntityTypeBuilder<DomainModel.RecurrencePattern> builder)
+		public override void ConfigureKey(EntityTypeBuilder<RecurrencePattern> builder)
 		{
+			builder.HasOne(recurrencePattern => recurrencePattern.Schedule)
+				   .WithOne(schedule => schedule.RecurrencePattern)
+				   .HasForeignKey<Schedule>(schedule => schedule.Id);
 		}
 	}
 }

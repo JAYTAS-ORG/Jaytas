@@ -20,9 +20,9 @@ namespace Web.Service.Campaign.Controllers
 	/// </summary>
 	[Route(Constants.Route.MessageTemplate.RootPath)]
 	public class MessageTemplateController : CrudByFieldBaseApiController<Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate,
-																   Jaytas.Omilos.Web.Service.Models.Campaign.Input.MessageTemplate,
-																   Command<Jaytas.Omilos.Web.Service.Models.Campaign.Input.MessageTemplate, Guid>,
-																   Guid, long>
+																		   MessageTemplate,
+																		   Command<MessageTemplate, Guid>,
+																		   Guid, long>
 	{
 		readonly IMessageTemplateProvider _messageTemplateProvider;
 
@@ -50,6 +50,24 @@ namespace Web.Service.Campaign.Controllers
 		public async Task<IActionResult> Get(Guid subscriptionId, Guid campaignId, Guid id)
 		{
 			return await GetOrStatusCodeAsync(id).ConfigureAwait(true);
+		}
+
+		/// <summary>
+		/// Gets campaign MessageTemplate.
+		/// </summary>
+		/// <returns></returns>
+		[HttpGet]
+		[HttpHead]
+		[Route(Constants.Route.MessageTemplate.GetCampaignMessageTemplates)]
+		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
+		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
+		[ProducesResponseType((int)HttpStatusCode.NotFound)]
+		[ProducesResponseType(typeof(Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate), (int)HttpStatusCode.OK)]
+		public async Task<IActionResult> GetCampaignMessageTemplates(Guid subscriptionId, Guid campaignId)
+		{
+			return await ExecuteWithExceptionHandlingAsync<IEnumerable<Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate>,
+														   IEnumerable<Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate>>
+														  (() => _messageTemplateProvider.GetCampaignMessages(campaignId)).ConfigureAwait(true);
 		}
 
 		/// <summary>

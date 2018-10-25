@@ -385,6 +385,8 @@ namespace Jaytas.Omilos.Common
 				}
 
 				public const string RootPath = "/api/subscription/{subscriptionId}/campaign/{campaignId}/MessageTemplate";
+
+				public const string GetCampaignMessageTemplates = RootPath + "/all";
 			}
 
 			public struct Schedule

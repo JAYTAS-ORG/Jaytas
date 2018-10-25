@@ -176,6 +176,13 @@
             
             </summary>
         </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.IMessageTemplateProvider.GetCampaignMessages(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="campaignId"></param>
+            <returns></returns>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.IScheduleProvider">
             <summary>
             
@@ -211,6 +218,13 @@
             
             </summary>
             <param name="domains"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.MessageTemplateProvider.GetCampaignMessages(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="campaignId"></param>
             <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.ScheduleProvider">
@@ -817,11 +831,6 @@
             
             </summary>
         </member>
-        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.RecurrencePattern.ScheduleId">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.RecurrencePattern.Schedule">
             <summary>
             
@@ -1164,6 +1173,12 @@
             <param name="mapper"></param>
         </member>
         <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.Get(System.Guid,System.Guid,System.Guid)">
+            <summary>
+            Gets campaign MessageTemplate.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.GetCampaignMessageTemplates(System.Guid,System.Guid)">
             <summary>
             Gets campaign MessageTemplate.
             </summary>

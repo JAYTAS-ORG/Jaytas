@@ -47,11 +47,6 @@ namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 		/// <summary>
 		/// 
 		/// </summary>
-		public long ScheduleId { get; set; }
-
-		/// <summary>
-		/// 
-		/// </summary>
 		public virtual Schedule Schedule { get; set; }
 	}
 }

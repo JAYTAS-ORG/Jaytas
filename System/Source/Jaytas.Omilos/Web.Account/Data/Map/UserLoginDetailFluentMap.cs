@@ -55,7 +55,7 @@ namespace Jaytas.Omilos.Web.Service.Account.Data.Map
 		/// <param name="builder"></param>
 		public override void ConfigureKey(EntityTypeBuilder<UserLoginDetail> builder)
 		{
-			builder.HasOne(user => user.User)
+			builder.HasOne(userLoginDetail => userLoginDetail.User)
 				   .WithOne(user => user.UserLoginDetail)
 				   .HasForeignKey<User>(user => user.Id);
 		}

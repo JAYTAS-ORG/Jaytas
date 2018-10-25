@@ -37,7 +37,9 @@ namespace Jaytas.Omilos.Web.Service.Campaign.App_Start
 			public WebProfile()
 			{
 				CreateMap<DomainModel.Campaign, Models.Campaign.Campaign>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
-				CreateMap<DomainModel.Campaign, Models.Campaign.CampaignSummary>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
+				CreateMap<DomainModel.Campaign, Models.Campaign.CampaignSummary>()
+										.ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId))
+										.ForMember(api => api.ScheduleSummary, domain => domain.MapFrom(dom => dom.Schedule));
 
 				CreateMap<Models.Campaign.Input.Campaign, DomainModel.Campaign>();
 				CreateMap<Command<Models.Campaign.Input.Campaign, Guid>, DomainModel.Campaign>()
@@ -65,6 +67,7 @@ namespace Jaytas.Omilos.Web.Service.Campaign.App_Start
 				CreateMap<DomainModel.Schedule, Models.Campaign.ScheduleSummary>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
 
 				CreateMap<Models.Campaign.Input.Schedule, DomainModel.Schedule>();
+				CreateMap<Models.Campaign.RecurrencePattern, DomainModel.RecurrencePattern>();
 				CreateMap<Command<Models.Campaign.Input.Schedule, Guid>, DomainModel.Schedule>()
 										.ForMember(dom => dom.CampaignId, command => command.MapFrom(api => api.CommandProperties.GetValueOrDefault(nameof(DomainModel.Schedule.CampaignId), default(Guid))));
 
@@ -82,7 +85,6 @@ namespace Jaytas.Omilos.Web.Service.Campaign.App_Start
 			/// The name of the profile.
 			/// </value>
 			public override string ProfileName => typeof(WebProfile).FullName;
-
 		}
 	}
 }
