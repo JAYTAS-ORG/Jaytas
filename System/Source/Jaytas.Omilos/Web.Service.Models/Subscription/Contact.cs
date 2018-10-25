@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Jaytas.Omilos.Web.Service.Models.Subscription
 {
-	public class Contact : IHaveLinks
+	public class Contact
 	{
 		/// <summary>
 		/// 
@@ -60,6 +60,6 @@ namespace Jaytas.Omilos.Web.Service.Models.Subscription
 		/// <summary>
 		/// 
 		/// </summary>
-		public List<Link> Links { get; set; } = new List<Link>();
+		public Subscription Subscription { get; set; }
 	}
 }

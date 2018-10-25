@@ -1,4 +1,5 @@
 ﻿using Jaytas.Omilos.Common.Extensions;
+using Jaytas.Omilos.Common.Models;
 using Jaytas.Omilos.Web.Providers;
 using Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces;
 using Jaytas.Omilos.Web.Service.Subscription.Data.Repositories.Interfaces;
@@ -75,26 +76,48 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Business
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="subscriptionId"></param>
 		/// <param name="groupId"></param>
 		/// <param name="contacts"></param>
 		/// <returns></returns>
-		public async Task AddContactsToGroup(Guid groupId, IEnumerable<Guid> contacts)
+		public async Task AddContactsToGroup(Guid subscriptionId, Guid groupId, IEnumerable<Guid> contacts)
 		{
-			var group = await Repository.GetAsync(groupId);
-			var contactsFilterExpression = contacts.WhereContains<DomainModel.Contact, IEnumerable<Guid>>(nameof(DomainModel.Contact.ExposedId));
-			Expression<Func<DomainModel.Contact, bool>> contactsSubscriptionFilterExpression = contact => contact.SubscriptionId == group.SubscriptionId;
-
-			var filteredcontacts = await _contactRepository.GetAsync(contactsSubscriptionFilterExpression.And(contactsFilterExpression));
-
-			var groupContactAssociations = from contact in filteredcontacts
-										   let groupInternalId = @group.Id
+			var groupContactAssociations = from contact in contacts
 										   select new DomainModel.GroupContactAssociation
 										   {
-											   GroupId = groupInternalId,
-											   ContactId = contact.Id
+											   GroupId = groupId,
+											   ContactId = contact
 										   };
 
 			await Repository.AddContactsAsync(groupContactAssociations);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="pageDetails"></param>
+		/// <param name="subscriptionId"></param>
+		/// <returns></returns>
+		public async Task<PagedResultSet<DomainModel.Group>> MyGroups(Models.Common.PageDetails pageDetails, Guid? subscriptionId)
+		{
+			Expression<Func<DomainModel.Group, bool>> expression = group => true;
+
+			if (subscriptionId != null && subscriptionId != Guid.Empty)
+			{
+				expression = group => group.SubscriptionId == subscriptionId;
+			}
+
+			if (!string.IsNullOrWhiteSpace(pageDetails?.SearchText))
+			{
+				expression = expression.And(group => group.Name.Contains(pageDetails.SearchText));
+			}
+
+			var groups = await Repository.GetAsync(expression);
+
+			var skip = pageDetails?.PageSize != null && pageDetails?.PageNo != null ?
+					   pageDetails.PageSize.Value * (pageDetails.PageNo.Value - 1) :
+					   pageDetails?.PageSize;
+			return PagedResultSet<DomainModel.Group>.Construct(groups, skip, pageDetails?.PageSize);
 		}
 	}
 }

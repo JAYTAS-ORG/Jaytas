@@ -9,7 +9,7 @@ namespace Jaytas.Omilos.Web.Service.Models.Campaign
 	/// <summary>
 	/// 
 	/// </summary>
-	public class MessageTemplate : IHaveLinks
+	public class MessageTemplate
 	{
 		/// <summary>
 		/// 
@@ -35,10 +35,5 @@ namespace Jaytas.Omilos.Web.Service.Models.Campaign
 		/// 
 		/// </summary>
 		public string OverDueMessage { get; set; }
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public List<Link> Links { get; set; } = new List<Link>();
 	}
 }

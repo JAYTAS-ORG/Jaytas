@@ -9,6 +9,7 @@ using Jaytas.Omilos.Common.Web;
 using Jaytas.Omilos.Web.Controllers;
 using Jaytas.Omilos.Web.Controllers.Commands;
 using Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces;
+using Jaytas.Omilos.Web.Service.Models.Campaign.Input;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,8 +20,8 @@ namespace Web.Service.Campaign.Controllers
 	/// </summary>
 	[Route(Constants.Route.MessageTemplate.RootPath)]
 	public class MessageTemplateController : CrudByFieldBaseApiController<Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate,
-																   Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate,
-																   Command<Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate, Guid>,
+																   Jaytas.Omilos.Web.Service.Models.Campaign.Input.MessageTemplate,
+																   Command<Jaytas.Omilos.Web.Service.Models.Campaign.Input.MessageTemplate, Guid>,
 																   Guid, long>
 	{
 		readonly IMessageTemplateProvider _messageTemplateProvider;
@@ -60,9 +61,14 @@ namespace Web.Service.Campaign.Controllers
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
 		[ProducesResponseType((int)HttpStatusCode.NotFound)]
-		public async Task<IActionResult> Post(Guid subscriptionId, Guid campaignId, [FromBody] Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate messageTemplate)
+		public async Task<IActionResult> Post(Guid subscriptionId, Guid campaignId, [FromBody] MessageTemplate messageTemplate)
 		{
-			return await PostOrStatusCodeAsync(messageTemplate, Constants.Route.MessageTemplate.Name.GetById).ConfigureAwait(true);
+			var commandProperties = new Dictionary<string, dynamic>
+			{
+				{ nameof(Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate.CampaignId), campaignId }
+			};
+
+			return await PostOrStatusCodeAsync(messageTemplate, commandProperties, Constants.Route.MessageTemplate.Name.GetById).ConfigureAwait(true);
 		}
 
 		/// <summary>
@@ -74,7 +80,7 @@ namespace Web.Service.Campaign.Controllers
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
 		[ProducesResponseType((int)HttpStatusCode.NotFound)]
-		public async Task<IActionResult> Update(Guid subscriptionId, Guid campaignId, Guid id, [FromBody] Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate messageTemplate)
+		public async Task<IActionResult> Update(Guid subscriptionId, Guid campaignId, Guid id, [FromBody] MessageTemplate messageTemplate)
 		{
 			return await PutOrStatusCodeAsync(messageTemplate, id).ConfigureAwait(true);
 		}
@@ -109,9 +115,21 @@ namespace Web.Service.Campaign.Controllers
 		/// <param name="model"></param>
 		/// <param name="resourceId"></param>
 		/// <returns></returns>
-		protected override Command<Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate, Guid> CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate model, Guid resourceId)
+		protected override Command<MessageTemplate, Guid> CreateCommand(MessageTemplate model, Guid resourceId)
 		{
-			return new Command<Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate, Guid>(model, resourceId);
+			return new Command<MessageTemplate, Guid>(model, resourceId);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="model"></param>
+		/// <param name="resourceId"></param>
+		/// <param name="commandProperties"></param>
+		/// <returns></returns>
+		protected override Command<MessageTemplate, Guid> CreateCommand(MessageTemplate model, Guid resourceId, Dictionary<string, dynamic> commandProperties)
+		{
+			return new Command<MessageTemplate, Guid>(model, resourceId, commandProperties);
 		}
 
 		/// <summary>
@@ -119,7 +137,7 @@ namespace Web.Service.Campaign.Controllers
 		/// </summary>
 		/// <param name="command"></param>
 		/// <returns></returns>
-		protected async override Task DeleteAsync(Command<Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate, Guid> command)
+		protected async override Task DeleteAsync(Command<MessageTemplate, Guid> command)
 		{
 			await _messageTemplateProvider.DeleteAsync(command.ResourceId);
 		}
@@ -129,7 +147,7 @@ namespace Web.Service.Campaign.Controllers
 		/// </summary>
 		/// <param name="command"></param>
 		/// <returns></returns>
-		protected async override Task<IEnumerable<Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate>> GetAllAsync(Command<Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate, Guid> command)
+		protected async override Task<IEnumerable<Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate>> GetAllAsync(Command<MessageTemplate, Guid> command)
 		{
 			throw new NotSupportedException();
 		}
@@ -139,7 +157,7 @@ namespace Web.Service.Campaign.Controllers
 		/// </summary>
 		/// <param name="command"></param>
 		/// <returns></returns>
-		protected async override Task<Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate> GetByIdAsync(Command<Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate, Guid> command)
+		protected async override Task<Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate> GetByIdAsync(Command<MessageTemplate, Guid> command)
 		{
 			return await _messageTemplateProvider.GetAsync(command.ResourceId);
 		}
@@ -150,7 +168,7 @@ namespace Web.Service.Campaign.Controllers
 		/// <param name="command"></param>
 		/// <param name="model"></param>
 		/// <returns></returns>
-		protected async override Task UpdateAsync(Command<Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate, Guid> command, Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate model)
+		protected async override Task UpdateAsync(Command<MessageTemplate, Guid> command, Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate model)
 		{
 			await _messageTemplateProvider.UpdateAsync(model);
 		}

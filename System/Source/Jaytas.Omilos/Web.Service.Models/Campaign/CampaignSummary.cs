@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Jaytas.Omilos.Web.Service.Models.Campaign
 {
-	public class CampaignSummary : IHaveLinks
+	public class CampaignSummary
 	{
 		/// <summary>
 		/// 
@@ -72,10 +72,5 @@ namespace Jaytas.Omilos.Web.Service.Models.Campaign
 		/// 
 		/// </summary>
 		public ScheduleSummary ScheduleSummary { get; set; }
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public List<Link> Links { get; set; } = new List<Link>();
 	}
 }

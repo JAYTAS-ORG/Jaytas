@@ -15,7 +15,8 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces
 		/// 
 		/// </summary>
 		/// <param name="pageDetails"></param>
+		/// <param name="subscriptionId"></param>
 		/// <returns></returns>
-		Task<PagedResultSet<DomainModel.Contact>> MyContacts(Models.Common.PageDetails pageDetails);
+		Task<PagedResultSet<DomainModel.Contact>> MyContacts(Models.Common.PageDetails pageDetails, Guid? subscriptionId);
 	}
 }

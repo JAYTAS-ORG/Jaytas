@@ -10,6 +10,7 @@ using Jaytas.Omilos.Web.Service.Models.Subscription;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Jaytas.Omilos.Web.Service.Campaign.Business
@@ -70,11 +71,19 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Business
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="subscriptionId"></param>
 		/// <param name="pageDetails"></param>
 		/// <returns></returns>
-		public async Task<PagedResultSet<Models.Campaign.CampaignSummary>> GetMyCampaigns(PageDetails pageDetails)
+		public async Task<PagedResultSet<Models.Campaign.CampaignSummary>> GetMyCampaigns(Guid? subscriptionId, PageDetails pageDetails)
 		{
-			var campaigns = await Repository.GetAsync(x => true);
+			Expression<Func<DomainModel.Campaign, bool>> expression = campaign => true;
+
+			if(subscriptionId.HasValue && subscriptionId.Value != Guid.Empty)
+			{
+				expression = campaign => campaign.SubscriptionId == subscriptionId;
+			}
+
+			var campaigns = await Repository.GetAsync(expression);
 
 			if (!campaigns.Any())
 			{

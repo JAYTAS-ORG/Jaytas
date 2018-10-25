@@ -20,5 +20,10 @@ namespace Jaytas.Omilos.Web.Controllers.Commands
 		/// 
 		/// </summary>
 		TModelBaseType ResourceId { get; set; }
+
+		/// <summary>
+		/// Additional Properties to set
+		/// </summary>
+		Dictionary<String, dynamic> CommandProperties { get; set; }
 	}
 }

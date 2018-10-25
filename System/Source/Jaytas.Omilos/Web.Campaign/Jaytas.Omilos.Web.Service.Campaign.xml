@@ -140,10 +140,11 @@
             <param name="domains"></param>
             <returns></returns>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignProvider.GetMyCampaigns(Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignProvider.GetMyCampaigns(System.Nullable{System.Guid},Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
             <summary>
             
             </summary>
+            <param name="subscriptionId"></param>
             <param name="pageDetails"></param>
             <returns></returns>
         </member>
@@ -162,11 +163,12 @@
             
             </summary>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.ICampaignProvider.GetMyCampaigns(Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.ICampaignProvider.GetMyCampaigns(System.Nullable{System.Guid},Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
             <summary>
             
             </summary>
             <param name="pageDetails"></param>
+            <param name="subscriptionId"></param>
             <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces.IMessageTemplateProvider">
@@ -894,13 +896,19 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignController.Post(System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Campaign)">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.GetCampaignsBySubscription(System.Guid,Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
+            <summary>
+            Gets the campaign for the logged in user.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.Post(System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Input.Campaign)">
             <summary>
             Creates campaign.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignController.Update(System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Campaign)">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.Update(System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Input.Campaign)">
             <summary>
             Updates campaign.
             </summary>
@@ -919,7 +927,7 @@
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.Campaign,System.Guid)">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.Input.Campaign,System.Guid)">
             <summary>
             
             </summary>
@@ -927,28 +935,37 @@
             <param name="resourceId"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Campaign,System.Guid})">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.Input.Campaign,System.Guid,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="resourceId"></param>
+            <param name="commandProperties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.Campaign,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Campaign,System.Guid})">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.Campaign,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Campaign,System.Guid})">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.Campaign,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Campaign,System.Guid},Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign)">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.Campaign,System.Guid},Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign)">
             <summary>
             
             </summary>
@@ -974,13 +991,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.Post(System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance)">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.Post(System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Input.CampaignInstance)">
             <summary>
             Creates campaign instance.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.Update(System.Guid,System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance)">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.Update(System.Guid,System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Input.CampaignInstance)">
             <summary>
             Updates campaign instance.
             </summary>
@@ -999,7 +1016,7 @@
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance,System.Guid)">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.Input.CampaignInstance,System.Guid)">
             <summary>
             
             </summary>
@@ -1007,28 +1024,37 @@
             <param name="resourceId"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance,System.Guid})">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.Input.CampaignInstance,System.Guid,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="resourceId"></param>
+            <param name="commandProperties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.CampaignInstance,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance,System.Guid})">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.CampaignInstance,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance,System.Guid})">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.CampaignInstance,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance,System.Guid},Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance)">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.CampaignInstance,System.Guid},Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance)">
             <summary>
             
             </summary>
@@ -1054,13 +1080,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.Post(System.Guid,System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstanceException)">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.Post(System.Guid,System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Input.CampaignInstanceException)">
             <summary>
             Creates campaign instance exception.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.Update(System.Guid,System.Guid,System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstanceException)">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.Update(System.Guid,System.Guid,System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Input.CampaignInstanceException)">
             <summary>
             Updates campaign instance exception.
             </summary>
@@ -1079,7 +1105,7 @@
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstanceException,System.Guid)">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.Input.CampaignInstanceException,System.Guid)">
             <summary>
             
             </summary>
@@ -1087,28 +1113,37 @@
             <param name="resourceId"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstanceException,System.Guid})">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.Input.CampaignInstanceException,System.Guid,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="resourceId"></param>
+            <param name="commandProperties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.CampaignInstanceException,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstanceException,System.Guid})">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.CampaignInstanceException,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstanceException,System.Guid})">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.CampaignInstanceException,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstanceException,System.Guid},Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException)">
+        <member name="M:Web.Service.Campaign.Controllers.CampaignInstanceExceptionController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.CampaignInstanceException,System.Guid},Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstanceException)">
             <summary>
             
             </summary>
@@ -1134,13 +1169,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.Post(System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate)">
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.Post(System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Input.MessageTemplate)">
             <summary>
             Creates campaign MessageTemplate.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.Update(System.Guid,System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate)">
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.Update(System.Guid,System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Input.MessageTemplate)">
             <summary>
             Updates campaign MessageTemplate.
             </summary>
@@ -1159,7 +1194,7 @@
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate,System.Guid)">
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.Input.MessageTemplate,System.Guid)">
             <summary>
             
             </summary>
@@ -1167,28 +1202,37 @@
             <param name="resourceId"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate,System.Guid})">
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.Input.MessageTemplate,System.Guid,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="resourceId"></param>
+            <param name="commandProperties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.MessageTemplate,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate,System.Guid})">
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.MessageTemplate,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate,System.Guid})">
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.MessageTemplate,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.MessageTemplate,System.Guid},Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate)">
+        <member name="M:Web.Service.Campaign.Controllers.MessageTemplateController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.MessageTemplate,System.Guid},Jaytas.Omilos.Web.Service.Campaign.DomainModel.MessageTemplate)">
             <summary>
             
             </summary>
@@ -1214,13 +1258,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.Post(System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Schedule)">
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.Post(System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Input.Schedule)">
             <summary>
             Creates campaign Schedule.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.Update(System.Guid,System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Schedule)">
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.Update(System.Guid,System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Campaign.Input.Schedule)">
             <summary>
             Updates campaign Schedule.
             </summary>
@@ -1239,7 +1283,7 @@
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.Schedule,System.Guid)">
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.Input.Schedule,System.Guid)">
             <summary>
             
             </summary>
@@ -1247,28 +1291,37 @@
             <param name="resourceId"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Schedule,System.Guid})">
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.Input.Schedule,System.Guid,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="resourceId"></param>
+            <param name="commandProperties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.Schedule,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Schedule,System.Guid})">
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.Schedule,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Schedule,System.Guid})">
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.Schedule,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Schedule,System.Guid},Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule)">
+        <member name="M:Web.Service.Campaign.Controllers.ScheduleController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Campaign.Input.Schedule,System.Guid},Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule)">
             <summary>
             
             </summary>

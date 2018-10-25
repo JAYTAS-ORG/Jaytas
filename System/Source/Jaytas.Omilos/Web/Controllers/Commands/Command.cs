@@ -16,10 +16,19 @@ namespace Jaytas.Omilos.Web.Controllers.Commands
 		/// Initializes a new instance of the <see cref="Command{TModel, TModelBaseType}"/> class.
 		/// </summary>
 		/// <param name="resource">The resource.</param>
-		public Command(TModel resource)
+		public Command(TModel resource) : this(resource, new Dictionary<string, dynamic>())
+		{
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Command{TModel, TModelBaseType}"/> class.
+		/// </summary>
+		/// <param name="resource">The resource.</param>
+		/// <param name="commandProperties">The additional command Properties.</param>
+		public Command(TModel resource, Dictionary<string, dynamic> commandProperties)
 		{
 			Resource = resource;
-			CommandProperties = new Dictionary<string, dynamic>();
+			CommandProperties = commandProperties;
 		}
 
 		/// <summary>
@@ -27,10 +36,19 @@ namespace Jaytas.Omilos.Web.Controllers.Commands
 		/// </summary>
 		/// <param name="resource">The resource.</param>
 		/// <param name="resourceId">The resource identifier.</param>
-		public Command(TModel resource, TModelBaseType resourceId) : this(resource)
+		public Command(TModel resource, TModelBaseType resourceId) : this(resource, resourceId, new Dictionary<string, dynamic>())
+		{
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Command{TModel, TModelBaseType}"/> class.
+		/// </summary>
+		/// <param name="resource">The resource.</param>
+		/// <param name="resourceId">The resource identifier.</param>
+		/// <param name="commandProperties">The additional command Properties.</param>
+		public Command(TModel resource, TModelBaseType resourceId, Dictionary<string, dynamic> commandProperties) : this(resource, commandProperties)
 		{
 			ResourceId = resourceId;
-			CommandProperties = new Dictionary<string, dynamic>();
 		}
 
 		/// <summary>

@@ -51,12 +51,14 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Data.Map
 			base.ConfigureKey(builder);
 
 			builder.HasMany(subscription => subscription.Groups)
-					.WithOne(group => group.Subscription)
-					.HasForeignKey(group => group.SubscriptionId);
+				   .WithOne(group => group.Subscription)
+				   .HasForeignKey(group => group.SubscriptionId)
+				   .HasPrincipalKey(subscription => subscription.ExposedId);
 
 			builder.HasMany(subscription => subscription.Contacts)
-					.WithOne(contact => contact.Subscription)
-					.HasForeignKey(contact => contact.SubscriptionId);
+				   .WithOne(contact => contact.Subscription)
+				   .HasForeignKey(contact => contact.SubscriptionId)
+				   .HasPrincipalKey(subscription => subscription.ExposedId);
 		}
 	}
 }

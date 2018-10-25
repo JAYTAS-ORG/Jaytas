@@ -35,7 +35,7 @@ CREATE TABLE `account`.`user_logindetail` (
 
 CREATE TABLE `account`.`user_role` (
   `Id` int(19) unsigned NOT NULL AUTO_INCREMENT,
-  `UserId` int(19) unsigned NOT NULL,
+  `UserId` varchar(36) NOT NULL,
   `RoleId` int(11) unsigned NOT NULL,
   `Scope` varchar(255) NOT NULL,
   `StartDate` date DEFAULT NULL,
@@ -44,4 +44,5 @@ CREATE TABLE `account`.`user_role` (
   KEY `FK_User_UserRole_idx` (`UserId`),
   KEY `FK_Role_UserRole_idx` (`RoleId`),
   CONSTRAINT `FK_Role_UserRole` FOREIGN KEY (`RoleId`) REFERENCES `role` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `FK_User_UserRole` FOREIGN KEY (`UserId`) REFERENCES `user` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `FK_User_UserRole` FOREIGN KEY (`UserId`) REFERENCES `user` (`GraphId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

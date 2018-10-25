@@ -14,7 +14,7 @@ namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 		/// <summary>
 		/// 
 		/// </summary>
-		public long InstanceId { get; set; }
+		public Guid InstanceId { get; set; }
 
 		/// <summary>
 		/// 

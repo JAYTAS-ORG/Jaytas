@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Jaytas.Omilos.Web.Controllers.Commands;
 using Jaytas.Omilos.Web.Mapping.Profiles;
 using System;
 using System.Collections.Generic;
@@ -38,13 +39,17 @@ namespace Jaytas.Omilos.Web.Service.Subscription.App_Start
 			public WebProfile()
 			{
 				CreateMap<DomainModel.Subscription, Models.Subscription.Subscription>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
-				CreateMap<Models.Subscription.Subscription, DomainModel.Subscription>().ForMember(dom => dom.ExposedId, api => api.MapFrom(model => model.Id));
 				CreateMap<DomainModel.Subscription, Models.Subscription.SubscriptionWithGroupSummary>()
 														.ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId))
 														.ForMember(api => api.GroupSummary, dom => dom.ResolveUsing(Map));
 
+				CreateMap<Models.Subscription.Input.Subscription, DomainModel.Subscription>();
+
 				CreateMap<DomainModel.Group, Models.Subscription.Group>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
-				CreateMap<Models.Subscription.Group, DomainModel.Group>().ForMember(dom => dom.ExposedId, api => api.MapFrom(model => model.Id));
+
+				CreateMap<Models.Subscription.Input.Group, DomainModel.Group>();
+				CreateMap<Command<Models.Subscription.Input.Group, Guid>, DomainModel.Group>()
+										.ForMember(dom => dom.SubscriptionId, command => command.MapFrom(api => api.CommandProperties.GetValueOrDefault(nameof(DomainModel.Group.SubscriptionId), default(Guid))));
 
 				CreateMap<DomainModel.GroupContactAssociation, Models.Subscription.ContactWithAssociationStatus>()
 							.ForMember(api => api.Id, dom => dom.MapFrom(model => model.Contact.ExposedId))
@@ -59,7 +64,10 @@ namespace Jaytas.Omilos.Web.Service.Subscription.App_Start
 							.ForMember(api => api.CustomColumn5, dom => dom.MapFrom(model => model.Contact.CustomColumn5));
 
 				CreateMap<DomainModel.Contact, Models.Subscription.Contact>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
-				CreateMap<Models.Subscription.Contact, DomainModel.Contact>().ForMember(dom => dom.ExposedId, api => api.MapFrom(model => model.Id));
+
+				CreateMap<Models.Subscription.Input.Contact, DomainModel.Contact>();
+				CreateMap<Command<Models.Subscription.Input.Contact, Guid>, DomainModel.Contact>()
+										.ForMember(dom => dom.SubscriptionId, command => command.MapFrom(api => api.CommandProperties.GetValueOrDefault(nameof(DomainModel.Contact.SubscriptionId), default(Guid))));
 			}
 
 			/// <summary>

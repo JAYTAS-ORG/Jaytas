@@ -12,11 +12,6 @@ namespace Jaytas.Omilos.Common.Enumerations
 		/// <summary>
 		/// 
 		/// </summary>
-		None,
-
-		/// <summary>
-		/// 
-		/// </summary>
 		Draft,
 
 		/// <summary>

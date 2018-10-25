@@ -5,6 +5,7 @@ using Jaytas.Omilos.Web.Controllers.Commands;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -191,6 +192,18 @@ namespace Jaytas.Omilos.Web.Controllers
 		}
 
 		/// <summary>
+		/// Posts the or status code.
+		/// </summary>
+		/// <param name="model">The client model.</param>
+		/// <param name="commandProperties">The command properties.</param>
+		/// <param name="routeName">Name of the route used to fetch the resource being created by it identifier.</param>
+		/// <returns></returns>
+		protected internal async Task<IActionResult> PostOrStatusCodeAsync(TModel model, Dictionary<string, dynamic> commandProperties, string routeName)
+		{
+			return await PostOrStatusCodeAsync(CreateCommand(model, default(TBizFieldType), commandProperties), routeName).ConfigureAwait(true);
+		}
+
+		/// <summary>
 		/// Creates the provided Resource and translates any errors into appropriate status code responses.
 		/// </summary>
 		/// <param name="command">The command to process containing the Resource to create.</param>
@@ -207,6 +220,11 @@ namespace Jaytas.Omilos.Web.Controllers
 				}
 
 				var entityToCreate = Mapper.Map<TBiz>(command.Resource);
+
+				//Maps Additional Properties
+				if (command.CommandProperties.Keys.Any()){
+					Mapper.Map(command, entityToCreate);
+				}
 
 				var newId = await CreateAsync(entityToCreate).ConfigureAwait(true);
 
@@ -243,6 +261,18 @@ namespace Jaytas.Omilos.Web.Controllers
 		protected internal async Task<IActionResult> PutOrStatusCodeAsync(TModel webModel, TBizFieldType resourceId)
 		{
 			return await PutOrStatusCodeAsync(CreateCommand(webModel, resourceId)).ConfigureAwait(true);
+		}
+
+		/// <summary>
+		/// Updates the provided Resource specified by the provided ID - and optionally version - and translates any errors into appropriate status code responses.
+		/// </summary>
+		/// <param name="webModel">The web model.</param>
+		/// <param name="commandProperties">The command properties.</param>
+		/// <param name="resourceId">The identifier.</param>
+		/// <returns></returns>
+		protected internal async Task<IActionResult> PutOrStatusCodeAsync(TModel webModel, TBizFieldType resourceId, Dictionary<string, dynamic> commandProperties)
+		{
+			return await PutOrStatusCodeAsync(CreateCommand(webModel, resourceId, commandProperties)).ConfigureAwait(true);
 		}
 
 		/// <summary>
@@ -302,7 +332,16 @@ namespace Jaytas.Omilos.Web.Controllers
 		/// <param name="resourceId">The resource identifier.</param>
 		/// <returns></returns>
 		protected abstract TCommand CreateCommand(TModel model, TBizFieldType resourceId);
-		
+
+		/// <summary>
+		/// Creates the command with the provided arguments.
+		/// </summary>
+		/// <param name="model">The model.</param>
+		/// <param name="commandProperties">The additional command Properties.</param>
+		/// <param name="resourceId">The resource identifier.</param>
+		/// <returns></returns>
+		protected abstract TCommand CreateCommand(TModel model, TBizFieldType resourceId, Dictionary<string, dynamic> commandProperties);
+
 		/// <summary>
 		/// Creates the specified model and returns its id.
 		/// </summary>

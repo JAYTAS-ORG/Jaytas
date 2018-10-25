@@ -352,6 +352,8 @@ namespace Jaytas.Omilos.Common
 
 				public const string RootPath = "/api/subscription/{subscriptionId}/campaign";
 
+				public const string GetCampaignsBySubscription = RootPath + "/all";
+
 				public const string MyCampaigns = "/api/campaign/mycampaingns";
 			}
 
@@ -420,9 +422,9 @@ namespace Jaytas.Omilos.Common
 
 				public const string RootPath = "/api/subscription/{subscriptionId}/group";
 
-				public const string MyGroups = "/api/group/mygroups";
+				public const string GetGroupsBySubscription = RootPath + "/all";
 
-				public const string GetContacts = "/api/subscription/{subscriptionId}/group/{id}/contacts";
+				public const string GetContacts = RootPath + "/{id}/contacts";
 
 				public const string AddContactsToGroup = RootPath + "/{id}/AddContactsToGroup";
 			}
@@ -437,6 +439,8 @@ namespace Jaytas.Omilos.Common
 				public const string RootPath = "/api/subscription/{subscriptionId}/contact";
 
 				public const string MyContacts = "/api/contact/mycontacts";
+
+				public const string ContactsBySubscription = RootPath + "/all";
 			}
 		}
 

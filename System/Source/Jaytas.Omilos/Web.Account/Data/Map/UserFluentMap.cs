@@ -69,7 +69,8 @@ namespace Jaytas.Omilos.Web.Service.Account.Data.Map
 
 			builder.HasMany(user => user.UserRoles)
 				   .WithOne(userRole => userRole.User)
-				   .HasForeignKey(user => user.UserId);
+				   .HasForeignKey(user => user.UserId)
+				   .HasPrincipalKey(user => user.ExposedId);
 		}
 	}
 }

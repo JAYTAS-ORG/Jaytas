@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -9,7 +8,7 @@ using Jaytas.Omilos.Common.Web;
 using Jaytas.Omilos.Web.Controllers;
 using Jaytas.Omilos.Web.Controllers.Commands;
 using Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces;
-using Microsoft.AspNetCore.Http;
+using Jaytas.Omilos.Web.Service.Models.Campaign.Input;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Service.Campaign.Controllers
@@ -19,9 +18,9 @@ namespace Web.Service.Campaign.Controllers
 	/// </summary>
 	[Route(Constants.Route.CampaignInstance.RootPath)]
 	public class CampaignInstanceController : CrudByFieldBaseApiController<Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance,
-																   Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance,
-																   Command<Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance, Guid>,
-																   Guid, long>
+																		   CampaignInstance,
+																		   Command<CampaignInstance, Guid>,
+																		   Guid, long>
 	{
 		readonly ICampaignInstanceProvider _campaignInstaneProvider;
 
@@ -34,7 +33,6 @@ namespace Web.Service.Campaign.Controllers
 		{
 			_campaignInstaneProvider = campaignInstaneProvider;
 		}
-
 
 		/// <summary>
 		/// Gets campaign instance.
@@ -61,9 +59,14 @@ namespace Web.Service.Campaign.Controllers
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
 		[ProducesResponseType((int)HttpStatusCode.NotFound)]
-		public async Task<IActionResult> Post(Guid subscriptionId, Guid campaignId, [FromBody] Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance campaignInstance)
+		public async Task<IActionResult> Post(Guid subscriptionId, Guid campaignId, [FromBody] CampaignInstance campaignInstance)
 		{
-			return await PostOrStatusCodeAsync(campaignInstance, Constants.Route.CampaignInstance.Name.GetById).ConfigureAwait(true);
+			var commandProperties = new Dictionary<string, dynamic>
+			{
+				{ nameof(Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance.CampaignId), campaignId }
+			};
+
+			return await PostOrStatusCodeAsync(campaignInstance, commandProperties, Constants.Route.CampaignInstance.Name.GetById).ConfigureAwait(true);
 		}
 
 		/// <summary>
@@ -75,7 +78,7 @@ namespace Web.Service.Campaign.Controllers
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
 		[ProducesResponseType((int)HttpStatusCode.NotFound)]
-		public async Task<IActionResult> Update(Guid subscriptionId, Guid campaignId, Guid id, [FromBody] Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance campaignInstance)
+		public async Task<IActionResult> Update(Guid subscriptionId, Guid campaignId, Guid id, [FromBody] CampaignInstance campaignInstance)
 		{
 			return await PutOrStatusCodeAsync(campaignInstance, id).ConfigureAwait(true);
 		}
@@ -110,9 +113,21 @@ namespace Web.Service.Campaign.Controllers
 		/// <param name="model"></param>
 		/// <param name="resourceId"></param>
 		/// <returns></returns>
-		protected override Command<Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance, Guid> CreateCommand(Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance model, Guid resourceId)
+		protected override Command<CampaignInstance, Guid> CreateCommand(CampaignInstance model, Guid resourceId)
 		{
-			return new Command<Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance, Guid>(model, resourceId);
+			return new Command<CampaignInstance, Guid>(model, resourceId);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="model"></param>
+		/// <param name="resourceId"></param>
+		/// <param name="commandProperties"></param>
+		/// <returns></returns>
+		protected override Command<CampaignInstance, Guid> CreateCommand(CampaignInstance model, Guid resourceId, Dictionary<string, dynamic> commandProperties)
+		{
+			return new Command<CampaignInstance, Guid>(model, resourceId, commandProperties);
 		}
 
 		/// <summary>
@@ -120,7 +135,7 @@ namespace Web.Service.Campaign.Controllers
 		/// </summary>
 		/// <param name="command"></param>
 		/// <returns></returns>
-		protected async override Task DeleteAsync(Command<Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance, Guid> command)
+		protected async override Task DeleteAsync(Command<CampaignInstance, Guid> command)
 		{
 			await _campaignInstaneProvider.DeleteAsync(command.ResourceId);
 		}
@@ -130,7 +145,7 @@ namespace Web.Service.Campaign.Controllers
 		/// </summary>
 		/// <param name="command"></param>
 		/// <returns></returns>
-		protected async override Task<IEnumerable<Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance>> GetAllAsync(Command<Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance, Guid> command)
+		protected async override Task<IEnumerable<Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance>> GetAllAsync(Command<CampaignInstance, Guid> command)
 		{
 			throw new NotSupportedException();
 		}
@@ -140,7 +155,7 @@ namespace Web.Service.Campaign.Controllers
 		/// </summary>
 		/// <param name="command"></param>
 		/// <returns></returns>
-		protected async override Task<Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance> GetByIdAsync(Command<Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance, Guid> command)
+		protected async override Task<Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance> GetByIdAsync(Command<CampaignInstance, Guid> command)
 		{
 			return await _campaignInstaneProvider.GetAsync(command.ResourceId);
 		}
@@ -151,7 +166,7 @@ namespace Web.Service.Campaign.Controllers
 		/// <param name="command"></param>
 		/// <param name="model"></param>
 		/// <returns></returns>
-		protected async override Task UpdateAsync(Command<Jaytas.Omilos.Web.Service.Models.Campaign.CampaignInstance, Guid> command, Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance model)
+		protected async override Task UpdateAsync(Command<CampaignInstance, Guid> command, Jaytas.Omilos.Web.Service.Campaign.DomainModel.CampaignInstance model)
 		{
 			await _campaignInstaneProvider.UpdateAsync(model);
 		}

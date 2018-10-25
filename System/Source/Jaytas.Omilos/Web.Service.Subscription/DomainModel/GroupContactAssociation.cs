@@ -13,12 +13,12 @@ namespace Jaytas.Omilos.Web.Service.Subscription.DomainModel
 		/// <summary>
 		/// 
 		/// </summary>
-		public long GroupId { get; set; }
+		public Guid GroupId { get; set; }
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public long ContactId { get; set; }
+		public Guid ContactId { get; set; }
 
 		/// <summary>
 		/// 

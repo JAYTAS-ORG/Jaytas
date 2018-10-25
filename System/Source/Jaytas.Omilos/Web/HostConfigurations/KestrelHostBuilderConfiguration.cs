@@ -17,7 +17,7 @@ namespace Jaytas.Omilos.Web.HostConfigurations
 		/// <returns></returns>
 		public static IWebHostBuilder CreateWebHostBuilder<TStartup>(string[] args) where TStartup : class
 		{
-			return WebHost.CreateDefaultBuilder(args).UseStartup<TStartup>();
+			return WebHost.CreateDefaultBuilder(args).CaptureStartupErrors(true).UseSetting("detailedErrors", "true").UseStartup<TStartup>();
 		}
 	}
 }

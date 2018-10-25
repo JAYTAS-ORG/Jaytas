@@ -41,6 +41,8 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Data.Map
 			builder.Property(col => col.HasOptedOut)
 				 .HasColumnName(nameof(DomainModel.GroupContactAssociation.HasOptedOut))
 				 .IsRequired();
+
+			ConfigureKey(builder);
 		}
 
 		/// <summary>
@@ -53,11 +55,13 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Data.Map
 
 			builder.HasOne(groupContactAssociation => groupContactAssociation.Contact)
 				   .WithMany(contact => contact.GroupContactAssociations)
-				   .HasForeignKey(groupContactAssociation => groupContactAssociation.ContactId);
+				   .HasForeignKey(groupContactAssociation => groupContactAssociation.ContactId)
+				   .HasPrincipalKey(contact => contact.ExposedId);
 
 			builder.HasOne(groupContactAssociation => groupContactAssociation.Group)
 				   .WithMany(group => group.GroupContactAssociations)
-				   .HasForeignKey(groupContactAssociation => groupContactAssociation.GroupId);
+				   .HasForeignKey(groupContactAssociation => groupContactAssociation.GroupId)
+				   .HasPrincipalKey(group => group.ExposedId);
 		}
 	}
 }

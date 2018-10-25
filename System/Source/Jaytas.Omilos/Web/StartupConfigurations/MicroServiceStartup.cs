@@ -140,7 +140,7 @@ namespace Jaytas.Omilos.Web.StartupConfigurations
 		/// <param name="swaggerGenOptions"></param>
 		protected virtual void ConfigureSwagger(SwaggerGenOptions swaggerGenOptions)
 		{
-			swaggerGenOptions.SwaggerDoc(Constants.ApiVersions.V1, new Swashbuckle.AspNetCore.Swagger.Info
+			swaggerGenOptions.SwaggerDoc(Constants.ApiVersions.V1, new Info
 			{
 				Version = Constants.Swagger.ApiVersions.V1.Version,
 				Title = Constants.Swagger.ApiVersions.V1.Title,
@@ -148,6 +148,7 @@ namespace Jaytas.Omilos.Web.StartupConfigurations
 				TermsOfService = Constants.Swagger.ApiVersions.V1.TermsOfService,
 				Contact = new Contact() { Name = Constants.Swagger.Contact.Name, Email = Constants.Swagger.Contact.Email, Url = Constants.Swagger.Contact.Url }
 			});
+			swaggerGenOptions.CustomSchemaIds(x => x.FullName);
 			swaggerGenOptions.IncludeXmlComments(GetXmlCommentsPath());
 			swaggerGenOptions.DescribeAllEnumsAsStrings();
 			swaggerGenOptions.OperationFilter<MultipleOperationsWithSameVerbFilter>();

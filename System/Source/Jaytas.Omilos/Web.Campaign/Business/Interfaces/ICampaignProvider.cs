@@ -16,7 +16,8 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces
 		/// 
 		/// </summary>
 		/// <param name="pageDetails"></param>
+		/// <param name="subscriptionId"></param>
 		/// <returns></returns>
-		Task<PagedResultSet<Models.Campaign.CampaignSummary>> GetMyCampaigns(PageDetails pageDetails);
+		Task<PagedResultSet<Models.Campaign.CampaignSummary>> GetMyCampaigns(Guid? subscriptionId, PageDetails pageDetails);
 	}
 }

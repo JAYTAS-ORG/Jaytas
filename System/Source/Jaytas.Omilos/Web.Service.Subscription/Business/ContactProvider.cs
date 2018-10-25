@@ -1,4 +1,5 @@
-﻿using Jaytas.Omilos.Common.Models;
+﻿using Jaytas.Omilos.Common.Extensions;
+using Jaytas.Omilos.Common.Models;
 using Jaytas.Omilos.Web.Providers;
 using Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces;
 using Jaytas.Omilos.Web.Service.Subscription.Data.Repositories.Interfaces;
@@ -60,16 +61,31 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Business
 		/// 
 		/// </summary>
 		/// <param name="pageDetails"></param>
+		/// <param name="subscriptionId"></param>
 		/// <returns></returns>
-		public async Task<PagedResultSet<DomainModel.Contact>> MyContacts(Models.Common.PageDetails pageDetails)
+		public async Task<PagedResultSet<DomainModel.Contact>> MyContacts(Models.Common.PageDetails pageDetails, Guid? subscriptionId)
 		{
-			var contacts = await Repository.GetAsync(contact => contact.FirstName.Contains(pageDetails.SearchText) ||
-															    contact.LastName.Contains(pageDetails.SearchText) ||
-															    contact.Email.Contains(pageDetails.SearchText) ||
-															    contact.PhoneNumber.Contains(pageDetails.SearchText));
+			Expression<Func<DomainModel.Contact, bool>> expression = contact => true;
 
-			var skip = pageDetails.PageSize.HasValue ? pageDetails.PageSize.Value * (pageDetails.PageNo.Value - 1) : pageDetails.PageSize.GetValueOrDefault();
-			return PagedResultSet<DomainModel.Contact>.Construct(contacts, skip, pageDetails.PageSize.GetValueOrDefault());
+			if(subscriptionId != null && subscriptionId != Guid.Empty)
+			{
+				expression = contact => contact.SubscriptionId == subscriptionId;
+			}
+
+			if (!string.IsNullOrWhiteSpace(pageDetails?.SearchText))
+			{
+				expression = expression.And(contact => (contact.FirstName.Contains(pageDetails.SearchText) ||
+														contact.LastName.Contains(pageDetails.SearchText) ||
+														contact.Email.Contains(pageDetails.SearchText) ||
+														contact.PhoneNumber.Contains(pageDetails.SearchText)));
+			}
+
+			var contacts = await Repository.GetAsync(expression);
+
+			var skip = pageDetails?.PageSize != null && pageDetails?.PageNo != null ? 
+					   pageDetails.PageSize.Value * (pageDetails.PageNo.Value - 1) : 
+					   pageDetails?.PageSize;
+			return PagedResultSet<DomainModel.Contact>.Construct(contacts, skip, pageDetails?.PageSize);
 		}
 	}
 }

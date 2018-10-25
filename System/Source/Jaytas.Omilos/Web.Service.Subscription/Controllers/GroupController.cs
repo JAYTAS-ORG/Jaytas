@@ -7,6 +7,7 @@ using Jaytas.Omilos.Common;
 using Jaytas.Omilos.Common.Web;
 using Jaytas.Omilos.Web.Controllers;
 using Jaytas.Omilos.Web.Controllers.Commands;
+using Jaytas.Omilos.Web.Service.Models.Subscription.Input;
 using Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,9 +18,7 @@ namespace Web.Service.Subscription.Controllers
 	/// </summary>
 	[Route(Constants.Route.Group.RootPath)]
 	public class GroupController : CrudByFieldBaseApiController<Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group,
-																Jaytas.Omilos.Web.Service.Models.Subscription.Group,
-																Command<Jaytas.Omilos.Web.Service.Models.Subscription.Group, Guid>,
-																Guid, long>
+																Group, Command<Group, Guid>, Guid, long>
 	{
 		readonly IGroupProvider _groupProvider;
 
@@ -55,14 +54,15 @@ namespace Web.Service.Subscription.Controllers
 		/// <returns></returns>
 		[HttpGet]
 		[HttpHead]
-		[Route(Constants.Route.Group.MyGroups)]
+		[Route(Constants.Route.Group.GetGroupsBySubscription)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
 		[ProducesResponseType((int)HttpStatusCode.NotFound)]
 		[ProducesResponseType(typeof(IEnumerable<Jaytas.Omilos.Web.Service.Models.Subscription.Group>), (int)HttpStatusCode.OK)]
-		public async Task<IActionResult> MyGroups(Guid subscriptionId)
+		public async Task<IActionResult> MyGroups(Guid subscriptionId, [FromQuery] Jaytas.Omilos.Web.Service.Models.Common.PageDetails pageDetails)
 		{
-			return await GetAllOrStatusCodeAsync().ConfigureAwait(true);
+			return await ExecutePagedResultWithExceptionHandlingAsync<Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group, List<Jaytas.Omilos.Web.Service.Models.Subscription.Group>>
+								(() => _groupProvider.MyGroups(pageDetails, subscriptionId)).ConfigureAwait(true);
 		}
 
 		/// <summary>
@@ -71,14 +71,16 @@ namespace Web.Service.Subscription.Controllers
 		/// <returns></returns>
 		[HttpGet]
 		[HttpHead]
-		[Route(Constants.Route.Group.GetContacts)]
+		[Route(Constants.Route.Group.GetContacts, Name = Constants.Route.Group.Name.GetContactsById)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
 		[ProducesResponseType((int)HttpStatusCode.NotFound)]
 		[ProducesResponseType(typeof(IEnumerable<Jaytas.Omilos.Web.Service.Models.Subscription.ContactWithAssociationStatus>), (int)HttpStatusCode.OK)]
 		public async Task<IActionResult> GetContacts(Guid subscriptionId, Guid id)
 		{
-			return await ExecuteWithExceptionHandlingAsync(() => _groupProvider.GetContacts(id)).ConfigureAwait(true);
+			return await ExecuteWithExceptionHandlingAsync<IEnumerable<Jaytas.Omilos.Web.Service.Subscription.DomainModel.GroupContactAssociation>, 
+														   IEnumerable<Jaytas.Omilos.Web.Service.Models.Subscription.ContactWithAssociationStatus>>(
+															() => _groupProvider.GetContacts(id)).ConfigureAwait(true);
 		}
 
 		/// <summary>
@@ -90,9 +92,13 @@ namespace Web.Service.Subscription.Controllers
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
 		[ProducesResponseType((int)HttpStatusCode.NotFound)]
-		public async Task<IActionResult> Post(Guid subscriptionId, [FromBody] Jaytas.Omilos.Web.Service.Models.Subscription.Group group)
+		public async Task<IActionResult> Post(Guid subscriptionId, [FromBody] Group group)
 		{
-			return await PostOrStatusCodeAsync(group, Constants.Route.Subscription.Name.GetById).ConfigureAwait(true);
+			var commandProperties = new Dictionary<string, dynamic>
+			{
+				{ nameof(Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group.SubscriptionId), subscriptionId }
+			};
+			return await PostOrStatusCodeAsync(group, commandProperties, Constants.Route.Group.Name.GetById).ConfigureAwait(true);
 		}
 
 		/// <summary>
@@ -104,7 +110,7 @@ namespace Web.Service.Subscription.Controllers
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
 		[ProducesResponseType((int)HttpStatusCode.NotFound)]
-		public async Task<IActionResult> Update(Guid subscriptionId, Guid id, [FromBody] Jaytas.Omilos.Web.Service.Models.Subscription.Group group)
+		public async Task<IActionResult> Update(Guid subscriptionId, Guid id, [FromBody] Group group)
 		{
 			return await PutOrStatusCodeAsync(group, id).ConfigureAwait(true);
 		}
@@ -134,13 +140,14 @@ namespace Web.Service.Subscription.Controllers
 		[ProducesResponseType((int)HttpStatusCode.NotFound)]
 		public async Task<IActionResult> AddContactsToGroup(Guid subscriptionId, Guid id, [FromBody] IEnumerable<Guid> contacts)
 		{
-			return await PostOrStatusCodeAsync(() => _groupProvider.AddContactsToGroup(id, contacts), 
-											   Constants.Route.Group.Name.GetContactsById, 
-											   new Dictionary<string, object>
+			var routeValues = new Dictionary<string, object>
 											   {
 												   { nameof(subscriptionId), subscriptionId },
 												   { nameof(id), id }
-											   }
+											   };
+			return await PostOrStatusCodeAsync(() => _groupProvider.AddContactsToGroup(subscriptionId, id, contacts),
+											   Constants.Route.Group.Name.GetContactsById,
+											   routeValues
 											  ).ConfigureAwait(true);
 		}
 
@@ -160,9 +167,21 @@ namespace Web.Service.Subscription.Controllers
 		/// <param name="model"></param>
 		/// <param name="resourceId"></param>
 		/// <returns></returns>
-		protected override Command<Jaytas.Omilos.Web.Service.Models.Subscription.Group, Guid> CreateCommand(Jaytas.Omilos.Web.Service.Models.Subscription.Group model, Guid resourceId)
+		protected override Command<Group, Guid> CreateCommand(Group model, Guid resourceId)
 		{
-			return new Command<Jaytas.Omilos.Web.Service.Models.Subscription.Group, Guid>(model, resourceId);
+			return new Command<Group, Guid>(model, resourceId);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="model"></param>
+		/// <param name="resourceId"></param>
+		/// <param name="commandProperties"></param>
+		/// <returns></returns>
+		protected override Command<Group, Guid> CreateCommand(Group model, Guid resourceId, Dictionary<string, dynamic> commandProperties)
+		{
+			return new Command<Group, Guid>(model, resourceId, commandProperties);
 		}
 
 		/// <summary>
@@ -170,7 +189,7 @@ namespace Web.Service.Subscription.Controllers
 		/// </summary>
 		/// <param name="command"></param>
 		/// <returns></returns>
-		protected async override Task DeleteAsync(Command<Jaytas.Omilos.Web.Service.Models.Subscription.Group, Guid> command)
+		protected async override Task DeleteAsync(Command<Group, Guid> command)
 		{
 			await _groupProvider.DeleteAsync(command.ResourceId);
 		}
@@ -180,7 +199,7 @@ namespace Web.Service.Subscription.Controllers
 		/// </summary>
 		/// <param name="command"></param>
 		/// <returns></returns>
-		protected async override Task<IEnumerable<Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group>> GetAllAsync(Command<Jaytas.Omilos.Web.Service.Models.Subscription.Group, Guid> command)
+		protected async override Task<IEnumerable<Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group>> GetAllAsync(Command<Group, Guid> command)
 		{
 			throw new NotImplementedException();
 		}
@@ -190,7 +209,7 @@ namespace Web.Service.Subscription.Controllers
 		/// </summary>
 		/// <param name="command"></param>
 		/// <returns></returns>
-		protected async override Task<Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group> GetByIdAsync(Command<Jaytas.Omilos.Web.Service.Models.Subscription.Group, Guid> command)
+		protected async override Task<Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group> GetByIdAsync(Command<Group, Guid> command)
 		{
 			return await _groupProvider.GetAsync(command.ResourceId);
 		}
@@ -201,7 +220,7 @@ namespace Web.Service.Subscription.Controllers
 		/// <param name="command"></param>
 		/// <param name="model"></param>
 		/// <returns></returns>
-		protected async override Task UpdateAsync(Command<Jaytas.Omilos.Web.Service.Models.Subscription.Group, Guid> command, Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group model)
+		protected async override Task UpdateAsync(Command<Group, Guid> command, Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group model)
 		{
 			await _groupProvider.UpdateAsync(model);
 		}

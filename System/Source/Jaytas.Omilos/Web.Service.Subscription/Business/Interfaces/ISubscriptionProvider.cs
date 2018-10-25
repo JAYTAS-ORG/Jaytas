@@ -1,4 +1,5 @@
-﻿using Jaytas.Omilos.Web.Service.Models.Subscription.Input;
+﻿using Jaytas.Omilos.Common.Models;
+using Jaytas.Omilos.Web.Service.Models.Subscription.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,11 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces
 		/// <param name="identifierFilters"></param>
 		/// <returns></returns>
 		Task<IEnumerable<DomainModel.Subscription>> GetSubscriptionsAndGroupSummaryById(List<IdentifierFilter> identifierFilters);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		Task<PagedResultSet<DomainModel.Subscription>> MySubscriptions(Models.Common.PageDetails pageDetails);
 	}
 }

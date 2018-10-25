@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Jaytas.Omilos.Web.Service.Models.Campaign
 {
-	public class Campaign : IHaveLinks
+	public class Campaign
 	{
 		/// <summary>
 		/// 
@@ -57,10 +57,5 @@ namespace Jaytas.Omilos.Web.Service.Models.Campaign
 		/// 
 		/// </summary>
 		public string CampaignManagerEmailId { get; set; }
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public List<Link> Links { get; set; } = new List<Link>();
 	}
 }

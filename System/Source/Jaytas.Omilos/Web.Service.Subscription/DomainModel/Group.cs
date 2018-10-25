@@ -14,7 +14,7 @@ namespace Jaytas.Omilos.Web.Service.Subscription.DomainModel
 		/// <summary>
 		/// 
 		/// </summary>
-		public long SubscriptionId { get; set; }
+		public Guid SubscriptionId { get; set; }
 
 		/// <summary>
 		/// 

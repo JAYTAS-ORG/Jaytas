@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Jaytas.Omilos.Web.Service.Models.Campaign
 {
-	public class CampaignInstanceException : IHaveLinks
+	public class CampaignInstanceException
 	{
 		/// <summary>
 		/// 
@@ -41,10 +41,5 @@ namespace Jaytas.Omilos.Web.Service.Models.Campaign
 		/// 
 		/// </summary>
 		public TimeSpan? EndTime { get; set; }
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public List<Link> Links { get; set; } = new List<Link>();
 	}
 }

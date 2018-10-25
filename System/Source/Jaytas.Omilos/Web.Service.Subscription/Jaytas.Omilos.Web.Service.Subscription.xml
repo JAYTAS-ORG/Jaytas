@@ -81,11 +81,12 @@
             <param name="domains"></param>
             <returns></returns>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.ContactProvider.MyContacts(Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.ContactProvider.MyContacts(Jaytas.Omilos.Web.Service.Models.Common.PageDetails,System.Nullable{System.Guid})">
             <summary>
             
             </summary>
             <param name="pageDetails"></param>
+            <param name="subscriptionId"></param>
             <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Subscription.Business.GroupProvider">
@@ -128,12 +129,21 @@
             <param name="groupId"></param>
             <returns></returns>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.GroupProvider.AddContactsToGroup(System.Guid,System.Collections.Generic.IEnumerable{System.Guid})">
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.GroupProvider.AddContactsToGroup(System.Guid,System.Guid,System.Collections.Generic.IEnumerable{System.Guid})">
             <summary>
             
             </summary>
+            <param name="subscriptionId"></param>
             <param name="groupId"></param>
             <param name="contacts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.GroupProvider.MyGroups(Jaytas.Omilos.Web.Service.Models.Common.PageDetails,System.Nullable{System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="pageDetails"></param>
+            <param name="subscriptionId"></param>
             <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces.IContactProvider">
@@ -141,11 +151,12 @@
             
             </summary>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces.IContactProvider.MyContacts(Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces.IContactProvider.MyContacts(Jaytas.Omilos.Web.Service.Models.Common.PageDetails,System.Nullable{System.Guid})">
             <summary>
             
             </summary>
             <param name="pageDetails"></param>
+            <param name="subscriptionId"></param>
             <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces.IGroupProvider">
@@ -160,12 +171,21 @@
             <param name="groupId"></param>
             <returns></returns>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces.IGroupProvider.AddContactsToGroup(System.Guid,System.Collections.Generic.IEnumerable{System.Guid})">
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces.IGroupProvider.AddContactsToGroup(System.Guid,System.Guid,System.Collections.Generic.IEnumerable{System.Guid})">
             <summary>
             
             </summary>
+            <param name="subscriptionId"></param>
             <param name="groupId"></param>
             <param name="contacts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces.IGroupProvider.MyGroups(Jaytas.Omilos.Web.Service.Models.Common.PageDetails,System.Nullable{System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="pageDetails"></param>
+            <param name="subscriptionId"></param>
             <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces.ISubscriptionProvider">
@@ -178,6 +198,12 @@
             
             </summary>
             <param name="identifierFilters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.Interfaces.ISubscriptionProvider.MySubscriptions(Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
+            <summary>
+            
+            </summary>
             <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Subscription.Business.SubscriptionProvider">
@@ -218,6 +244,12 @@
             
             </summary>
             <param name="identifierFilters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.Business.SubscriptionProvider.MySubscriptions(Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
+            <summary>
+            
+            </summary>
             <returns></returns>
         </member>
         <member name="T:Jaytas.Omilos.Web.Service.Subscription.Data.DbContext.ISubscriptionDbContext">
@@ -622,19 +654,25 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.ContactController.MyContacts(System.Guid,Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
+        <member name="M:Web.Service.Subscription.Controllers.ContactController.ContactsBySubscription(System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
+            <summary>
+            Gets contact.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Subscription.Controllers.ContactController.MyContacts(Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
             <summary>
             Gets all the contact for the logged in user.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.ContactController.Post(System.Guid,Jaytas.Omilos.Web.Service.Models.Subscription.Contact)">
+        <member name="M:Web.Service.Subscription.Controllers.ContactController.Post(System.Guid,Jaytas.Omilos.Web.Service.Models.Subscription.Input.Contact)">
             <summary>
             Creates contact.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.ContactController.Update(System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Subscription.Contact)">
+        <member name="M:Web.Service.Subscription.Controllers.ContactController.Update(System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Subscription.Input.Contact)">
             <summary>
             Updates contact.
             </summary>
@@ -653,7 +691,16 @@
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.ContactController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Subscription.Contact,System.Guid)">
+        <member name="M:Web.Service.Subscription.Controllers.ContactController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Subscription.Input.Contact,System.Guid,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="resourceId"></param>
+            <param name="commandProperties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Subscription.Controllers.ContactController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Subscription.Input.Contact,System.Guid)">
             <summary>
             
             </summary>
@@ -661,28 +708,28 @@
             <param name="resourceId"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.ContactController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Contact,System.Guid})">
+        <member name="M:Web.Service.Subscription.Controllers.ContactController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Input.Contact,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.ContactController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Contact,System.Guid})">
+        <member name="M:Web.Service.Subscription.Controllers.ContactController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Input.Contact,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.ContactController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Contact,System.Guid})">
+        <member name="M:Web.Service.Subscription.Controllers.ContactController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Input.Contact,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.ContactController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Contact,System.Guid},Jaytas.Omilos.Web.Service.Subscription.DomainModel.Contact)">
+        <member name="M:Web.Service.Subscription.Controllers.ContactController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Input.Contact,System.Guid},Jaytas.Omilos.Web.Service.Subscription.DomainModel.Contact)">
             <summary>
             
             </summary>
@@ -708,7 +755,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.GroupController.MyGroups(System.Guid)">
+        <member name="M:Web.Service.Subscription.Controllers.GroupController.MyGroups(System.Guid,Jaytas.Omilos.Web.Service.Models.Common.PageDetails)">
             <summary>
             Gets all the group for the logged in user.
             </summary>
@@ -720,13 +767,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.GroupController.Post(System.Guid,Jaytas.Omilos.Web.Service.Models.Subscription.Group)">
+        <member name="M:Web.Service.Subscription.Controllers.GroupController.Post(System.Guid,Jaytas.Omilos.Web.Service.Models.Subscription.Input.Group)">
             <summary>
             Creates group.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.GroupController.Update(System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Subscription.Group)">
+        <member name="M:Web.Service.Subscription.Controllers.GroupController.Update(System.Guid,System.Guid,Jaytas.Omilos.Web.Service.Models.Subscription.Input.Group)">
             <summary>
             Updates group.
             </summary>
@@ -751,7 +798,7 @@
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.GroupController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Subscription.Group,System.Guid)">
+        <member name="M:Web.Service.Subscription.Controllers.GroupController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Subscription.Input.Group,System.Guid)">
             <summary>
             
             </summary>
@@ -759,28 +806,37 @@
             <param name="resourceId"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.GroupController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Group,System.Guid})">
+        <member name="M:Web.Service.Subscription.Controllers.GroupController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Subscription.Input.Group,System.Guid,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="resourceId"></param>
+            <param name="commandProperties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Subscription.Controllers.GroupController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Input.Group,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.GroupController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Group,System.Guid})">
+        <member name="M:Web.Service.Subscription.Controllers.GroupController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Input.Group,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.GroupController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Group,System.Guid})">
+        <member name="M:Web.Service.Subscription.Controllers.GroupController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Input.Group,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.GroupController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Group,System.Guid},Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group)">
+        <member name="M:Web.Service.Subscription.Controllers.GroupController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Input.Group,System.Guid},Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group)">
             <summary>
             
             </summary>
@@ -818,13 +874,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.SubscriptionController.Post(Jaytas.Omilos.Web.Service.Models.Subscription.Subscription)">
+        <member name="M:Web.Service.Subscription.Controllers.SubscriptionController.Post(Jaytas.Omilos.Web.Service.Models.Subscription.Input.Subscription)">
             <summary>
             Creates subscription.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.SubscriptionController.Update(System.Guid,Jaytas.Omilos.Web.Service.Models.Subscription.Subscription)">
+        <member name="M:Web.Service.Subscription.Controllers.SubscriptionController.Update(System.Guid,Jaytas.Omilos.Web.Service.Models.Subscription.Input.Subscription)">
             <summary>
             Updates subscription.
             </summary>
@@ -843,7 +899,7 @@
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.SubscriptionController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Subscription.Subscription,System.Guid)">
+        <member name="M:Web.Service.Subscription.Controllers.SubscriptionController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Subscription.Input.Subscription,System.Guid)">
             <summary>
             
             </summary>
@@ -851,28 +907,37 @@
             <param name="resourceId"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.SubscriptionController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Subscription,System.Guid})">
+        <member name="M:Web.Service.Subscription.Controllers.SubscriptionController.CreateCommand(Jaytas.Omilos.Web.Service.Models.Subscription.Input.Subscription,System.Guid,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="commandProperties"></param>
+            <param name="resourceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Service.Subscription.Controllers.SubscriptionController.DeleteAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Input.Subscription,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.SubscriptionController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Subscription,System.Guid})">
+        <member name="M:Web.Service.Subscription.Controllers.SubscriptionController.GetAllAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Input.Subscription,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.SubscriptionController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Subscription,System.Guid})">
+        <member name="M:Web.Service.Subscription.Controllers.SubscriptionController.GetByIdAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Input.Subscription,System.Guid})">
             <summary>
             
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Web.Service.Subscription.Controllers.SubscriptionController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Subscription,System.Guid},Jaytas.Omilos.Web.Service.Subscription.DomainModel.Subscription)">
+        <member name="M:Web.Service.Subscription.Controllers.SubscriptionController.UpdateAsync(Jaytas.Omilos.Web.Controllers.Commands.Command{Jaytas.Omilos.Web.Service.Models.Subscription.Input.Subscription,System.Guid},Jaytas.Omilos.Web.Service.Subscription.DomainModel.Subscription)">
             <summary>
             
             </summary>

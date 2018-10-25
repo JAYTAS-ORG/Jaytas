@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using Jaytas.Omilos.Web.Controllers.Commands;
 using Jaytas.Omilos.Web.Mapping.Profiles;
+using System;
 using System.Collections.Generic;
 
 namespace Jaytas.Omilos.Web.Service.Campaign.App_Start
@@ -35,21 +37,36 @@ namespace Jaytas.Omilos.Web.Service.Campaign.App_Start
 			public WebProfile()
 			{
 				CreateMap<DomainModel.Campaign, Models.Campaign.Campaign>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
-				CreateMap<Models.Campaign.Campaign, DomainModel.Campaign>().ForMember(dom => dom.ExposedId, api => api.MapFrom(model => model.Id));
 				CreateMap<DomainModel.Campaign, Models.Campaign.CampaignSummary>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
-				
+
+				CreateMap<Models.Campaign.Input.Campaign, DomainModel.Campaign>();
+				CreateMap<Command<Models.Campaign.Input.Campaign, Guid>, DomainModel.Campaign>()
+										.ForMember(dom => dom.SubscriptionId, command => command.MapFrom(api => api.CommandProperties.GetValueOrDefault(nameof(DomainModel.Campaign.SubscriptionId), default(Guid))));
+
 				CreateMap<DomainModel.CampaignInstance, Models.Campaign.CampaignInstance>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
-				CreateMap<Models.Campaign.CampaignInstance, DomainModel.CampaignInstance>().ForMember(dom => dom.ExposedId, api => api.MapFrom(model => model.Id));
+
+				CreateMap<Models.Campaign.Input.CampaignInstance, DomainModel.CampaignInstance>();
+				CreateMap<Command<Models.Campaign.Input.CampaignInstance, Guid>, DomainModel.CampaignInstance>()
+										.ForMember(dom => dom.CampaignId, command => command.MapFrom(api => api.CommandProperties.GetValueOrDefault(nameof(DomainModel.CampaignInstance.CampaignId), default(Guid))));
 
 				CreateMap<DomainModel.CampaignInstanceException, Models.Campaign.CampaignInstanceException>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
-				CreateMap<Models.Campaign.CampaignInstanceException, DomainModel.CampaignInstanceException>().ForMember(dom => dom.ExposedId, api => api.MapFrom(model => model.Id));
+
+				CreateMap<Models.Campaign.Input.CampaignInstanceException, DomainModel.CampaignInstanceException>();
+				CreateMap<Command<Models.Campaign.Input.CampaignInstanceException, Guid>, DomainModel.CampaignInstanceException>()
+										.ForMember(dom => dom.InstanceId, command => command.MapFrom(api => api.CommandProperties.GetValueOrDefault(nameof(DomainModel.CampaignInstanceException.InstanceId), default(Guid))));
 
 				CreateMap<DomainModel.MessageTemplate, Models.Campaign.MessageTemplate>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
-				CreateMap<Models.Campaign.MessageTemplate, DomainModel.MessageTemplate>().ForMember(dom => dom.ExposedId, api => api.MapFrom(model => model.Id));
+
+				CreateMap<Models.Campaign.Input.MessageTemplate, DomainModel.MessageTemplate>();
+				CreateMap<Command<Models.Campaign.Input.MessageTemplate, Guid>, DomainModel.MessageTemplate>()
+										.ForMember(dom => dom.CampaignId, command => command.MapFrom(api => api.CommandProperties.GetValueOrDefault(nameof(DomainModel.MessageTemplate.CampaignId), default(Guid))));
 
 				CreateMap<DomainModel.Schedule, Models.Campaign.Schedule>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
-				CreateMap<Models.Campaign.Schedule, DomainModel.Schedule>().ForMember(dom => dom.ExposedId, api => api.MapFrom(model => model.Id));
 				CreateMap<DomainModel.Schedule, Models.Campaign.ScheduleSummary>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
+
+				CreateMap<Models.Campaign.Input.Schedule, DomainModel.Schedule>();
+				CreateMap<Command<Models.Campaign.Input.Schedule, Guid>, DomainModel.Schedule>()
+										.ForMember(dom => dom.CampaignId, command => command.MapFrom(api => api.CommandProperties.GetValueOrDefault(nameof(DomainModel.Schedule.CampaignId), default(Guid))));
 
 				CreateMap<Models.Subscription.SubscriptionWithGroupSummary, Models.Subscription.Subscription>();
 				CreateMap<Models.Subscription.SubscriptionWithGroupSummary, Models.Subscription.GroupSummary>()

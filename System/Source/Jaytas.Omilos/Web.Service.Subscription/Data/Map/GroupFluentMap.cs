@@ -56,7 +56,8 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Data.Map
 
 			builder.HasMany(group => group.GroupContactAssociations)
 				   .WithOne(groupContactAssociation => groupContactAssociation.Group)
-				   .HasForeignKey(groupContactAssociation => groupContactAssociation.GroupId);
+				   .HasForeignKey(groupContactAssociation => groupContactAssociation.GroupId)
+				   .HasPrincipalKey(group => group.ExposedId);
 		}
 	}
 }

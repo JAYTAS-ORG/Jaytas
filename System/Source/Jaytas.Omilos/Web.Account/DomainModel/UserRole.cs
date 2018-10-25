@@ -11,7 +11,7 @@ namespace Jaytas.Omilos.Web.Service.Account.DomainModel
 		/// <summary>
 		/// UserId property represenation of database column.
 		/// </summary>
-		public long UserId { get; set; }
+		public Guid UserId { get; set; }
 
 		/// <summary>
 		/// RoleId property represenation of database column.

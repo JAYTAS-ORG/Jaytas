@@ -30,6 +30,7 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Data.Repositories
 		public async Task AddContactsAsync(IEnumerable<GroupContactAssociation> groupContactAssociations)
 		{
 			await DbContext.GroupContactAssociations.AddRangeAsync(groupContactAssociations);
+			await DbContext.SaveChangesAsync();
 		}
 
 		/// <summary>
@@ -37,11 +38,9 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Data.Repositories
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
-		public async override Task<DomainModel.Group> GetAsync(Guid id)
+		public async override Task<Group> GetAsync(Guid id)
 		{
-			return (await GetAsync(campaign => campaign.ExposedId == id)).FirstOrDefault();
+			return (await GetAsync(group => group.ExposedId == id)).FirstOrDefault();
 		}
-
-
 	}
 }

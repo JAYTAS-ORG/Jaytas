@@ -1,5 +1,6 @@
 ﻿using Jaytas.Omilos.Common.Domain;
 using Jaytas.Omilos.Common.Enumerations;
+using System;
 
 namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 {

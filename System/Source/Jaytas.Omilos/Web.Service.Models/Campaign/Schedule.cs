@@ -8,7 +8,7 @@ namespace Jaytas.Omilos.Web.Service.Models.Campaign
 	/// <summary>
 	/// 
 	/// </summary>
-	public class Schedule : IHaveLinks
+	public class Schedule
 	{
 		/// <summary>
 		/// 
@@ -44,10 +44,5 @@ namespace Jaytas.Omilos.Web.Service.Models.Campaign
 		/// 
 		/// </summary>
 		public RecurrencePattern RecurrencePattern { get; set; }
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public List<Link> Links { get; set; } = new List<Link>();
 	}
 }
