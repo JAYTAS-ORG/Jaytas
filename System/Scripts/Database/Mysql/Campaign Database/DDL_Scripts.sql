@@ -14,7 +14,7 @@ CREATE TABLE `campaign`.`campaign` (
   `CampaignManagerEmailId` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE KEY `CampaignId_UNIQUE` (`CampaignId`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `campaign`.`campaign_instance` (
   `Id` int(19) unsigned NOT NULL AUTO_INCREMENT,
@@ -58,7 +58,7 @@ CREATE TABLE `campaign`.`message_template` (
   UNIQUE KEY `MessageId_UNIQUE` (`MessageId`),
   KEY `FK_Campaign_MessageTemplate_idx` (`CampaignId`),
   CONSTRAINT `FK_Campaign_MessageTemplate` FOREIGN KEY (`CampaignId`) REFERENCES `campaign` (`CampaignId`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `campaign`.`schedule` (
   `Id` int(19) unsigned NOT NULL AUTO_INCREMENT,
@@ -73,7 +73,7 @@ CREATE TABLE `campaign`.`schedule` (
   UNIQUE KEY `ScheduleId_UNIQUE` (`ScheduleId`),
   KEY `FK_Campaign_Schedule_idx` (`CampaignId`),
   CONSTRAINT `FK_Campaign_Schedule` FOREIGN KEY (`CampaignId`) REFERENCES `campaign` (`CampaignId`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `campaign`.`schedule_recurrencepattern` (
   `ScheduleId` int(19) unsigned NOT NULL,
@@ -84,6 +84,7 @@ CREATE TABLE `campaign`.`schedule_recurrencepattern` (
   `WeekOfMonth` int(11) DEFAULT NULL,
   `DayOfMonth` int(11) DEFAULT NULL,
   `MonthOfYear` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ScheduleId`),
   KEY `FK_Schedule_RecurrencePattern_idx` (`ScheduleId`),
   CONSTRAINT `FK_Schedule_RecurrencePattern` FOREIGN KEY (`ScheduleId`) REFERENCES `schedule` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

@@ -1,5 +1,14 @@
 CREATE DATABASE `account`;
 
+CREATE TABLE `account`.`role` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `Code` varchar(50) NOT NULL,
+  `Description` varchar(100) DEFAULT NULL,
+  `IsActive` bit(1) NOT NULL,
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `Code_UNIQUE` (`Code`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
 CREATE TABLE `account`.`user` (
   `Id` int(19) unsigned NOT NULL AUTO_INCREMENT,
   `GraphId` varchar(36) NOT NULL,
@@ -13,15 +22,6 @@ CREATE TABLE `account`.`user` (
   UNIQUE KEY `GraphId_UNIQUE` (`GraphId`),
   UNIQUE KEY `EmailId_UNIQUE` (`EmailId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
-
-CREATE TABLE `account`.`role` (
-  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `Code` varchar(50) NOT NULL,
-  `Description` varchar(100) DEFAULT NULL,
-  `IsActive` bit(1) NOT NULL,
-  PRIMARY KEY (`Id`),
-  UNIQUE KEY `Code_UNIQUE` (`Code`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `account`.`user_logindetail` (
   `UserId` int(19) unsigned NOT NULL,

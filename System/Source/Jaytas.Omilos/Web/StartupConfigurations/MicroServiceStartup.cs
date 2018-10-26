@@ -83,6 +83,7 @@ namespace Jaytas.Omilos.Web.StartupConfigurations
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
 			app.UseResponseCompression();
+			app.UseCors();
 
 			app.UseRequestBootstrap();
 			app.UseAuthentication();

@@ -354,7 +354,7 @@ namespace Jaytas.Omilos.Common
 
 				public const string GetCampaignsBySubscription = RootPath + "/all";
 
-				public const string MyCampaigns = "/api/campaign/mycampaingns";
+				public const string MyCampaigns = "/api/campaign/mycampaigns";
 
 				public const string PublishCampaign = RootPath + "/{id}/publish";
 			}
