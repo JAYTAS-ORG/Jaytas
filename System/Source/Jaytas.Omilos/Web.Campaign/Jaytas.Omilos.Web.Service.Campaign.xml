@@ -825,7 +825,7 @@
             
             </summary>
         </member>
-        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.RecurrencePattern.DayOfWeek">
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.RecurrencePattern.DaysOfWeek">
             <summary>
             
             </summary>

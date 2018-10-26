@@ -44,8 +44,8 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Map
 			builder.Property(col => col.MaxNumberOfOccurrences)
 				 .HasColumnName(nameof(DomainModel.RecurrencePattern.MaxNumberOfOccurrences));
 
-			builder.Property(col => col.DayOfWeek)
-				 .HasColumnName(nameof(DomainModel.RecurrencePattern.DayOfWeek));
+			builder.Property(col => col.DaysOfWeek)
+				 .HasColumnName(nameof(DomainModel.RecurrencePattern.DaysOfWeek));
 
 			builder.Property(col => col.WeekOfMonth)
 				 .HasColumnName(nameof(DomainModel.RecurrencePattern.WeekOfMonth));

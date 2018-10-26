@@ -4,22 +4,26 @@ using System.Text;
 
 namespace Jaytas.Omilos.Common.Enumerations
 {
+	/// <summary>
+	/// 
+	/// </summary>
+	[Flags]
 	public enum Days
 	{
-		None,
+		None = 0,
 
-		Monday,
+		Sunday = 1,
 
-		Tuesday,
+		Monday = 2,
 
-		Wednesday,
+		Tuesday = 4,
 
-		Thursday,
+		Wednesday = 8,
 
-		Friday,
+		Thursday = 16,
 
-		Saturday,
+		Friday = 32,
 
-		Sunday
+		Saturday = 64
 	}
 }

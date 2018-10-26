@@ -80,7 +80,7 @@ CREATE TABLE `campaign`.`schedule_recurrencepattern` (
   `RecurringType` int(11) NOT NULL,
   `SeparationCount` int(11) DEFAULT NULL,
   `MaxNumberOfOccurrences` int(11) DEFAULT NULL,
-  `DayOfWeek` int(11) DEFAULT NULL,
+  `DaysOfWeek` int(11) DEFAULT NULL,
   `WeekOfMonth` int(11) DEFAULT NULL,
   `DayOfMonth` int(11) DEFAULT NULL,
   `MonthOfYear` int(11) DEFAULT NULL,
