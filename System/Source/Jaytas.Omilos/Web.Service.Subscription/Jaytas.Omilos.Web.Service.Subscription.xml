@@ -526,6 +526,11 @@
             
             </summary>
         </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Subscription.DomainModel.Contact.TimeZone">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:Jaytas.Omilos.Web.Service.Subscription.DomainModel.Contact.CustomColumn1">
             <summary>
             
@@ -602,6 +607,11 @@
             </summary>
         </member>
         <member name="P:Jaytas.Omilos.Web.Service.Subscription.DomainModel.GroupContactAssociation.HasOptedOut">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Subscription.DomainModel.GroupContactAssociation.HasWelcomeMessageSent">
             <summary>
             
             </summary>

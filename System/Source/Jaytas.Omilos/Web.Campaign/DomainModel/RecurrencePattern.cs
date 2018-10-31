@@ -28,7 +28,7 @@ namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 		/// 
 		/// </summary>
 		public Days DaysOfWeek { get; set; }
-
+		 
 		/// <summary>
 		/// 
 		/// </summary>

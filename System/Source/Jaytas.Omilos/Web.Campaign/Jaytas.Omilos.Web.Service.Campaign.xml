@@ -860,6 +860,11 @@
             
             </summary>
         </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule.TimeZone">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:Jaytas.Omilos.Web.Service.Campaign.DomainModel.Schedule.IsRecurrence">
             <summary>
             

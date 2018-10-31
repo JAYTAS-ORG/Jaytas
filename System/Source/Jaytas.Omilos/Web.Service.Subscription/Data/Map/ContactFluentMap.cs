@@ -55,6 +55,10 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Data.Map
 			builder.Property(col => col.PhoneNumber)
 				 .HasColumnName(nameof(DomainModel.Contact.PhoneNumber));
 
+			builder.Property(col => col.TimeZone)
+				 .HasColumnName(nameof(DomainModel.Contact.TimeZone))
+				 .IsRequired();
+
 			builder.Property(col => col.CustomColumn1)
 				 .HasColumnName(nameof(DomainModel.Contact.CustomColumn1));
 

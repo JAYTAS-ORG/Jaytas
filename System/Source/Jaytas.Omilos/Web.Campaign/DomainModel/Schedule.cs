@@ -19,6 +19,11 @@ namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 		/// <summary>
 		/// 
 		/// </summary>
+		public string TimeZone { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public bool IsRecurrence { get; set; }
 
 		/// <summary>

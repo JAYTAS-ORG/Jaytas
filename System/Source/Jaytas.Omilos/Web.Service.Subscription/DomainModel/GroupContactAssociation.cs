@@ -28,6 +28,11 @@ namespace Jaytas.Omilos.Web.Service.Subscription.DomainModel
 		/// <summary>
 		/// 
 		/// </summary>
+		public bool HasWelcomeMessageSent { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public virtual Group Group { get; set; }
 
 		/// <summary>

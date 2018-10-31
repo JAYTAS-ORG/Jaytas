@@ -15,19 +15,32 @@ CREATE PROCEDURE `Campaign`.`uspGenerateCampaignInstances`
 
 CampaignInstanceBlock:BEGIN
 	
+    DECLARE isCampaignExists BIT;
     DECLARE isRecurrenceCampaign BIT;
+    DECLARE campaignTimeZoneCode VARCHAR(150);
     
-    SET isRecurrenceCampaign = (SELECT EXISTS (SELECT CampaignId FROM campaign.schedule WHERE CampaignId = campaignId));
+    SET isCampaignExists = (SELECT EXISTS (SELECT CampaignId FROM campaign.schedule WHERE CampaignId = campaignId));
     
-    IF (isRecurrenceCampaign = 0) 
+    IF(isCampaignExists = 0)
+    THEN
+		LEAVE CampaignInstanceBlock;
+    END IF;
+    
+    SELECT @isRecurrenceCampaign:= IsRecurrence, 
+		   @campaignTimeZone:= TimeZone
+    FROM campaign.schedule WHERE CampaignId = campaignId;
+    
+    SET campaignTimeZoneCode = (SELECT taxonomy.udfGetMasterCode_AdditionalPropertyValue('TimeZone', @campaignTimeZone, 'ZoneCode'));
+    
+    IF (@isRecurrenceCampaign = 0) 
     THEN
 		INSERT INTO campaign.campaign_instance (InstanceId, CampaignId, StartDate, EndDate, StartTime, EndTime)
         SELECT uuid(),
 			   CS.CampaignId,
-               CS.StartDate,
-               CS.EndDate,
-               CS.StartTime,
-               CS.EndTime
+               DATE(CONVERT_TZ(CONCAT(CS.StartDate, ' ', CS.StartTime), campaignTimeZoneCode, 'UTC')), 
+               DATE(CONVERT_TZ(CONCAT(CS.EndDate, ' ', CS.EndTime), campaignTimeZoneCode, 'UTC')),
+               TIME(CONVERT_TZ(CONCAT(CS.StartDate, ' ', CS.StartTime), campaignTimeZoneCode, 'UTC')),
+               TIME(CONVERT_TZ(CONCAT(CS.EndDate, ' ', CS.EndTime), campaignTimeZoneCode, 'UTC'))
         FROM campaign.schedule CS
         WHERE CampaignId = campaignId;
         
@@ -42,15 +55,15 @@ CampaignInstanceBlock:BEGIN
            @weekOfMonth:= SCRP.WeekOfMonth,
            @dayOfTheMonth:= SCRP.DayOfMonth,
            @monthOfYear:= SCRP.MonthOfYear,
-           @startDate:= SC.StartDate,
-           @endDate:= SC.EndDate,
+           @startDate:= DATE(CONVERT_TZ(CONCAT(SC.StartDate, ' ', SC.StartTime), campaignTimeZoneCode, 'UTC')),
+           @endDate:= DATE(CONVERT_TZ(CONCAT(SC.EndDate, ' ', SC.EndTime), campaignTimeZoneCode, 'UTC')),
            @startTime:= SC.StartTime,
            @endTime:= SC.EndTime
 	FROM campaign.schedule SC
     INNER JOIN campaign.schedule_recurrencepattern SCRP
 		ON SC.Id = SCRP.ScheduleId
 	WHERE SC.CampaignId = campaignId;
-        
+        select campaignTimeZoneCode, @startTime;
     /* Daily Campaign*/
     IF (@recurringType = 1) 
     THEN
@@ -62,9 +75,9 @@ CampaignInstanceBlock:BEGIN
     SELECT uuid(),
 		   campaignId,
            CID.InstanceDate,
-           @endDate,
-           @startTime,
-           @endTime
+           CID.InstanceDate,
+           TIME(CONVERT_TZ(CONCAT(CID.InstanceDate, ' ', @startTime), campaignTimeZoneCode, 'UTC')),
+           TIME(CONVERT_TZ(CONCAT(CID.InstanceDate, ' ', @endTime), campaignTimeZoneCode, 'UTC'))
     FROM campaigninstancedates CID;
     
 END CampaignInstanceBlock$$

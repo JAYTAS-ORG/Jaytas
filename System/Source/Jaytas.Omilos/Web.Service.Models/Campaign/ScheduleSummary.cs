@@ -20,6 +20,11 @@ namespace Jaytas.Omilos.Web.Service.Models.Campaign
 		/// <summary>
 		/// 
 		/// </summary>
+		public string TimeZone { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public DateTime StartDate { get; set; }
 
 		/// <summary>

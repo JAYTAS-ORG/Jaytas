@@ -29,6 +29,11 @@ namespace Jaytas.Omilos.Web.Service.Models.Subscription.Input
 		/// <summary>
 		/// 
 		/// </summary>
+		public string TimeZone { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public string CustomColumn1 { get; set; }
 
 		/// <summary>

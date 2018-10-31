@@ -37,6 +37,10 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Data.Map
 				 .HasColumnName(nameof(DomainModel.Schedule.CampaignId))
 				 .IsRequired();
 
+			builder.Property(col => col.TimeZone)
+				 .HasColumnName(nameof(DomainModel.Schedule.TimeZone))
+				 .IsRequired();
+
 			builder.Property(col => col.IsRecurrence)
 				 .HasColumnName(nameof(DomainModel.Schedule.IsRecurrence))
 				 .IsRequired();

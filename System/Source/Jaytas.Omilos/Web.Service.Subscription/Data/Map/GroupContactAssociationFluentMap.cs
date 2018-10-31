@@ -42,6 +42,10 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Data.Map
 				 .HasColumnName(nameof(DomainModel.GroupContactAssociation.HasOptedOut))
 				 .IsRequired();
 
+			builder.Property(col => col.HasWelcomeMessageSent)
+				 .HasColumnName(nameof(DomainModel.GroupContactAssociation.HasWelcomeMessageSent))
+				 .IsRequired();
+
 			ConfigureKey(builder);
 		}
 
