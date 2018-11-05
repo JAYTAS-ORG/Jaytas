@@ -26,7 +26,7 @@ DailyCampaignInstanceDatesBlock:BEGIN
     DECLARE i INT DEFAULT 0;
     DECLARE tempDate DATE;
     DECLARE dayOfWeek INT DEFAULT 0;
-    DECLARE dayInterval INT DEFAULT 1;
+    DECLARE dayInterval INT DEFAULT 0;
     DECLARE nthSignificantBitValue INT DEFAULT 0;
     
     DROP TEMPORARY TABLE IF EXISTS campaignInstanceDates;

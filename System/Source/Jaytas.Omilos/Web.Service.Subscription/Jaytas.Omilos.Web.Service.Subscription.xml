@@ -38,6 +38,13 @@
             <param name="subscription"></param>
             <returns></returns>
         </member>
+        <member name="M:Jaytas.Omilos.Web.Service.Subscription.App_Start.AutoMapperConfigurations.WebProfile.Map(Jaytas.Omilos.Web.Service.Subscription.DomainModel.Contact)">
+            <summary>
+            
+            </summary>
+            <param name="contact"></param>
+            <returns></returns>
+        </member>
         <member name="T:Jaytas.Omilos.Web.Service.Subscription.App_Start.ServiceConfigurations">
             <summary>
             
@@ -577,6 +584,11 @@
             </summary>
         </member>
         <member name="P:Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaytas.Omilos.Web.Service.Subscription.DomainModel.Group.IsUsed">
             <summary>
             
             </summary>

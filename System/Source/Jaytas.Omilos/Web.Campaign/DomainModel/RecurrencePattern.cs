@@ -32,7 +32,7 @@ namespace Jaytas.Omilos.Web.Service.Campaign.DomainModel
 		/// <summary>
 		/// 
 		/// </summary>
-		public int? WeekOfMonth { get; set; }
+		public Weeks WeekOfMonth { get; set; }
 
 		/// <summary>
 		/// 

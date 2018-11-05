@@ -12,9 +12,9 @@ CREATE PROCEDURE `Notification`.`uspGetSmsNotification`
     Example		: CALL Notification.uspGetSmsNotification(0, '30/10/2018', '09:40:00');
 */
 (
-	IN status INT(19),
-    IN notificationDate DATE,
-    IN notificationTime TIME
+	IN notification_status INT(19),
+    IN notification_Date DATE,
+    IN notification_Time TIME
 )
 
 BEGIN
@@ -23,9 +23,9 @@ BEGIN
 		   PhoneNumber,
            Message
     FROM notification.sms_notification
-    WHERE Status = status AND
-    NotificationDate = notificationDate AND
-    NotificationTime = notificationTime;
+    WHERE Status = notification_status AND
+    NotificationDate = notification_Date AND
+    NotificationTime = notification_Time;
     
 END$$
 

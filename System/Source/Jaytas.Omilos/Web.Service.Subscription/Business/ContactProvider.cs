@@ -77,7 +77,8 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Business
 				expression = expression.And(contact => (contact.FirstName.Contains(pageDetails.SearchText) ||
 														contact.LastName.Contains(pageDetails.SearchText) ||
 														contact.Email.Contains(pageDetails.SearchText) ||
-														contact.PhoneNumber.Contains(pageDetails.SearchText)));
+														contact.PhoneNumber.Contains(pageDetails.SearchText) ||
+														contact.GroupContactAssociations.Any(asso => asso.Group.Name.Contains(pageDetails.SearchText))));
 			}
 
 			var contacts = await Repository.GetAsync(expression);

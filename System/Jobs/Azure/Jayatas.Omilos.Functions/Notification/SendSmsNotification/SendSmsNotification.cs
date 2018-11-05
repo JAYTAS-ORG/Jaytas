@@ -11,22 +11,40 @@ using System.Threading.Tasks;
 
 namespace Jayatas.Omilos.Functions.Notification.SendSmsNotification
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public static class SendSmsNotification
 	{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="myTimer"></param>
+		/// <param name="log"></param>
 		[FunctionName(nameof(SendSmsNotification))]
 		public static void Run([TimerTrigger(Constants.NameResolverKeys.SmsNotificationInterval)]TimerInfo myTimer, TraceWriter log)
 		{
+			var utcTimeSpan = DateTime.UtcNow.AddMinutes(30).TimeOfDay;
+
+			log.Info("Timestamp : " + utcTimeSpan);
+
 			var parameters = new Dictionary<string, object>
 			{
 				{ Constants.StoreProcedures.GetSmsNotification.Parameters.Status, 0 },
 				{ Constants.StoreProcedures.GetSmsNotification.Parameters.NotificationDate, DateTime.UtcNow },
-				{ Constants.StoreProcedures.GetSmsNotification.Parameters.NotificationTime, new TimeSpan(14, 0, 0) }
+				{ Constants.StoreProcedures.GetSmsNotification.Parameters.NotificationTime, new TimeSpan(utcTimeSpan.Hours, utcTimeSpan.Minutes, 0) }
 			};
+
 			var pendingNotifications = MySqlUtilities.ExecuteQuery<NotificationModel>(ConfigurationManager.OmilosConnection,
 																					  Constants.StoreProcedures.GetSmsNotification.Name,
 																					  parameters).ToList();
 
 			log.Info("Number of Notificaction to be sent :" + pendingNotifications.Count());
+
+			if(!pendingNotifications.Any())
+			{
+				return;
+			}
 
 			var sendNotificationTask = Task.Run(() => SendNotificationsAsync(pendingNotifications));
 			sendNotificationTask.Wait();

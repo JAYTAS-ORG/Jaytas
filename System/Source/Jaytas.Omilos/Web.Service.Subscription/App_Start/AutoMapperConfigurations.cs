@@ -65,6 +65,10 @@ namespace Jaytas.Omilos.Web.Service.Subscription.App_Start
 
 				CreateMap<DomainModel.Contact, Models.Subscription.Contact>().ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId));
 
+				CreateMap<DomainModel.Contact, Models.Subscription.ContactWithGroupDetails>()
+						   .ForMember(api => api.Id, domain => domain.MapFrom(dom => dom.ExposedId))
+						   .ForMember(api => api.Groups, domain => domain.ResolveUsing(Map));
+
 				CreateMap<Models.Subscription.Input.Contact, DomainModel.Contact>();
 				CreateMap<Command<Models.Subscription.Input.Contact, Guid>, DomainModel.Contact>()
 										.ForMember(dom => dom.SubscriptionId, command => command.MapFrom(api => api.CommandProperties.GetValueOrDefault(nameof(DomainModel.Contact.SubscriptionId), default(Guid))));
@@ -97,6 +101,25 @@ namespace Jaytas.Omilos.Web.Service.Subscription.App_Start
 					Name = group.Name,
 					NumberOfContacts = group.GroupContactAssociations.Count()
 				};
+			}
+
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="contact"></param>
+			/// <returns></returns>
+			private List<Models.Subscription.Group> Map(DomainModel.Contact contact)
+			{
+				if(!contact.GroupContactAssociations.Any())
+				{
+					return new List<Models.Subscription.Group>();
+				}
+
+				return contact.GroupContactAssociations.Where(asso => !asso.HasOptedOut).Select(asso => new Models.Subscription.Group
+				{
+					Id = asso.GroupId,
+					Name = asso.Group.Name
+				}).ToList();
 			}
 		}
 	}

@@ -41,6 +41,10 @@ namespace Jaytas.Omilos.Web.Service.Subscription.Data.Map
 				 .HasColumnName(nameof(DomainModel.Group.Name))
 				 .IsRequired();
 
+			builder.Property(col => col.IsUsed)
+				 .HasColumnName(nameof(DomainModel.Group.IsUsed))
+				 .IsRequired();
+
 			builder.Property(col => col.SubscriptionId)
 				 .HasColumnName(nameof(DomainModel.Group.SubscriptionId))
 				 .IsRequired();

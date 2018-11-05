@@ -64,10 +64,23 @@ CampaignInstanceBlock:BEGIN
 		ON SC.Id = SCRP.ScheduleId
 	WHERE SC.CampaignId = campaignId;
         select campaignTimeZoneCode, @startTime;
+    
     /* Daily Campaign*/
     IF (@recurringType = 1) 
     THEN
 		CALL Campaign.uspGetDailyCampaignInstanceDates(@startDate, @endDate, @separationCount, @maxNumberOfOccurrences, @daysOfWeek);
+    END IF;
+    
+    /* Weekly Campaign*/
+    IF (@recurringType = 2) 
+    THEN
+		CALL Campaign.uspGetWeeklyCampaignInstanceDates(@startDate, @endDate, @separationCount, @maxNumberOfOccurrences, @daysOfWeek);
+    END IF;
+    
+    /* Monthly Campaign*/
+    IF (@recurringType = 3) 
+    THEN
+		CALL Campaign.uspGetMonthlyCampaignInstanceDates(@startDate, @endDate, @separationCount, @maxNumberOfOccurrences, @dayOfTheMonth, @daysOfWeek, @weekOfMonth);
     END IF;
     
     /* Create Campaign Instances*/

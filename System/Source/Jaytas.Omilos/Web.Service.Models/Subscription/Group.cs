@@ -16,5 +16,10 @@ namespace Jaytas.Omilos.Web.Service.Models.Subscription
 		/// 
 		/// </summary>
 		public string Name { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public bool IsUsed { get; set; }
 	}
 }

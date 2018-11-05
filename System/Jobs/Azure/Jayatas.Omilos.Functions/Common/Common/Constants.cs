@@ -35,11 +35,11 @@ namespace Jayatas.Omilos.Functions.Common.Common
 
 				public struct Parameters
 				{
-					public const string Status = "@status";
+					public const string Status = "@notification_status";
 
-					public const string NotificationDate = "@notificationDate";
+					public const string NotificationDate = "@notification_Date";
 
-					public const string NotificationTime = "@notificationTime";
+					public const string NotificationTime = "@notification_Time";
 				}
 			}
 		}

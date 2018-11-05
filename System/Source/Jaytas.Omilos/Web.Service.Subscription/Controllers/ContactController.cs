@@ -81,7 +81,7 @@ namespace Web.Service.Subscription.Controllers
 		[ProducesResponseType(typeof(IEnumerable<Jaytas.Omilos.Web.Service.Models.Subscription.Contact>), (int)HttpStatusCode.OK)]
 		public async Task<IActionResult> MyContacts([FromQuery] Jaytas.Omilos.Web.Service.Models.Common.PageDetails pageDetails)
 		{
-			return await ExecutePagedResultWithExceptionHandlingAsync<Jaytas.Omilos.Web.Service.Subscription.DomainModel.Contact, List<Jaytas.Omilos.Web.Service.Models.Subscription.Contact>>
+			return await ExecutePagedResultWithExceptionHandlingAsync<Jaytas.Omilos.Web.Service.Subscription.DomainModel.Contact, List<Jaytas.Omilos.Web.Service.Models.Subscription.ContactWithGroupDetails>>
 								(() => _contactProvider.MyContacts(pageDetails, null)).ConfigureAwait(true);
 		}
 
