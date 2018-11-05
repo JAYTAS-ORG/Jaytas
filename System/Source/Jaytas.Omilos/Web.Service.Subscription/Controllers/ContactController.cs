@@ -78,7 +78,7 @@ namespace Web.Service.Subscription.Controllers
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.BadRequest)]
 		[ProducesResponseType(typeof(FriendlyError), (int)HttpStatusCode.InternalServerError)]
 		[ProducesResponseType((int)HttpStatusCode.NotFound)]
-		[ProducesResponseType(typeof(IEnumerable<Jaytas.Omilos.Web.Service.Models.Subscription.Contact>), (int)HttpStatusCode.OK)]
+		[ProducesResponseType(typeof(IEnumerable<Jaytas.Omilos.Web.Service.Models.Subscription.ContactWithGroupDetails>), (int)HttpStatusCode.OK)]
 		public async Task<IActionResult> MyContacts([FromQuery] Jaytas.Omilos.Web.Service.Models.Common.PageDetails pageDetails)
 		{
 			return await ExecutePagedResultWithExceptionHandlingAsync<Jaytas.Omilos.Web.Service.Subscription.DomainModel.Contact, List<Jaytas.Omilos.Web.Service.Models.Subscription.ContactWithGroupDetails>>
