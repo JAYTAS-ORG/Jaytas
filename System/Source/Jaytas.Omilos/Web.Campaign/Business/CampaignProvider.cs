@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using Jaytas.Omilos.Common;
 using Jaytas.Omilos.Common.Models;
+using Jaytas.Omilos.Messaging.ServiceBus.Topic.Interfaces;
 using Jaytas.Omilos.ServiceClient.Subscription.Interfaces;
 using Jaytas.Omilos.Web.Providers;
 using Jaytas.Omilos.Web.Service.Campaign.Business.Interfaces;
@@ -29,10 +31,16 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Business
 		/// <param name="campaignRepository"></param>
 		/// <param name="mapper"></param>
 		/// <param name="subscriptionServiceClient"></param>
-		public CampaignProvider(ICampaignRepository campaignRepository, IMapper mapper, ISubscriptionServiceClient subscriptionServiceClient) : base(campaignRepository)
+		/// <param name="messageSenderFactory"></param>
+		/// <param name="messageBusMessageFactory"></param>
+		public CampaignProvider(ICampaignRepository campaignRepository, IMapper mapper, ISubscriptionServiceClient subscriptionServiceClient,
+								IMessageSenderFactory messageSenderFactory, IMessageBusMessageFactory messageBusMessageFactory) 
+							   : base(campaignRepository)
 		{
 			_mapper = mapper;
 			_subscriptionServiceClient = subscriptionServiceClient;
+			MessageBusMessageFactory = messageBusMessageFactory;
+			MessageSenderFactory = messageSenderFactory;
 		}
 
 		/// <summary>
@@ -121,6 +129,13 @@ namespace Jaytas.Omilos.Web.Service.Campaign.Business
 			campaign.Status = Omilos.Common.Enumerations.CampaignStatus.Active;
 
 			await Repository.UpdateAsync(campaign);
+
+			await RaiseDomainEventAsync(campaign.ExposedId, Omilos.Common.Enumerations.Events.Published, new Dictionary<string, object>
+			{
+				{ Constants.ServiceBus.MessageProperties.CampaignManagement.AdditionalProperties.CampaignStartDate, campaign.Schedule.StartDate.ToShortDateString() },
+				{ Constants.ServiceBus.MessageProperties.CampaignManagement.AdditionalProperties.CampaignStartTime, campaign.Schedule.StartTime },
+				{ Constants.ServiceBus.MessageProperties.CampaignManagement.AdditionalProperties.CampaignTimeZone, campaign.Schedule.TimeZone }
+			});
 		}
 	}
 }

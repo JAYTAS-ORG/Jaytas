@@ -15,13 +15,10 @@ CREATE PROCEDURE `Campaign`.`uspGenerateCampaignInstances`
 
 CampaignInstanceBlock:BEGIN
 	
-    DECLARE isCampaignExists BIT;
     DECLARE isRecurrenceCampaign BIT;
     DECLARE campaignTimeZoneCode VARCHAR(150);
     
-    SET isCampaignExists = (SELECT EXISTS (SELECT CampaignId FROM campaign.schedule WHERE CampaignId = campaignId));
-    
-    IF(isCampaignExists = 0)
+    IF NOT EXISTS (SELECT CampaignId FROM campaign.schedule WHERE CampaignId = campaignId)
     THEN
 		LEAVE CampaignInstanceBlock;
     END IF;

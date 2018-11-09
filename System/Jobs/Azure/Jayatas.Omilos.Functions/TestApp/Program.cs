@@ -7,6 +7,11 @@ namespace TestApp
 	{
 		static void Main(string[] args)
 		{
+			var d1 = new DateTime(2018, 11, 01);
+			var d2 = new DateTime(2018, 11, 03);
+
+			Console.WriteLine(d2 >= d1);
+
 			var easternZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
 			var centralZone = TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time");
 			var pacificZone = TimeZoneInfo.FindSystemTimeZoneById("Pacific Standard Time");

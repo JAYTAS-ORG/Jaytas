@@ -7,3 +7,6 @@ C:\Jaytas\System\Source\Jaytas.Omilos\Messaging\obj\Debug\netcoreapp2.1\Messagin
 C:\Jaytas\System\Source\Jaytas.Omilos\Messaging\obj\Debug\netcoreapp2.1\Jaytas.Omilos.Messaging.dll
 C:\Jaytas\System\Source\Jaytas.Omilos\Messaging\obj\Debug\netcoreapp2.1\Jaytas.Omilos.Messaging.pdb
 C:\Jaytas\System\Source\Jaytas.Omilos\Messaging\obj\Debug\netcoreapp2.1\Messaging.csprojAssemblyReference.cache
+C:\Jaytas\System\Source\Jaytas.Omilos\Messaging\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Common.dll
+C:\Jaytas\System\Source\Jaytas.Omilos\Messaging\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Common.pdb
+C:\Jaytas\System\Source\Jaytas.Omilos\Messaging\obj\Debug\netcoreapp2.1\Messaging.csproj.CopyComplete

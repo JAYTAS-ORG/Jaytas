@@ -75,5 +75,33 @@ namespace Jayatas.Omilos.Functions.Common.Common
 				return _twilioPhoneNumber;
 			}
 		}
+
+		private static string _omilosIntegrationConnection;
+
+		public static string OmilosIntegrationConnection
+		{
+			get
+			{
+				if (string.IsNullOrWhiteSpace(_omilosIntegrationConnection))
+				{
+					_omilosIntegrationConnection = Utilities.GetOrDefaultEnvironmentValue<string>(Constants.ConfigKeys.OmilosIntegrationConnection, null);
+				}
+				return _omilosIntegrationConnection;
+			}
+		}
+
+		private static string _campaignManagementTopicName;
+
+		public static string CampaignManagementTopicName
+		{
+			get
+			{
+				if (string.IsNullOrWhiteSpace(_campaignManagementTopicName))
+				{
+					_campaignManagementTopicName = Utilities.GetOrDefaultEnvironmentValue<string>(Constants.ConfigKeys.OmilosCampaignManagement, null);
+				}
+				return _campaignManagementTopicName;
+			}
+		}
 	}
 }

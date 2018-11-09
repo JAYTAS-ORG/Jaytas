@@ -1,4 +1,6 @@
 ﻿using Jaytas.Omilos.Common.Domain.Interfaces;
+using Jaytas.Omilos.Common.Enumerations;
+using Jaytas.Omilos.Messaging.ServiceBus.Topic.Interfaces;
 using Jaytas.Omilos.Web.Repositories;
 using System;
 using System.Collections.Generic;
@@ -18,8 +20,6 @@ namespace Jaytas.Omilos.Web.Providers
 		/// Initializes a new instance of the <see cref="CrudBaseProvider{TEntity, TRepository,TBaseEntityType}" /> class.
 		/// </summary>
 		/// <param name="repository">The repository.</param>
-		/// <param name="messageFactory">factory class to create message</param>
-		/// <param name="messageSenderFactory">message sender</param>
 		protected CrudByFieldBaseProvider(TRepository repository)
 		{
 			Repository = repository;
@@ -29,6 +29,16 @@ namespace Jaytas.Omilos.Web.Providers
 		/// The repository.
 		/// </summary>
 		public TRepository Repository { get; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public IMessageSenderFactory MessageSenderFactory { get; protected set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public IMessageBusMessageFactory MessageBusMessageFactory { get; protected set; }
 
 		/// <summary>
 		/// Asserts the entity to create is valid. If the entity is not valid, an appropriate
@@ -129,6 +139,19 @@ namespace Jaytas.Omilos.Web.Providers
 		{
 			await AssertEntityToUpdateIsValidAsync(domains).ConfigureAwait(true);
 			await Repository.UpdateAsync(domains);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="campaignIdentifier"></param>
+		/// <param name="campaignEvent"></param>
+		/// <param name="additionalProperties"></param>
+		/// <returns></returns>
+		protected async Task RaiseDomainEventAsync(Guid campaignIdentifier, Events campaignEvent, Dictionary<string, object> additionalProperties)
+		{
+			var message = MessageBusMessageFactory.CreateMessage(AppMessageType.CampaignManagement, campaignIdentifier, campaignEvent, additionalProperties);
+			await MessageSenderFactory.Resolve(AppMessageType.CampaignManagement).SendAsync(message);
 		}
 	}
 }

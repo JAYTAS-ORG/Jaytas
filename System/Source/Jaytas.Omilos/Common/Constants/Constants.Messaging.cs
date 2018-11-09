@@ -19,7 +19,7 @@ namespace Jaytas.Omilos.Common
 			/// </summary>
 			public struct Topics
 			{
-
+				public const string CampaignManagement = "CampaignManagement";
 			}
 
 			/// <summary>
@@ -53,6 +53,24 @@ namespace Jaytas.Omilos.Common
 				/// </summary>
 				public const string Type = "Type";
 
+				/// <summary>
+				/// 
+				/// </summary>
+				public struct CampaignManagement
+				{
+					public const string EventType = "EventType";
+
+					public const string CampaignIdentifier = "CampaignIdentifier";
+
+					public struct AdditionalProperties
+					{
+						public const string CampaignStartDate = "CampaignStartDate";
+
+						public const string CampaignStartTime = "CampaignStartTime";
+
+						public const string CampaignTimeZone = "CampaignTimeZone";
+					}
+				}
 			}
 		}
 	}

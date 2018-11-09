@@ -14,6 +14,10 @@ using Jaytas.Omilos.ServiceClient.Subscription.Implementations;
 using Jaytas.Omilos.ServiceClient.Subscription.Interfaces;
 using Refit;
 using Jaytas.Omilos.Common.DelegationHandlers;
+using Jaytas.Omilos.Messaging.ServiceBus.Topic.Interfaces;
+using Jaytas.Omilos.Messaging.ServiceBus.Topic;
+using Jaytas.Omilos.Common.Enumerations;
+using Jaytas.Omilos.Common;
 
 namespace Jaytas.Omilos.Web.Service.Campaign.App_Start
 {
@@ -46,6 +50,20 @@ namespace Jaytas.Omilos.Web.Service.Campaign.App_Start
 						.AddHttpMessageHandler<HttpBootstrapHandler>();
 
 			services.AddSingleton<ISubscriptionServiceClient, SubscriptionServiceClient>();
+
+			services.AddSingleton<IMessageBusFactory, MessageBusFactory>((serviceProvider) =>
+			{
+				configurationProvider = serviceProvider.GetService<IBaseConfiguration>();
+				return new MessageBusFactory(configurationProvider.IntegrationConnectionIdentifier.RootConnection);
+			});
+			services.AddSingleton<IMessageBusMessageFactory, MessageBusMessageFactory>();
+
+			services.AddSingleton<IMessageSender, MessageSender>((serviceProvider) =>
+			{
+				var messageBusFactory = serviceProvider.GetService<IMessageBusFactory>();
+				return new MessageSender(messageBusFactory, AppMessageType.CampaignManagement, Constants.ServiceBus.Topics.CampaignManagement);
+			});
+			services.AddSingleton<IMessageSenderFactory, MessageSenderFactory>();
 
 			services.AddScoped<ICampaignRepository, CampaignRepository>();
 			services.AddScoped<ICampaignInstanceRepository, CampaignInstanceRepository>();

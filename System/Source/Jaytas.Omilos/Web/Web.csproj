@@ -29,6 +29,7 @@
     <ProjectReference Include="..\Caching\Caching.csproj" />
     <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
+    <ProjectReference Include="..\Messaging\Messaging.csproj" />
     <ProjectReference Include="..\Security\Security.csproj" />
     <ProjectReference Include="..\ServiceClient\ServiceClient.csproj" />
   </ItemGroup>

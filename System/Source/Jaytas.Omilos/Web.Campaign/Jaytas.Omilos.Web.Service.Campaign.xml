@@ -111,13 +111,15 @@
             
             </summary>
         </member>
-        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignProvider.#ctor(Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces.ICampaignRepository,AutoMapper.IMapper,Jaytas.Omilos.ServiceClient.Subscription.Interfaces.ISubscriptionServiceClient)">
+        <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignProvider.#ctor(Jaytas.Omilos.Web.Service.Campaign.Data.Repositories.Interfaces.ICampaignRepository,AutoMapper.IMapper,Jaytas.Omilos.ServiceClient.Subscription.Interfaces.ISubscriptionServiceClient,Jaytas.Omilos.Messaging.ServiceBus.Topic.Interfaces.IMessageSenderFactory,Jaytas.Omilos.Messaging.ServiceBus.Topic.Interfaces.IMessageBusMessageFactory)">
             <summary>
             
             </summary>
             <param name="campaignRepository"></param>
             <param name="mapper"></param>
             <param name="subscriptionServiceClient"></param>
+            <param name="messageSenderFactory"></param>
+            <param name="messageBusMessageFactory"></param>
         </member>
         <member name="M:Jaytas.Omilos.Web.Service.Campaign.Business.CampaignProvider.AssertEntityToCreateIsValidAsync(System.Collections.Generic.IEnumerable{Jaytas.Omilos.Web.Service.Campaign.DomainModel.Campaign})">
             <summary>

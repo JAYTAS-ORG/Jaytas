@@ -50,5 +50,35 @@ namespace Jayatas.Omilos.Functions.Common.Database
 				return model.Fill(dataSet.Tables[0]);
 			}
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="connectionString"></param>
+		/// <param name="storedProcedureName"></param>
+		/// <param name="parameters"></param>
+		public static void ExecuteNonQuery(string connectionString, string storedProcedureName, Dictionary<string, object> parameters)
+		{
+			using (var connection = GetConnection(connectionString))
+			{
+				var command = new MySqlCommand
+				{
+					Connection = connection,
+					CommandType = CommandType.StoredProcedure,
+					CommandText = storedProcedureName
+				};
+
+				if (parameters != null)
+				{
+					foreach (var parameter in parameters)
+					{
+						command.Parameters.AddWithValue(parameter.Key, parameter.Value);
+					}
+				}
+
+				connection.Open();
+				command.ExecuteNonQuery();
+			}
+		}
 	}
 }

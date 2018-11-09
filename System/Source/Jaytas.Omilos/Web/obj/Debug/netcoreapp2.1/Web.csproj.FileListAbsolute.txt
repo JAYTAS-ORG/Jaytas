@@ -22,3 +22,5 @@ C:\Jaytas\System\Source\Jaytas.Omilos\Web\bin\Debug\netcoreapp2.1\Jaytas.Omilos.
 C:\Jaytas\System\Source\Jaytas.Omilos\Web\obj\Debug\netcoreapp2.1\Web.csproj.CopyComplete
 C:\Jaytas\System\Source\Jaytas.Omilos\Web\obj\Debug\netcoreapp2.1\Jaytas.Omilos.Web.dll
 C:\Jaytas\System\Source\Jaytas.Omilos\Web\obj\Debug\netcoreapp2.1\Jaytas.Omilos.Web.pdb
+C:\Jaytas\System\Source\Jaytas.Omilos\Web\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Messaging.dll
+C:\Jaytas\System\Source\Jaytas.Omilos\Web\bin\Debug\netcoreapp2.1\Jaytas.Omilos.Messaging.pdb

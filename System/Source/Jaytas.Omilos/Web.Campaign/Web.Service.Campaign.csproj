@@ -30,6 +30,7 @@
     <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\Configuration\Configuration.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
+    <ProjectReference Include="..\Messaging\Messaging.csproj" />
     <ProjectReference Include="..\Security\Security.csproj" />
     <ProjectReference Include="..\ServiceClient\ServiceClient.csproj" />
     <ProjectReference Include="..\Web.Service.Models\Web.Service.Models.csproj" />
